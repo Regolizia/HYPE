@@ -16,12 +16,6 @@ app.listen(port, () => console.log(`url-shortener listening on port ${port}!`));
 app.post('/url', function(req, res) {
   const url = req.body.url;
 
-  res.send(url);
-});
-
-app.post('/url', function(req, res) {
-  const url = req.body.url;
-
   urlShortener.short(url, function(err, shortUrl){
     res.send(shortUrl);
   });
