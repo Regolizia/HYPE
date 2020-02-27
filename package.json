@@ -1,0 +1,27 @@
+{
+  "name": "hype",
+  "version": "1.0.0",
+  "description": "This is totally hyped!",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "npm install",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "swagger"
+  ],
+  "license": "Unlicense",
+  "private": true,
+  "dependencies": {
+    "bcrypt": "^3.0.4",
+    "connect": "^3.6.6",
+    "cookie-parser": "1.4.4",
+    "cookie-session": "1.3.3",
+    "firebase-tools": "^7.0.0",
+    "js-yaml": "^3.13.1",
+    "knex": "^0.16.5",
+    "npm": "^6.9.0",
+    "pg": "^7.10.0",
+    "swagger-tools": "^0.10.4"
+  }
+}
