@@ -1,15 +1,28 @@
-var http = require('http');
+const express = require('express');
+const app = express();
+const path = require('path');
+const port = process.env.PORT || 3000;
+const bodyParser = require('body-parser');
+const urlShortener = require('node-url-shortener');
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.urlencoded());
 
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname + '/index.html'));
+});
 
-http.createServer(function (request, response) {
-  // Send the HTTP header
-  // HTTP Status: 200 : OK
-  // Content Type: text/plain
-  response.writeHead(200, {'Content-Type': 'text/plain'});
+app.listen(port, () => console.log(`url-shortener listening on port ${port}!`));
 
-  // Send the response body as "Hello World"
-  response.end('Hello World\n');
-}).listen(8081);
+app.post('/url', function(req, res) {
+  const url = req.body.url;
 
-// Console will print the message
-console.log('Server running at http://127.0.0.1:8081/');
+  res.send(url);
+});
+
+app.post('/url', function(req, res) {
+  const url = req.body.url;
+
+  urlShortener.short(url, function(err, shortUrl){
+    res.send(shortUrl);
+  });
+});
