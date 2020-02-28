@@ -17,11 +17,11 @@ app.get('/index.html', function(req, res) {
 });
 
 app.get('/travel_destination.html', function(req, res) {
-  res.sendFile(path.join(__dirname + '/travel_destination.html'));
+  res.sendFile(path.join(__dirname + '/public/pages/travel_destination.html'));
 });
 
 app.get('/contact.html', function(req, res) {
-  res.sendFile(path.join(__dirname + '/contact.html'));
+  res.sendFile(path.join(__dirname + '/public/pages/contact.html'));
 });
 
 
