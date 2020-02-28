@@ -15,5 +15,9 @@
     "express": "^4.17.1",
     "body-parser": "latest",
     "serve-static": "latest"
+  },
+  "devDependencies": {
+    "grunt-contrib-cssmin": "^3.0.0",
+    "grunt-uncss": "^0.9.0"
   }
 }
