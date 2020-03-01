@@ -21,34 +21,33 @@
 <header style="animation: 8s linear 0s infinite alternate both running color-change-2x;">
     <h1 style="animation: 0.8s linear 0s 1 alternate both running tracking-in-contract, 0.8s linear 0s 1 alternate both running text-shadow-pop-tl;"><a href=/index.html>Header</a></h1>
     <nav>
-        <a href=/pages/login.html>Login</a>
         <a href=/pages/about.html>About</a>
+        <a href=/pages/blog.html>Blog</a>
     </nav>
 </header>
 <main style="background-image: url('/img/f2.svg'); background-size: cover";>
-    <section>
+<!--    style="justify-content: center; display: flex"  -->
         <article>
-            <h2>BLOG</h2>
-            <div class="search-container">
-                <input type="text" placeholder="Search..">
-                <button type="submit"><i class="fa fa-search"></i></button>
+            <h2>LOGIN</h2>
+            <div class="login">
+                    <div class="login-username">
+                        <label>Username</label>
+                        <input type="text" name="email" placeholder="Username" required="required" />
+                    </div>
+                    <div class="login-password">
+                        <label>Password</label>
+                        <input type="password"  name="password" placeholder="Password" required="required" />
+                    </div>
+                    <div class="submit">
+                        <button type="submit" class="login-account-button-container mx-auto d-block"><i class="fa fa-angle-double-right fa-lg" aria-hidden="true"></i></button>
+                    </div>
+                <hr>
+                    <label>New to -----?</label>
+<!--                    <a href="/pages/register.html"><img src="/assets/img/buttons/create-your-buuk-account.png" class="create-account-button mx-auto d-block" /></a>-->
+
+
             </div>
         </article>
-    </section>
-    <aside>
-        <div class=capsule>
-            <h3>Widget Headline</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-        <div class=capsule>
-            <h3>Widget Headline</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-        <div class=capsule>
-            <h3>Widget Headline</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-    </aside>
 
 </main>
 </div>
