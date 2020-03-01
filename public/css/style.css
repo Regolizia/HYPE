@@ -68,7 +68,8 @@ div {
     /*padding: 1.5em;*/
     background: white;
 }
-div h3 {
+aside div {
+    padding: 1.5em;
     color: cadetblue;
 }
 div p {
@@ -139,7 +140,7 @@ main article p {
 }
 
 #content-wrap {
-    padding-bottom: 4.5rem;    /* Footer height */
+    padding-bottom: 5.5rem;    /* Footer height */
     padding-left: 1.5em;
     padding-right: 1.5em;
     padding-top: 1.5em;
@@ -161,11 +162,13 @@ main article p {
 
 @keyframes color-change-2x {
     0% {
-        background-color: #ade6d8
+        /*background-color: #ade6d8*/
+        background-color: #FF2079
     }
 
     100% {
-        background-color: #add8e6
+        /*background-color: #add8e6*/
+        background-color: #440BD4
     }
 }
 
@@ -227,3 +230,32 @@ main article p {
         transform: translateX(8px) translateY(8px);
     }
 }
+
+/* SEARCH BAR */
+
+.search-container {
+    float: right;
+}
+
+ .search-container button {
+    float: right;
+/*    padding: 6px 10px;*/
+/*    margin-top: 8px;*/
+/*    margin-right: 16px;*/
+/*    background: #ddd;*/
+/*    font-size: 17px;*/
+/*    border: none;*/
+/*    cursor: pointer;*/
+}
+.search-container input[type=text] {
+    float: left;
+    /*    padding: 6px;*/
+    /*    border: none;*/
+    /*    margin-top: 8px;*/
+    /*    margin-right: 16px;*/
+    /*    font-size: 17px;*/
+}
+
+/*.search-container button:hover {*/
+/*    background: #ccc;*/
+/*}*/
