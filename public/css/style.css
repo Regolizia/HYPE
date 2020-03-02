@@ -350,3 +350,19 @@ hr { display: block; margin-top: 1.5em; margin-bottom: 1.5em; margin-before: 0.5
     background-color: #ddd;
     color: black;
 }
+
+/* MENU */
+.menu{
+    color: yellow;
+    float: right;
+
+    width: 80px;
+    height: 46px;
+}
+.fa-bars{
+}
+
+.inner
+{
+    display: inline-block;
+}

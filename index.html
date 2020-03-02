@@ -14,33 +14,69 @@
     </style>
     <title>TITLE</title>
     <link rel="icon" href="/img/icon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
 <div id="page-container">
     <div id="content-wrap">
 <header style="animation: 8s linear 0s infinite alternate both running color-change-2x;">
-    <h1 style="animation: 0.8s linear 0s 1 alternate both running tracking-in-contract, 0.8s linear 0s 1 alternate both running text-shadow-pop-tl;"><a href=/index.html>Waina</a></h1>
-    <nav>
-        <a class="inactive" href=/pages/login.html>Login</a>
-        <a class="inactive" href=/pages/about.html>About</a>
-        <a class="inactive" href=/pages/blog.html>Blog</a>
+    <h1 style="animation: 0.8s linear 0s 1 alternate both running tracking-in-contract, 0.8s linear 0s 1 alternate both running text-shadow-pop-tl;"><a href=#>Waina</a></h1>
+    <nav style="width:320px;">
+        <div><a class="inactive inner" href=/pages/login.html>Login</a></div>
+        <div><a class="inactive inner" href=/pages/about.html>About</a></div>
+        <div><a class="inactive inner" href=/pages/blog.html>Blog</a></div>
+        <div>
+            <button aria-label="MENU button" class="menu inactive inner" type="button"><i class="fa fa-bars fa-2x" aria-hidden="true" style="color: white; font-weight: 200;"></i></button>
+<!--            <i class="fa fa-bars fa-2x" aria-hidden="true"></i>-->
+        </div>
     </nav>
+
 </header>
 <main style="background-image: url('/img/f2.svg'); background-size: cover";>
-    <section>
-        <article>
-            <h2>HOME</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis fugit earum voluptas officia, quasi saepe et commodi, dolores cumque quam fuga ullam, itaque ea dignissimos asperiores adipisci ad eveniet repellendus!</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis fugit earum voluptas officia, quasi saepe et commodi, dolores cumque quam fuga ullam, itaque ea dignissimos asperiores adipisci ad eveniet repellendus!</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis fugit earum voluptas officia, quasi saepe et commodi, dolores cumque quam fuga ullam, itaque ea dignissimos asperiores adipisci ad eveniet repellendus!</p>
-        </article>
-    </section>
-
+    <!-- CONTENT -->
+    <div id="content">
+        <!-- PAGE CONTENT -->
+        <div id="main-content">
+            <section>
+                <article>
+                    <h2>HOME</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis fugit earum voluptas officia, quasi saepe et commodi, dolores cumque quam fuga ullam, itaque ea dignissimos asperiores adipisci ad eveniet repellendus!</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis fugit earum voluptas officia, quasi saepe et commodi, dolores cumque quam fuga ullam, itaque ea dignissimos asperiores adipisci ad eveniet repellendus!</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis fugit earum voluptas officia, quasi saepe et commodi, dolores cumque quam fuga ullam, itaque ea dignissimos asperiores adipisci ad eveniet repellendus!</p>
+                </article>
+            </section>
+        </div>
+        <!-- MENU CONTENT -->
+        <div id="menu-content" style="display: none">
+        <p>Something </p>
+        <p>to </p>
+        <p>show</p>
+        </div>
 </main>
     </div>
     <footer id="footer" style="animation: 8s linear 0s infinite alternate both running color-change-2x;">&copy; {{ year }}</footer>
 </div>
+
+
+<!--<script>-->
+<!--    $('.menu').on('click', function() {-->
+<!--        var $main = $('#main-content');-->
+<!--        var $menu = $('#menu-content');-->
+
+<!--        if ($menu.is(":hidden")) {-->
+<!--            document.getElementById('content').setAttribute('class', $(window).scrollTop());-->
+<!--            $main.hide();-->
+<!--            $menu.fadeIn(400);-->
+<!--        } else {-->
+<!--            $menu.hide();-->
+<!--            $main.fadeIn(400);-->
+<!--            window.scroll(0, document.getElementById('content').getAttribute('class'));-->
+<!--        }-->
+<!--    });-->
+<!--</script>-->
+
+
 </body>
 
 
