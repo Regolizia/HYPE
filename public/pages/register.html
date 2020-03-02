@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
 <head>
-    <meta name="Description" content="Here you can register to the website.">
+    <meta name="Description" content="Here you can log in or go to the register page.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/style.css">
     <style>
@@ -20,40 +20,37 @@
 <body>
 <div id="page-container">
     <div id="content-wrap">
-<header style="animation: 8s linear 0s infinite alternate both running color-change-2x;">
-    <h1 style="animation: 0.8s linear 0s 1 alternate both running tracking-in-contract, 0.8s linear 0s 1 alternate both running text-shadow-pop-tl;"><a href=/index.html>Waina</a></h1>
-    <nav>
-        <a href=/pages/about.html>About</a>
-        <a href=/pages/blog.html>Blog</a>
-    </nav>
-</header>
-<main style="background-image: url('/img/f2.svg'); background-size: cover";>
-<!--    style="justify-content: center; display: flex"  -->
-        <article>
-            <h2>LOGIN</h2>
-            <div class="login">
+        <header style="animation: 8s linear 0s infinite alternate both running color-change-2x;">
+            <h1 style="animation: 0.8s linear 0s 1 alternate both running tracking-in-contract, 0.8s linear 0s 1 alternate both running text-shadow-pop-tl;"><a href=/index.html>Waina</a></h1>
+            <nav>
+                <a class="inactive" href=/pages/login.html>Login</a>
+                <a class="inactive" href=/pages/about.html>About</a>
+                <a class="inactive" href=/pages/blog.html>Blog</a>
+            </nav>
+        </header>
+        <main style="background-image: url('/img/f2.svg'); background-size: cover";>
+            <!--    style="justify-content: center; display: flex"  -->
+            <article>
+                <h2>REGISTER</h2>
+                <div class="login">
                     <div class="login-username">
-                        <label>Username</label>
-                        <input type="text" name="email" placeholder="Username" required="required" />
+                        <label for="user">Username</label>
+                        <input id="user" type="text" name="email" placeholder="Username" required="required" />
                     </div>
                     <div class="login-password">
-                        <label>Password</label>
-                        <input type="password"  name="password" placeholder="Password" required="required" />
+                        <label for="psw">Password</label>
+                        <input id="psw" type="password"  name="password" placeholder="Password" required="required" />
                     </div>
                     <div class="submit">
-                        <button type="submit" class="login-account-button-container mx-auto d-block"><i class="fa fa-angle-double-right fa-lg" aria-hidden="true"></i></button>
+                        <button type="submit" aria-label="Login" class="login-account-button-container mx-auto d-block" style="animation: 8s linear 0s infinite alternate both running color-change-2x;"><i class="fa fa-angle-double-right fa-lg" aria-hidden="true"></i></button>
                     </div>
-                <hr>
-                    <label>New to -----?</label>
-                    <a href="/pages/register.html">Get Started</a>
+                </div>
 
+            </article>
 
-            </div>
-        </article>
-
-</main>
-</div>
-<footer id="footer" style="animation: 8s linear 0s infinite alternate both running color-change-2x;">&copy; {{ year }}</footer>
+        </main>
+    </div>
+    <footer id="footer" style="animation: 8s linear 0s infinite alternate both running color-change-2x;">&copy; {{ year }}</footer>
 </div>
 </body>
 
