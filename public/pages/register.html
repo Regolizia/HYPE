@@ -21,24 +21,34 @@
 <header style="animation: 8s linear 0s infinite alternate both running color-change-2x;">
     <h1 style="animation: 0.8s linear 0s 1 alternate both running tracking-in-contract, 0.8s linear 0s 1 alternate both running text-shadow-pop-tl;"><a href=/index.html>Header</a></h1>
     <nav>
-        <a href=/pages/login.html>Login</a>
         <a href=/pages/about.html>About</a>
+        <a href=/pages/blog.html>Blog</a>
     </nav>
 </header>
 <main style="background-image: url('/img/f2.svg'); background-size: cover";>
-    <div class="blog">
-        <h2>BLOG</h2>
-        <label>Search for X</label>
-        <div class="search-container" style="float: right">
-            <input type="text" placeholder="Search..">
-            <button type="submit";"><i class="fa fa-search"></i></button>
-        </div>
+<!--    style="justify-content: center; display: flex"  -->
+        <article>
+            <h2>LOGIN</h2>
+            <div class="login">
+                    <div class="login-username">
+                        <label>Username</label>
+                        <input type="text" name="email" placeholder="Username" required="required" />
+                    </div>
+                    <div class="login-password">
+                        <label>Password</label>
+                        <input type="password"  name="password" placeholder="Password" required="required" />
+                    </div>
+                    <div class="submit">
+                        <button type="submit" class="login-account-button-container mx-auto d-block"><i class="fa fa-angle-double-right fa-lg" aria-hidden="true"></i></button>
+                    </div>
+                <hr>
+                    <label>New to -----?</label>
+                    <a href="/pages/register.html">Get Started</a>
 
-    </div>
-    <div class="blog">
-    <label>Results</label>
-            <hr style="margin-top: 0.5em;">
-    </div>
+
+            </div>
+        </article>
+
 </main>
 </div>
 <footer id="footer" style="animation: 8s linear 0s infinite alternate both running color-change-2x;">&copy; {{ year }}</footer>

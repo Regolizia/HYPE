@@ -85,7 +85,7 @@ main aside {
     padding-bottom: 0;
 }
 main article {
-    width: 400px;
+    width: 350px;
     margin-top: 1.5em;
     margin-left: auto;
     margin-right: auto;
@@ -114,7 +114,7 @@ main article p {
 /*    border-bottom-left-radius: 5px;*/
 /*    border-bottom-right-radius: 5px;*/
 /*}*/
-@media (min-width: 800px) {
+@media (min-width: 430px) {
     header,
     main {
         overflow: hidden;
@@ -244,26 +244,10 @@ main article p {
 
  .search-container button {
     float: right;
-/*    padding: 6px 10px;*/
-/*    margin-top: 8px;*/
-/*    margin-right: 16px;*/
-/*    background: #ddd;*/
-/*    font-size: 17px;*/
-/*    border: none;*/
-/*    cursor: pointer;*/
 }
 .search-container input[type=text] {
     float: left;
-    /*    padding: 6px;*/
-    /*    border: none;*/
-    /*    margin-top: 8px;*/
-    /*    margin-right: 16px;*/
-    /*    font-size: 17px;*/
 }
-
-/*.search-container button:hover {*/
-/*    background: #ccc;*/
-/*}*/
 
 /* LOGIN */
 .login {
@@ -287,7 +271,7 @@ main article p {
     width: 100%;
     /*margin: 3%;*/
     margin-top: 2em;
-    background: #E92EFB;
+    /*background: #E92EFB;*/
 }
 
 .login-username input{
@@ -296,4 +280,46 @@ main article p {
 .login-password input{
     float: right;
 }
-hr { display: block; margin-top: 1em; margin-before: 0.5em; margin-after: 0.5em; margin-start: auto; margin-end: auto; overflow: hidden; border-style: inset; border-width: 1px;}
+hr { display: block; margin-top: 1.5em; margin-bottom: 1.5em; margin-before: 0.5em; margin-after: 0.5em; margin-start: auto; margin-end: auto; overflow: hidden; border-style: inset; border-width: 1px;}
+
+/* BLOG */
+.blog{
+    width: 500px;
+    margin-top: 1.5em;
+    margin-left: auto;
+    margin-right: auto;
+
+    padding: 1.5em;
+    background: white;
+    border-radius: 3px;
+}
+@media (max-width: 650px) {
+    main section,
+    main aside {
+        float: none;
+        width: 100%;
+    }
+    main section {
+        width: 100%;
+        padding-right: 1.5em;
+    }
+    header h1 {
+        float: none;
+    }
+    header nav {
+        float: none;
+    }
+    main section article{
+        width: 100%;
+        margin-top: 0;
+        margin-left: 0;
+
+        margin-right: 0;
+    }
+    .blog{
+        width: 100%;
+
+        border-radius: 0;
+        margin-top: 0;
+    }
+}
