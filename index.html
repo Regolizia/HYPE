@@ -27,7 +27,7 @@
         <div><a class="inactive inner" href=/pages/about.html>About</a></div>
         <div><a class="inactive inner" href=/pages/blog.html>Blog</a></div>
         <div>
-            <button aria-label="MENU button" class="menu inactive inner" type="button"><i class="fa fa-bars fa-2x" aria-hidden="true" style="color: white; font-weight: 200;"></i></button>
+            <button aria-label="MENU button" class="menu inactive inner" type="button" id="menubutton"><i class="fa fa-bars fa-2x" aria-hidden="true" style="color: white; font-weight: 200;"></i></button>
 <!--            <i class="fa fa-bars fa-2x" aria-hidden="true"></i>-->
         </div>
     </nav>
@@ -49,32 +49,42 @@
         </div>
         <!-- MENU CONTENT -->
         <div id="menu-content" style="display: none">
-        <p>Something </p>
-        <p>to </p>
-        <p>show</p>
+            <div class="menu-list">
+            <ul>List of something</ul>
+            <li>Something </li>
+            <li>to </li>
+            <li>show</li>
+            </div>
         </div>
 </main>
     </div>
     <footer id="footer" style="animation: 8s linear 0s infinite alternate both running color-change-2x;">&copy; {{ year }}</footer>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-<!--<script>-->
-<!--    $('.menu').on('click', function() {-->
-<!--        var $main = $('#main-content');-->
-<!--        var $menu = $('#menu-content');-->
+<script>
+    $('.menu').on('click', function() {
+        var $main = $('#main-content');
+        var $menu = $('#menu-content');
+        var $menubutton =$('#menu');
 
-<!--        if ($menu.is(":hidden")) {-->
-<!--            document.getElementById('content').setAttribute('class', $(window).scrollTop());-->
-<!--            $main.hide();-->
-<!--            $menu.fadeIn(400);-->
-<!--        } else {-->
-<!--            $menu.hide();-->
-<!--            $main.fadeIn(400);-->
-<!--            window.scroll(0, document.getElementById('content').getAttribute('class'));-->
-<!--        }-->
-<!--    });-->
-<!--</script>-->
+        if ($menu.is(":hidden")) {
+            document.getElementById('content').setAttribute('class', $(window).scrollTop());
+            $main.hide();
+            $("#menubutton").addClass("active");
+            $("#menubutton").removeClass("inactive");
+            $menu.fadeIn(400);
+        } else {
+            $menu.hide();
+
+            $("#menubutton").addClass("inactive");
+            $("#menubutton").removeClass("active");
+            $main.fadeIn(400);
+            window.scroll(0, document.getElementById('content').getAttribute('class'));
+        }
+    });
+</script>
 
 
 </body>

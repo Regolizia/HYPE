@@ -121,27 +121,7 @@ main article p {
 /*    border-bottom-left-radius: 5px;*/
 /*    border-bottom-right-radius: 5px;*/
 /*}*/
-@media (min-width: 430px) {
-    header,
-    main {
-        overflow: hidden;
-    }
-    main section,
-    main aside {
-        float: left;
-        width: 40%;
-    }
-    main section {
-        width: 60%;
-        padding-right: 0;
-    }
-    header h1 {
-        float: left;
-    }
-    header nav {
-        float: right;
-    }
-}
+
 /* FOOTER FIX*/
 #page-container {
     position: relative;
@@ -300,6 +280,28 @@ hr { display: block; margin-top: 1.5em; margin-bottom: 1.5em; margin-before: 0.5
     background: white;
     border-radius: 3px;
 }
+@media (min-width: 430px) {
+    header,
+    main {
+        overflow: hidden;
+    }
+    main section,
+    main aside {
+        float: left;
+        width: 40%;
+    }
+    main section {
+        width: 60%;
+        padding-right: 0;
+    }
+    header h1 {
+        float: left;
+    }
+    header nav {
+        float: right;
+    }
+}
+
 @media (max-width: 650px) {
     main section,
     main aside {
@@ -329,6 +331,10 @@ hr { display: block; margin-top: 1.5em; margin-bottom: 1.5em; margin-before: 0.5
         border-radius: 0;
         margin-top: 0;
     }
+
+    .menu-list {
+        width: 95%;
+    }
 }
 
 /* 404 */
@@ -353,16 +359,20 @@ hr { display: block; margin-top: 1.5em; margin-bottom: 1.5em; margin-before: 0.5
 
 /* MENU */
 .menu{
-    color: yellow;
     float: right;
 
     width: 80px;
     height: 46px;
 }
-.fa-bars{
-}
-
 .inner
 {
     display: inline-block;
+}
+
+/*MENU LIST*/
+.menu-list{
+    float: right;
+    width: 70%;
+    padding: 1.5em;
+    margin-right: 1.2em;
 }
