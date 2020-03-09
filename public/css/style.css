@@ -1,3 +1,8 @@
+/* FONT GAEGU*/
+@import url('https://fonts.googleapis.com/css2?family=Gaegu&display=swap');
+/* FONT SEN*/
+@import url('https://fonts.googleapis.com/css2?family=Sen&display=swap');
+
 * {
     box-sizing: border-box;
     text-rendering: optimizeLegibility;
@@ -8,18 +13,19 @@
 html {
     line-height: 1.4;
     font-weight: 400;
-    font-family: sans-serif;
+    font-family: 'Gaegu', cursive;
     -webkit-text-size-adjust: 100%;
 }
 body {
     background: ghostwhite;
     margin: 0;
-    font-family: sans-serif
+    font-family: 'Sen', sans-serif;
 }
 header {
+    font-family: 'Gaegu', cursive;
     color: white;
     padding: 1em;
-    background: lightseagreen;
+    background: white;
     text-align: center;
 }
 header h1 {
@@ -39,7 +45,7 @@ header nav a {
     float: left;
 }
 a {
-    color: white;
+    color: #555555;
     outline: none;
     text-decoration: none;
 }
@@ -73,7 +79,7 @@ p + p {
 }
 div {
     /*padding: 1.5em;*/
-    background: white;
+    /*background: white;*/
 }
 aside div {
     padding: 1.5em;
@@ -212,12 +218,12 @@ main article p {
 
 @keyframes text-shadow-pop-tl {
     0% {
-        text-shadow: 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555;
+        text-shadow: 0 0 #7b7b7b, 0 0 #7b7b7b, 0 0 #7b7b7b, 0 0 #7b7b7b;
         -webkit-transform: translateX(0) translateY(0);
         transform: translateX(0) translateY(0);
     }
     100% {
-        text-shadow: -1px -1px #555555, -2px -2px #555555, -3px -3px #555555, -4px -4px #555555;
+        text-shadow: -1px -1px #7b7b7b, -2px -2px #7b7b7b, -3px -3px #7b7b7b, -4px -4px #7b7b7b;
         -webkit-transform: translateX(5px) translateY(5px);
         transform: translateX(5px) translateY(5px);
     }
