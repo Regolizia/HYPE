@@ -382,3 +382,12 @@ hr { display: block; margin-top: 1.5em; margin-bottom: 1.5em; margin-before: 0.5
     padding: 1.5em;
     margin-right: 1.2em;
 }
+
+.main-content {
+    width: 600px;
+    margin-top: 1.5em;
+    margin-left: 5em;
+
+    padding: 1.5em;
+    border-radius: 3px;
+}
