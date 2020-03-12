@@ -429,6 +429,7 @@ body, html {
     height: 80%;
     /*position: fixed;*/
     margin-top: 5em;
+    margin-left: 30px;
 }
 
 .w3-bar .w3-button {
@@ -450,6 +451,101 @@ body, html {
 }
 
 .w3-bar2{padding:20px 16px;float:left;width:auto;border:none;display:block;outline:0;height: 100%;}
+
+/* BIRD ANIMATION */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.bird {
+    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/174479/bird-cells-new.svg);
+    background-size: auto 100%;
+    width: 88px;
+    height: 125px;
+    will-change: background-position;
+
+    animation-name: fly-cycle;
+    animation-timing-function: steps(10);
+    animation-iteration-count: infinite;
+
+}
+
+.bird--two {
+    animation-duration: 0.9s;
+    animation-delay: -0.5s;
+}
+
+
+.bird-container {
+    position: absolute;
+    top: 470px;
+    /* CHANGE IF YOU MOVE MIC*/
+    left: 200px;
+    transform: scale(0) translateX(-10vw);
+    will-change: transform;
+
+    animation-name: fly-right-one;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+
+}
+
+.bird-container--one {
+    animation-duration: 14s;
+    animation-delay: 2s;
+}
+
+
+@keyframes fly-cycle {
+
+    100% {
+        background-position: -900px 0;
+    }
+
+}
+
+@keyframes fly-right-one {
+
+    0% {
+        transform: scale(0.7) translateX(-10vw);
+    }
+
+    10% {
+        transform: translateY(0vh) translateX(15vw) scale(0.8);
+    }
+
+    20% {
+        transform: translateY(-4vh) translateX(30vw) scale(0.8);
+    }
+
+    30% {
+        transform: translateY(-5vh) translateX(50vw) scale(0.9);
+    }
+
+    40% {
+        transform: translateY(-6vh) translateX(70vw) scale(0.9);
+    }
+
+    50% {
+        transform: translateY(-8vh) translateX(90vw) scale(0.9);
+    }
+
+    60% {
+        transform: translateY(-10vh) translateX(110vw) scale(0.9);
+    }
+
+    100% {
+        transform: translateY(-14vh) translateX(110vw) scale(0.9);
+    }
+}
+
+
+
+
+
 
 
 
