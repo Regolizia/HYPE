@@ -551,6 +551,7 @@ body, html {
 
 .month{
     margin-left: 120px; margin-top: 20px;
+    height: 300px;
 }
 
 .months{
@@ -559,6 +560,21 @@ body, html {
 
 .w3-jumbo2{
     font-size:250px!important;
+}
+
+.event {
+    z-index: 1;
+    position: relative;
+    left: 120px; top: -300px;
+}
+
+.event-type{
+    width: 120px;
+    height: auto;
+}
+
+.event-text{
+    width: 250px;
 }
 
 
