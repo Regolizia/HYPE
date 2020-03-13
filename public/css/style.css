@@ -445,6 +445,8 @@ body, html {
 
 .w3-display-left1{position:absolute;top:40%;left:10%;transform:translate(10%,-40%);-ms-transform:translate(-10%,-40%)}
 
+.w3-display-left2{position:absolute;top:70px;left:50px;}
+
 .mybar{
     height: 52px;
 
@@ -540,6 +542,23 @@ body, html {
     100% {
         transform: translateY(-14vh) translateX(110vw) scale(0.9);
     }
+}
+
+/* EVENTS-BG */
+.events-bg{
+    /*height: 1200px;*/
+}
+
+.month{
+    margin-left: 120px; margin-top: 20px;
+}
+
+.months{
+   margin-top: 140px;
+}
+
+.w3-jumbo2{
+    font-size:250px!important;
 }
 
 
