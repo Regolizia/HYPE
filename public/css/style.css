@@ -560,12 +560,19 @@ body, html {
     height: 1400px;
 }
 
-.w3-jumbo2{
-    font-size:250px!important;
-    /*float: left;*/
-    /*position: relative;*/
-    /*left: 0;*/
-    /*top: 0;*/
+.month-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    /*height:400px;*/
+    font-size: 220pt;
+}
+
+.container1 {
+    position: relative;
 }
 
 .event {
@@ -588,6 +595,7 @@ body, html {
     /*position: relative;*/
     /*left: 50px;*/
     /*top: 20px;*/
+    /*height:400px;*/
     float: left;
     clear: none;
 }
@@ -715,7 +723,7 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
 }
 
 .container-fluid{
-    height: 300px;
+    height: 400px;
     /*background-color: blue;*/
 }
 .row{
