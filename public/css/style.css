@@ -3,13 +3,13 @@
 /* FONT SEN*/
 @import url('https://fonts.googleapis.com/css2?family=Sen&display=swap');
 
-/** {*/
-/*    box-sizing: border-box;*/
-/*    text-rendering: optimizeLegibility;*/
-/*    -webkit-font-smoothing: antialiased;*/
-/*    -moz-osx-font-smoothing: grayscale;*/
-/*    font-kerning: auto;*/
-/*}*/
+* {
+    box-sizing: border-box;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-kerning: auto;
+}
 /*html {*/
 /*    line-height: 1.4;*/
 /*    font-weight: 400;*/
@@ -418,6 +418,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 body, html {
     height: 100%;
     line-height: 1.8;
+    /*position: absolute;*/
     /*font-weight: 50;*/
 }
 
@@ -438,7 +439,7 @@ body, html {
 
 .bg {
     height: 730px;
-    width: 100vw;
+    width: 100%;
     background: #fdcf00;
     overflow: hidden;
 }
