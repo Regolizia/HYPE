@@ -22,10 +22,10 @@
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
     <div class="mybar w3-bar w3-white w3-card" id="myNavbar">
-        <a href="#home" class="mybar w3-bar2 w3-button w3-wide h100">YOUTH SPEAKS HAWAI'I</a>
+        <a href="/index.html"  class="mybar w3-bar2 w3-button w3-wide h100">YOUTH SPEAKS HAWAI'I</a>
         <!-- Right-sided navbar links -->
         <div class="mybar w3-right w3-hide-small  w3-hide-medium">
-            <a href=/pages/carousel.html class="w3-bar2 w3-button  h100">CAROUSEL</a>
+            <a href=/pages/singleEvent.html class="w3-bar2 w3-button  h100">SINGLE EVENT</a>
             <a href="#team" class="w3-bar2 w3-button h100"><i class="fa fa-user"></i> TEAM</a>
             <a href="#work" class="w3-bar2 w3-button  h100"><i class="fa fa-th"></i> WORK</a>
             <a href="#pricing" class="w3-bar2 w3-button  h100"><i class="fa fa-usd"></i> PRICING</a>
@@ -85,7 +85,7 @@
 <!-- About Section -->
 <div id="home" class="w3-container events-bg" style="padding:28px 16px" id="events">
             <div class="w3-display-left2 " style="margin-left: 120px; margin-top: 20px;padding:0px; ">
-                <span class="w3-jumbo w3-hide-small w3-text-white w3-black">EVENTS</span><br>
+                <span class="w3-jumbo w3-hide-small w3-text-white w3-black" id="ev">EVENTS</span><br>
 <!--                <span class="w3-xxlarge ">Find your voice</span><br>-->
 
 <!--    <h3 class="w3-center">ABOUT THE COMPANY</h3>-->
@@ -109,11 +109,11 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="carousel carousel-showmanymoveone slide" id="carousel-tilenav1" data-interval="false">
-                    <div class="carousel-inner">
-                        <div class="item active">
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <div class="event">
-                                    <header class="w3-container event-type w3-black w3-card-4">
+                    <div class="carousel-inner" >
+                        <div class="item active" >
+                            <div class="col-xs-12 col-sm-6 col-md-3" >
+                                <div class="event event-click" >
+                                    <header class="w3-container event-type w3-black w3-card-4" >
                                         <h4>Header 1</h4>
                                     </header>
 
@@ -125,7 +125,7 @@
                         </div>
                         <div class="item">
                             <div class="col-xs-12 col-sm-6 col-md-3">
-                                <div class="event">
+                                <div class="event event-click">
                                     <header class="w3-container event-type w3-black w3-card-4">
                                         <h4>Header 1</h4>
                                     </header>
@@ -138,7 +138,7 @@
                         </div>
                         <div class="item">
                             <div class="col-xs-12 col-sm-6 col-md-3">
-                                <div class="event">
+                                <div class="event event-click">
                                     <header class="w3-container event-type w3-black w3-card-4">
                                         <h4>Header 1</h4>
                                     </header>
@@ -151,7 +151,7 @@
                         </div>
                         <div class="item">
                             <div class="col-xs-12 col-sm-6 col-md-3">
-                                <div class="event">
+                                <div class="event event-click">
                                     <header class="w3-container event-type w3-black w3-card-4">
                                         <h4>Header 1</h4>
                                     </header>
@@ -164,7 +164,7 @@
                         </div>
                         <div class="item">
                             <div class="col-xs-12 col-sm-6 col-md-3">
-                                <div class="event">
+                                <div class="event event-click">
                                     <header class="w3-container event-type w3-black w3-card-4">
                                         <h4>Header 1</h4>
                                     </header>
@@ -177,7 +177,7 @@
                         </div>
                         <div class="item">
                             <div class="col-xs-12 col-sm-6 col-md-3">
-                                <div class="event">
+                                <div class="event event-click">
                                     <header class="w3-container event-type w3-black w3-card-4">
                                         <h4>Header 1</h4>
                                     </header>
@@ -190,7 +190,7 @@
                         </div>
                         <div class="item">
                             <div class="col-xs-12 col-sm-6 col-md-3">
-                                <div class="event">
+                                <div class="event event-click">
                                     <header class="w3-container event-type w3-black w3-card-4">
                                         <h4>Header 1</h4>
                                     </header>
@@ -203,7 +203,7 @@
                         </div>
                         <div class="item">
                             <div class="col-xs-12 col-sm-6 col-md-3">
-                                <div class="event">
+                                <div class="event event-click">
                                     <header class="w3-container event-type w3-black w3-card-4">
                                         <h4>Header 1</h4>
                                     </header>
@@ -531,6 +531,17 @@
     }());
 </script>
 
+ ANIMATION ZOOM
+<script type="text/javascript">
+    $('.event-click').on('click',function() {
+
+        $('#ev').toggleClass('cercle w3-black');
+
+        setTimeout(() => {
+            location.replace("http://localhost:5000/pages/singleEvent.html");
+    }, 1500);
+    });
+</script>
 
 
 
