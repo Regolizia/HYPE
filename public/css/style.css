@@ -742,7 +742,7 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
 }
 /* SINGLE EVENT*/
 .singleEventcontainer{
-    position: relative;
+    position: absolute;
     width: 100%;
     height: 100%;
 }
@@ -772,7 +772,54 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
         height: 320vw;
     }
 }
+/* SINGLE EVENT COMPONENTS*/
+.event-pic-container{
+    position: absolute;
+    width: 50%;
+    height: 900px;
+}
+#containerEvent{
+    position: relative;
 
+    height: 100%;
+}
+
+.eventPic{
+    padding: 2em;
+    width: 60%;
+    margin-top: 104px;
+}
+
+.eventTitle{
+    font-size: x-large;
+    padding-left: 28px;
+}
+
+.eventDate{
+    padding-left: 28px;
+}
+/* SINGLE EVENT COMPONENTS 2*/
+.event-info-container{
+    position: absolute;
+    width: 50%;
+    height: 900px;
+    right: 0;
+}
+.event-info-inner-container{
+    padding: 2em;
+    margin-top: 104px;
+}
+
+.host-pic{
+    width: 100%;
+}
+
+/* BARCRUMBS */
+.barcrumbs{
+    height: 42px;
+}
+
+.w3-bar3{padding:8px;float:left;width:auto;border:none;display:block;outline:0;height: 100%;}
 
 
 
