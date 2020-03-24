@@ -759,7 +759,7 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
     background-color: #fdcf00;
     border-radius: 50%;
     box-shadow: 0 0 0 35px rgba(236, 57, 46, 0.2);
-    animation: widther 2s linear;
+    animation: widther 1.5s linear;
     z-index: 2;
 }
 @keyframes widther {
@@ -768,8 +768,8 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
         height: 1vw;
     }
     100% {
-        width: 300vw;
-        height: 300vw;
+        width: 320vw;
+        height: 320vw;
     }
 }
 
