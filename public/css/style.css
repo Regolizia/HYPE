@@ -440,7 +440,7 @@ body, html {
 .bg {
     height: 730px;
     width: 100%;
-    background: #fdcf00;
+    /*background: #fdcf00;*/
     overflow: hidden;
 }
 
@@ -820,6 +820,79 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
 }
 
 .w3-bar3{padding:8px;float:left;width:auto;border:none;display:block;outline:0;height: 100%;}
+
+/* HOMEPAGE LOGO ALTERNATIVE*/
+.intro{
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+}
+
+.intro-inner{
+    position: relative;
+    height: 600px;
+    width: 900px;
+}
+
+.box {
+
+    top:20%;
+    left: 30%;
+    position: absolute;
+    background: orange;
+    clip-path: circle(75%);
+    height: 200px;
+    transition: clip-path 1s;
+    width: 200px;
+}
+
+.box:hover {
+    clip-path: circle(25%);
+}
+
+.triangle {
+
+    top:15%;
+    left: 10%;
+    position: absolute;
+    background: #20d3cb;
+    clip-path: polygon( 50% 100%,0% 7%, 100% 10%, 50% 100%);
+    height: 400px;
+    /*transition: clip-path 1s;*/
+    width: 700px;
+}
+
+.grid{
+    transform: rotate(-10deg);
+    position: absolute;
+    top:20%;
+    left: 30%;
+    color: #20d3cb;
+
+    --size: 50vmin;
+    width: var(--size);
+    height: var(--size);
+
+    --count: 6;
+    display: grid;
+    grid-template-columns: repeat(var(--count), 1fr);
+    grid-template-rows: repeat(var(--count), 1fr);
+
+
+    border: 1.2px solid #d9208c;
+}
+
+.gridline{
+    border: 1.2px solid #d9208c;
+}
+
+.box2 {
+    background: #f4eb04;
+    clip-path: polygon(2% 30%, 96% 33%, 96% 55%, 5% 61%);
+    height: 100%;
+    width: 100%;
+}
 
 
 
