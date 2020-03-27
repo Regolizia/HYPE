@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Gaegu&display=swap');
 /* FONT SEN*/
 @import url('https://fonts.googleapis.com/css2?family=Sen&display=swap');
+/* FONT INTRO MARKER*/
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
 * {
     box-sizing: border-box;
@@ -435,6 +437,7 @@ body, html {
 
 .w3-bar .w3-button {
     padding: 16px;
+    text-decoration: initial;
 }
 
 .bg {
@@ -815,11 +818,10 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
 }
 
 /* BARCRUMBS */
-.barcrumbs{
-    height: 42px;
-}
 
-.w3-bar3{padding:8px;float:left;width:auto;border:none;display:block;outline:0;height: 100%;}
+.w3-bar3{
+    width:100%;overflow:hidden;
+}
 
 /* HOMEPAGE LOGO ALTERNATIVE*/
 .intro{
@@ -894,6 +896,15 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
     width: 100%;
 }
 
+.introTitle{
+    transform: rotate(-2deg);
+    position: absolute;
+    top:35%;
+    left: 10%;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 54pt;
+    color: #d9208c;
+}
 
 
 
