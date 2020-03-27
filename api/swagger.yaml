@@ -19,7 +19,7 @@ schemes:
 tags:
   - name: "event"
     description: "Events available"
-  - name: "service"
+  - name: "activity"
     description: "Services offered"
   - name: "contact"
     description: "Main organizers"
@@ -92,7 +92,7 @@ paths:
   /events/{id}/activity:
     get:
       tags:
-        - "book"
+        - "event"
       summary: "Get the activity of an event"
       operationId: "eventsIdActivityGET"
       parameters:

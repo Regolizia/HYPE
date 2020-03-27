@@ -76,10 +76,10 @@ exports.eventsIdContactGET = function(id) {
     return sqlDb
         .from("events")
         .orderBy('contacts.id')
-        .join('writes', 'books.id', 'writes.bookId')
+        .join('writes', 'events.id', 'writes.bookId')
         .join('events', 'events.id', 'writes.authorId')
         .select("events.id", "name", "surname", "biography")
-        .where("books.id", id)
+        .where("events.id", id)
         .then(data => {
             return data
         });
