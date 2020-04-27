@@ -15,6 +15,7 @@ body {
     display: table;
     width: 100%;
     height: 100%;
+    font-family: 'Roboto', sans-serif;
 }
 /*///////////////////////////////////////////////////////////////////////////////////////*/
 .footer{
@@ -47,7 +48,6 @@ body {
 .footer-wrapper{
     width: 100%;
     background-color: black;
-
     display: table-row;
     left: 0px;
     bottom: 0px;
@@ -58,13 +58,21 @@ body {
     font-size: 20px;
     color: #FFFFFF;
 }
-.footerFloat h4{
-    color: white;
-    font-size: 15px;
+a.contact-title p{
+    color: #FFC000;
+    font-size: 14px;
+    font-weight: 400;
 }
+.footerFloat a:hover p{
+    color: #ffe990;
+}
+
 .footerFloat p{
-    font-size: 13px;
+    font-size: 12px;
     margin: 0px;
+}
+.terms-social a:hover i{
+    color: #ffe990;
 }
 .social1{
     color: #0000e0;
@@ -78,6 +86,12 @@ body {
 }
 .social3{
     color: darkorange;
+}
+.contact-title{
+    font-weight: bold;
+}
+.terms-social{
+    text-align: right;
 }
 /*///////////////////////////////////////////////////////////////////////////////////////*/
 .navbar{
@@ -100,11 +114,13 @@ body {
     font-style: normal;
     font-weight: 500;
     font-size: 15px;
-    line-height: 18px;
+    line-height: 110px;
     background: linear-gradient(230deg, #FFC000 1.55%, #FF8A00 95.8%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    padding: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: inline-block
 }
 .navbar-right a:hover{
     background: #555555;
@@ -144,6 +160,180 @@ a.logo:hover{
     .navbar-right a{
         padding: 6px;
         font-size: 14px;
+        line-height: 50px;
     }
 }
+a.active-button{
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: #555555;
+}
+/*////////////////////// SMALL NAVBAR //////////////////////////////////*/
+.small-navbar{
+    position: relative;
+    width: 100%;
+    height:40px;
+    left: 0px;
+    top: 0px;
+    background: #000000;
+    box-shadow: 0px 12px 35px -2px rgba(160, 121, 0, 0.2);
+    padding-left: 40px;
+}
+/*a:hover, a:active, , a:focus */
+/*a, a:visited {*/
+/*    text-decoration:none;*/
+/*}*/
+.small-navbar-text{
+    padding: 8px 12px;
+    color: white;
+    display: inline-block;
+}
+.small-navbar-text:visited{
+    color: white;
+}
+.small-navbar-text-link{
+    padding: 8px 12px;
+    color: #FF8A00;
+    display: inline-block;
+}
+.small-navbar-text-link:visited{
+    color: #FF8A00;
+}
+i.fa-angle-double-right{
+    color: white;
+}
+/*////////////////////// COMMENTS //////////////////////////////////*/
+.comments{
+    width: 85%;
+    margin-left:auto;
+    margin-right:auto;
+    text-align: center;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    font-size: 14px;
+}
+.comment-pic{
+    width: 140px;
+    height: 140px;
+    margin-bottom: 10px;
+}
+.comments-container{
+    background: linear-gradient(220.46deg, rgba(255, 184, 0, 0.2) 1.55%, rgba(255, 138, 0, 0.2) 95.8%);
+}
+.comment-quote{
+    font-style: italic;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+.comments-title{
+    font-size: 16px;
+    font-weight: bold;
+}
+/*////////////////// HEADER //////////////////////////////////////*/
+.header-container{
+    min-height: 651px;
+    background: linear-gradient(235.82deg, #FFC000 1.55%, #FF8A00 95.8%);
+    color: white;
+}
+.header{
+    width: 85%;
+    margin-left:auto;
+    margin-right:auto;
+    font-style: normal;
+    font-weight: lighter;
+    line-height: 220%;
+}
+.header-pic{
+    width: 100%;
+}
+.header-title{
+    margin-top: 7rem;
+    line-height: 160%;
+}
+.header-description{
+    line-height: 120%;
+    font-weight: bold;
+}
+/*//////////////////// CONTACT US ////////////////////////////////////*/
+.contacts-container{
+    background: linear-gradient(110deg, rgba(255, 184, 0, 0.2) 1.55%, rgba(255, 138, 0, 0.2) 95.8%);
+    min-height: 800px;
+}
+.contacts {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.contact-left{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+.contact-left p{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    line-height: 180%;
+}
+.contact-right{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+}
+.contact-left h1{
+    background: linear-gradient(230deg, #FFC000 1.55%, #FF8A00 95.8%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.contact-right h1{
+    background: linear-gradient(230deg, #FFC000 1.55%, #FF8A00 95.8%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 30px;
+}
+.round{
+    border-radius: 50px;
+    border: none;
+    min-height: 50px;
+    padding: 35px;
+}
+.button-bg{
+    background: linear-gradient(235.82deg, #FFC000 1.55%, #FF8A00 95.8%);
+    border: none;
+}
+.button-center{
+    text-align:center;
+    margin-top: 30px;
+}
+.bubble{
+    background-color: white;
+    width: 80%;
+}
+/*///////////////////// DROPDOWN ///////////////////////////////////*/
+.dropdown{
+    position: relative;
+    float: right;
+    top: 0px;
+    border-radius: 0px 0px 0px 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    min-width: 180px;
+}
+.dropdown div.active-button{
+     background: linear-gradient(230deg, #FFC000 1.55%, #FF8A00 95.8%);
+ }
+.dropdown div.active-button a{
+    color: white;
+}
+.d-item{
+    padding: 15px;
+}
+.dropdown a, a:hover{
+    text-decoration: none;
+    color:  #5C5C5C;
+}
+/*////////////////////////////////////////////////////////*/
+
+/*////////////////////////////////////////////////////////*/
+
 /*////////////////////////////////////////////////////////*/

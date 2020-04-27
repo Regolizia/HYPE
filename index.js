@@ -91,6 +91,18 @@ app.get('/singleEvent.html', function(req, res) {
   res.sendFile(path.join(__dirname + '/public/pages/singleEvent.html'));
 });
 
+app.get('/about.html', function(req, res) {
+  res.sendFile(path.join(__dirname + '/public/pages/about.html'));
+});
+
+app.get('/activities.html', function(req, res) {
+  res.sendFile(path.join(__dirname + '/public/pages/activities.html'));
+});
+
+app.get('/contact-us.html', function(req, res) {
+  res.sendFile(path.join(__dirname + '/public/pages/contact-us.html'));
+});
+
 
 
 

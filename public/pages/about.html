@@ -1,72 +1,92 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
 <head>
-    <meta name="Description" content="-------TODO-----">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
     <link rel="stylesheet" href="/css/style.css">
-    <style>
-        body {
-            -webkit-animation: bgcolor 20s infinite;
-            animation: bgcolor 10s infinite;
-            -webkit-animation-direction: alternate;
-            animation-direction: alternate;
-        }
-    </style>
-    <title>TITLE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
+    <title>Youth Speaks Hawai‘i</title>
     <link rel="icon" href="/img/icon.ico">
+    <!--    <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/owl.carousel.min.js" rel="stylesheet" />-->
 </head>
 
 <body>
-<div id="page-container">
-    <div id="content-wrap">
-<header style="border-style: double; border-color: black;">
-    <h1 style="color: #555555; animation: 0.8s linear 0s 1 alternate both running tracking-in-contract"><a href=/index.html>YOUTH SPEAKS HAWAI'I</a></h1>
-    <nav>
-        <a class="inactive" href=/pages/login.html>Login</a>
-        <a class="active" href=#>About</a>
-        <a class="inactive" href=/pages/blog.html>Blog</a>
-    </nav>
-</header>
-<main style=" background-color: #fff;    background-image:    linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),    linear-gradient(#eee .1em, transparent .1em);    background-size: 100% 2em;";>
-<section>
-        <article>
-            <h2>ABOUT</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis fugit earum voluptas officia, quasi saepe et commodi, dolores cumque quam fuga ullam, itaque ea dignissimos asperiores adipisci ad eveniet repellendus!</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis fugit earum voluptas officia, quasi saepe et commodi, dolores cumque quam fuga ullam, itaque ea dignissimos asperiores adipisci ad eveniet repellendus!</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis fugit earum voluptas officia, quasi saepe et commodi, dolores cumque quam fuga ullam, itaque ea dignissimos asperiores adipisci ad eveniet repellendus!</p>
-        </article>
-    </section>
-    <aside>
-        <div class=capsule>
-            <h4>Widget Headline</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-        <div class=capsule>
-            <h4>Widget Headline</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-        <div class=capsule>
-            <h4>Widget Headline</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-        <div class=capsule>
-            <h4>Widget Headline2</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-        <div class=capsule>
-            <h4>Widget Headline2</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-        <div class=capsule>
-            <h4>Widget Headline2</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-    </aside>
 
-</main>
+<!--///////////////////////////   NAVBAR   ///////////////////////////////////-->
+<div class="navbar">
+    <a href=/index.html class="logo">YOUTH SPEAKS HAWAI'I</a>
+    <!-- Right-sided navbar links -->
+    <div class="navbar-right">
+        <a href=# class="menu-item active-button">About Us</a>
+        <a href=/pages/activities.html class="menu-item"><i class="fa fa-calendar"></i> Activities</a>
+        <a href=/pages/events.html class="menu-item"><i class="fa fa-user"></i> Events</a>
+        <a href=/pages/volunteers.html class="menu-item"><i class="fa fa-envelope"></i> Volunteers</a>
+
+        <!--            <button aria-label="MENU button" class="w3-bar2 w3-button  h100" type="button" id="menubutton"><i class="fa fa-bars fa-lg" aria-hidden="true" style="color: black; font-weight: 100;"></i></button>-->
+        <!--                <i class="fa fa-bars fa-2x" aria-hidden="true"></i>-->
+
+    </div>
+    <!--        <a href="javascript:void(0)" class="w3-bar2 w3-button w3-right w3-hide-large" onclick="w3_open()">-->
+    <!--            <i class="fa fa-bars"></i>-->
+    <!--        </a>-->
 </div>
-    <footer id="footer" style="background: linear-gradient(#ffffff 10%, rgba(255,255,255,0) 0) 0 0, radial-gradient(circle closest-side, #FFFFFF 53%, rgba(255,255,255,0) 0) 0 -50px, radial-gradient(circle closest-side, #FFFFFF 50%, rgba(255,255,255,0) 0) 50px -50px #48B; background-size: 100px 100px; background-repeat: repeat-x; ">&copy; {{ year }}</footer>
+
+<div class="dropdown">
+    <div class="active-button d-item"><a href="#">Welcome</a></div>
+    <div  class="d-item"><a href="#">History</a></div>
+    <div  class="d-item"><a href="#">Thanks</a></div>
 </div>
+<!--///////////////////////////   NAVBAR   ///////////////////////////////////-->
+
+
+<div style="height: 1000px" class="about-container"></div>
+
+
+
+
+
+<!--///////////////////////////   FOOTER   ///////////////////////////////////-->
+<div class="footer-wrapper">
+    <div class="footer">
+        <div class="footerFloat">
+            <div class="logo">YOUTH SPEAKS HAWAI'I</div>
+            <p>Youth Speaks Hawai’i is a voluntary association that organizes events on slam poetry.</p>
+        </div>
+
+        <div class="footerFloat row">
+            <div class="col-lg-6">
+                <a class="contact-title" href="/pages/contact-us.html">
+                    <p>Contact Us<br/>Fill the form</p>
+                </a>
+            </div>
+            <div class="col-lg-6">
+                <p> 567 S King St</p>
+                <p>  Honolulu, HI 96813</p>
+            </div>
+        </div>
+        <div class="footerFloat terms-social">
+            <div>
+                <a ><i class="fa fa-facebook-official social1"></i></a>
+                <a ><i class="fa fa-twitter-square social2"></i></a>
+                <a ><i class="fa fa-instagram social3"></i></a>
+            </div>
+            <a class="contact-title" href="/pages/terms.html">
+                <p>Terms and Conditions</p>
+            </a>
+        </div>
+    </div>
+</div>
+<!--///////////////////////////   FOOTER   ///////////////////////////////////-->
+
+
+
 </body>
 
 

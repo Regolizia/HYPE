@@ -1,73 +1,70 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
 <head>
-    <meta name="Description" content="Something meaningful TODO">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/css/style.css">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
     <title>Youth Speaks Hawai‘i</title>
     <link rel="icon" href="/img/icon.ico">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/owl.carousel.min.js" rel="stylesheet" />
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<!--    <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/owl.carousel.min.js" rel="stylesheet" />-->
 </head>
 
 <body>
 
+<!--///////////////////////////   NAVBAR   ///////////////////////////////////-->
+<div class="navbar">
+    <a href=/index.html class="logo">YOUTH SPEAKS HAWAI'I</a>
+    <!-- Right-sided navbar links -->
+    <div class="navbar-right">
+        <a href=/pages/about.html class="menu-item">About Us</a>
+        <a href=/pages/activities.html class="menu-item"><i class="fa fa-calendar"></i> Activities</a>
+        <a href=# class="menu-item active-button"><i class="fa fa-user"></i> Events</a>
+        <a href=/pages/volunteers.html class="menu-item"><i class="fa fa-envelope"></i> Volunteers</a>
 
-<!-- Navbar (sit on top) -->
-<div class="w3-top">
-    <div class="mybar w3-bar w3-white w3-card" id="myNavbar">
-        <a href=/index.html class="mybar w3-bar2 w3-button w3-wide h100">YOUTH SPEAKS HAWAI'I</a>
-        <!-- Right-sided navbar links -->
-        <div class="mybar w3-right w3-hide-small  w3-hide-medium">
-            <a href="/index.html#about" class="w3-bar2 w3-button  h100">ABOUT US</a>
-            <a href=# class="w3-bar2 w3-button h100"><i class="fa fa-calendar"></i> EVENTS</a>
-            <a href=/pages/volunteers.html class="w3-bar2 w3-button  h100"><i class="fa fa-user"></i> VOLUNTEERS</a>
-            <a href="/index.html#contact" class="w3-bar2 w3-button  h100"><i class="fa fa-envelope"></i> CONTACT US</a>
+        <!--            <button aria-label="MENU button" class="w3-bar2 w3-button  h100" type="button" id="menubutton"><i class="fa fa-bars fa-lg" aria-hidden="true" style="color: black; font-weight: 100;"></i></button>-->
+        <!--                <i class="fa fa-bars fa-2x" aria-hidden="true"></i>-->
 
-            <!--            <button aria-label="MENU button" class="w3-bar2 w3-button  h100" type="button" id="menubutton"><i class="fa fa-bars fa-lg" aria-hidden="true" style="color: black; font-weight: 100;"></i></button>-->
-            <!--                <i class="fa fa-bars fa-2x" aria-hidden="true"></i>-->
-
-        </div>
-        <!-- Hide right-floated links on small screens and replace them with a menu icon -->
-
-        <a href="javascript:void(0)" class="w3-bar2 w3-button w3-right w3-hide-large" onclick="w3_open()">
-            <i class="fa fa-bars"></i>
-        </a>
     </div>
+    <!--        <a href="javascript:void(0)" class="w3-bar2 w3-button w3-right w3-hide-large" onclick="w3_open()">-->
+    <!--            <i class="fa fa-bars"></i>-->
+    <!--        </a>-->
 </div>
+<!--///////////////////////////   NAVBAR   ///////////////////////////////////-->
 
-<!-- Sidebar on small screens when clicking the menu icon -->
-<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-right w3-hide-large" style="display:none;right:0;" id="mySidebar">
-    <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+<!--&lt;!&ndash; Sidebar on small screens when clicking the menu icon &ndash;&gt;-->
+<!--<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-right w3-hide-large" style="display:none;right:0;" id="mySidebar">-->
+<!--    <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>-->
 
-    <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
-    <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">TEAM</a>
-    <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">WORK</a>
-    <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">PRICING</a>
-    <button class="w3-button w3-block w3-left-align" onclick="myAccFunc()">Accordion <i class="fa fa-caret-down"></i></button>
-    <div id="demoAcc" class="w3-bar-block w3-hide w3-white w3-card-4">
-        <a href="#" class="w3-bar-item w3-button">Link</a>
-        <a href="#" class="w3-bar-item w3-button">Link</a>
-    </div>
-    <div class="w3-dropdown-hover">
-        <button class="w3-button">Dropdown <i class="fa fa-caret-down"></i></button>
-        <div class="w3-dropdown-content w3-bar-block">
-            <a href="#" class="w3-bar-item w3-button">Link</a>
-            <a href="#" class="w3-bar-item w3-button">Link</a>
-        </div>
-    </div>
-    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT </a>
+<!--    <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>-->
+<!--    <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">TEAM</a>-->
+<!--    <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">WORK</a>-->
+<!--    <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">PRICING</a>-->
+<!--    <button class="w3-button w3-block w3-left-align" onclick="myAccFunc()">Accordion <i class="fa fa-caret-down"></i></button>-->
+<!--    <div id="demoAcc" class="w3-bar-block w3-hide w3-white w3-card-4">-->
+<!--        <a href="#" class="w3-bar-item w3-button">Link</a>-->
+<!--        <a href="#" class="w3-bar-item w3-button">Link</a>-->
+<!--    </div>-->
+<!--    <div class="w3-dropdown-hover">-->
+<!--        <button class="w3-button">Dropdown <i class="fa fa-caret-down"></i></button>-->
+<!--        <div class="w3-dropdown-content w3-bar-block">-->
+<!--            <a href="#" class="w3-bar-item w3-button">Link</a>-->
+<!--            <a href="#" class="w3-bar-item w3-button">Link</a>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT </a>-->
 
-    <img src="/img/girl.jpg" style="width: 100%; height: auto;">
+<!--    <img src="/img/girl.jpg" style="width: 100%; height: auto;">-->
 
 
-</nav>
+<!--</nav>-->
 
 
         <!-- MENU CONTENT -->
@@ -91,7 +88,7 @@
 <!--    <p class="w3-center w3-large">Key features of our company</p>-->
 <!--    <div class="w3-row-padding w3-center" style="margin-top:64px">-->
 <!--    </div>-->
-    </div>
+            </div>
 </div>
 
 <div class="months">
@@ -224,265 +221,7 @@
 
     </div>
 
-    <!--    &lt;!&ndash;    MONTH &ndash;&gt;-->
-    <!--    <div class="month">-->
-    <!--&lt;!&ndash;            <span class="w3-jumbo2 w3-hide-small w3-text-black">APRIL</span>&ndash;&gt;-->
-
-    <div class="container1 container-fluid events">
-        <div class="month-bg">
-            MAY
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="carousel carousel-showmanymoveone slide" id="carousel-tilenav2" data-interval="false">
-                    <div class="carousel-inner">
-                        <div class="item active">
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <div class="event">
-                                    <header class="w3-container event-type w3-black w3-card-4">
-                                        <h4>Header 1</h4>
-                                    </header>
-
-                                    <div class="w3-container w3-yellow w3-card-4 event-text">
-                                        <p>Lorem ipsum abkwjb akwbdk hbh  ekheg hegwdgiuwugw e ewu  ew hf ue ku ewk uew e uwhw  hwa haw  awhvh ah aw wdhwj ahjwad hwajwa...</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <div class="event">
-                                    <header class="w3-container event-type w3-black w3-card-4">
-                                        <h4>Header 1</h4>
-                                    </header>
-
-                                    <div class="w3-container w3-yellow w3-card-4 event-text">
-                                        <p>Lorem ipsum abkwjb akwbdk hbh  ekheg hegwdgiuwugw e ewu  ew hf ue ku ewk uew e uwhw  hwa haw  awhvh ah aw wdhwj ahjwad hwajwa...</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <div class="event">
-                                    <header class="w3-container event-type w3-black w3-card-4">
-                                        <h4>Header 1</h4>
-                                    </header>
-
-                                    <div class="w3-container w3-yellow w3-card-4 event-text">
-                                        <p>Lorem ipsum abkwjb akwbdk hbh  ekheg hegwdgiuwugw e ewu  ew hf ue ku ewk uew e uwhw  hwa haw  awhvh ah aw wdhwj ahjwad hwajwa...</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <div class="event">
-                                    <header class="w3-container event-type w3-black w3-card-4">
-                                        <h4>Header 1</h4>
-                                    </header>
-
-                                    <div class="w3-container w3-yellow w3-card-4 event-text">
-                                        <p>Lorem ipsum abkwjb akwbdk hbh  ekheg hegwdgiuwugw e ewu  ew hf ue ku ewk uew e uwhw  hwa haw  awhvh ah aw wdhwj ahjwad hwajwa...</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <div class="event">
-                                    <header class="w3-container event-type w3-black w3-card-4">
-                                        <h4>Header 1</h4>
-                                    </header>
-
-                                    <div class="w3-container w3-yellow w3-card-4 event-text">
-                                        <p>Lorem ipsum abkwjb akwbdk hbh  ekheg hegwdgiuwugw e ewu  ew hf ue ku ewk uew e uwhw  hwa haw  awhvh ah aw wdhwj ahjwad hwajwa...</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <div class="event">
-                                    <header class="w3-container event-type w3-black w3-card-4">
-                                        <h4>Header 1</h4>
-                                    </header>
-
-                                    <div class="w3-container w3-yellow w3-card-4 event-text">
-                                        <p>Lorem ipsum abkwjb akwbdk hbh  ekheg hegwdgiuwugw e ewu  ew hf ue ku ewk uew e uwhw  hwa haw  awhvh ah aw wdhwj ahjwad hwajwa...</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <div class="event">
-                                    <header class="w3-container event-type w3-black w3-card-4">
-                                        <h4>Header 1</h4>
-                                    </header>
-
-                                    <div class="w3-container w3-yellow w3-card-4 event-text">
-                                        <p>Lorem ipsum abkwjb akwbdk hbh  ekheg hegwdgiuwugw e ewu  ew hf ue ku ewk uew e uwhw  hwa haw  awhvh ah aw wdhwj ahjwad hwajwa...</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <div class="event">
-                                    <header class="w3-container event-type w3-black w3-card-4">
-                                        <h4>Header 1</h4>
-                                    </header>
-
-                                    <div class="w3-container w3-yellow w3-card-4 event-text">
-                                        <p>Lorem ipsum abkwjb akwbdk hbh  ekheg hegwdgiuwugw e ewu  ew hf ue ku ewk uew e uwhw  hwa haw  awhvh ah aw wdhwj ahjwad hwajwa...</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <a class="leftc" href="#carousel-tilenav2" data-slide="prev"><i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i></a>
-            <a class="rightc" href="#carousel-tilenav2" data-slide="next"><i class="fa fa-chevron-right fa-lg" aria-hidden="true"></i></a>
-        </div>
-
-    </div>
-
-    <!--    &lt;!&ndash;    MONTH &ndash;&gt;-->
-    <!--    <div class="month">-->
-    <!--&lt;!&ndash;            <span class="w3-jumbo2 w3-hide-small w3-text-black">APRIL</span>&ndash;&gt;-->
-
-    <div class="container1 container-fluid events">
-        <div class="month-bg">
-            JUNE
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="carousel carousel-showmanymoveone slide" id="carousel-tilenav3" data-interval="false">
-                    <div class="carousel-inner">
-                        <div class="item active">
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <div class="event">
-                                    <header class="w3-container event-type w3-black w3-card-4">
-                                        <h4>Header 1</h4>
-                                    </header>
-
-                                    <div class="w3-container w3-yellow w3-card-4 event-text">
-                                        <p>Lorem ipsum abkwjb akwbdk hbh  ekheg hegwdgiuwugw e ewu  ew hf ue ku ewk uew e uwhw  hwa haw  awhvh ah aw wdhwj ahjwad hwajwa...</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <div class="event">
-                                    <header class="w3-container event-type w3-black w3-card-4">
-                                        <h4>Header 1</h4>
-                                    </header>
-
-                                    <div class="w3-container w3-yellow w3-card-4 event-text">
-                                        <p>Lorem ipsum abkwjb akwbdk hbh  ekheg hegwdgiuwugw e ewu  ew hf ue ku ewk uew e uwhw  hwa haw  awhvh ah aw wdhwj ahjwad hwajwa...</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <div class="event">
-                                    <header class="w3-container event-type w3-black w3-card-4">
-                                        <h4>Header 1</h4>
-                                    </header>
-
-                                    <div class="w3-container w3-yellow w3-card-4 event-text">
-                                        <p>Lorem ipsum abkwjb akwbdk hbh  ekheg hegwdgiuwugw e ewu  ew hf ue ku ewk uew e uwhw  hwa haw  awhvh ah aw wdhwj ahjwad hwajwa...</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <div class="event">
-                                    <header class="w3-container event-type w3-black w3-card-4">
-                                        <h4>Header 1</h4>
-                                    </header>
-
-                                    <div class="w3-container w3-yellow w3-card-4 event-text">
-                                        <p>Lorem ipsum abkwjb akwbdk hbh  ekheg hegwdgiuwugw e ewu  ew hf ue ku ewk uew e uwhw  hwa haw  awhvh ah aw wdhwj ahjwad hwajwa...</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <div class="event">
-                                    <header class="w3-container event-type w3-black w3-card-4">
-                                        <h4>Header 1</h4>
-                                    </header>
-
-                                    <div class="w3-container w3-yellow w3-card-4 event-text">
-                                        <p>Lorem ipsum abkwjb akwbdk hbh  ekheg hegwdgiuwugw e ewu  ew hf ue ku ewk uew e uwhw  hwa haw  awhvh ah aw wdhwj ahjwad hwajwa...</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <div class="event">
-                                    <header class="w3-container event-type w3-black w3-card-4">
-                                        <h4>Header 1</h4>
-                                    </header>
-
-                                    <div class="w3-container w3-yellow w3-card-4 event-text">
-                                        <p>Lorem ipsum abkwjb akwbdk hbh  ekheg hegwdgiuwugw e ewu  ew hf ue ku ewk uew e uwhw  hwa haw  awhvh ah aw wdhwj ahjwad hwajwa...</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <div class="event">
-                                    <header class="w3-container event-type w3-black w3-card-4">
-                                        <h4>Header 1</h4>
-                                    </header>
-
-                                    <div class="w3-container w3-yellow w3-card-4 event-text">
-                                        <p>Lorem ipsum abkwjb akwbdk hbh  ekheg hegwdgiuwugw e ewu  ew hf ue ku ewk uew e uwhw  hwa haw  awhvh ah aw wdhwj ahjwad hwajwa...</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <div class="event">
-                                    <header class="w3-container event-type w3-black w3-card-4">
-                                        <h4>Header 1</h4>
-                                    </header>
-
-                                    <div class="w3-container w3-yellow w3-card-4 event-text">
-                                        <p>Lorem ipsum abkwjb akwbdk hbh  ekheg hegwdgiuwugw e ewu  ew hf ue ku ewk uew e uwhw  hwa haw  awhvh ah aw wdhwj ahjwad hwajwa...</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <a class="leftc" href="#carousel-tilenav3" data-slide="prev"><i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i></a>
-            <a class="rightc" href="#carousel-tilenav3" data-slide="next"><i class="fa fa-chevron-right fa-lg" aria-hidden="true"></i></a>
-        </div>
-
-    </div>
-
 </div>
-
-
 
 
 
@@ -495,16 +234,26 @@
             <p>Youth Speaks Hawai’i is a voluntary association that organizes events on slam poetry.</p>
         </div>
 
-        <div class="footerFloat">
-            <h4>Contact Us</h4>
-            <p>1 808 2542542</p>
-            <p> Info@youthspeakshawaii.com</p>
-            <p> 567 S King St</p>
-            <p>  Honolulu, HI 96813</p>
+        <div class="footerFloat row">
+            <div class="col-lg-6">
+                <a class="contact-title" href="/pages/contact-us.html">
+                    <p>Contact Us<br/>Fill the form</p>
+                </a>
+            </div>
+            <div class="col-lg-6">
+                <p> 567 S King St</p>
+                <p>  Honolulu, HI 96813</p>
+            </div>
         </div>
-        <div class="footerFloat">
-            <div><i class="fa fa-facebook-official social1"></i><i class="fa fa-twitter-square social2"></i><i class="fa fa-instagram social3"></i></div>
-            <p>Terms and Conditions</p>
+        <div class="footerFloat terms-social">
+            <div>
+                <a ><i class="fa fa-facebook-official social1"></i></a>
+                <a ><i class="fa fa-twitter-square social2"></i></a>
+                <a ><i class="fa fa-instagram social3"></i></a>
+            </div>
+            <a class="contact-title" href="/pages/terms.html">
+                <p>Terms and Conditions</p>
+            </a>
         </div>
     </div>
 </div>
