@@ -332,8 +332,43 @@ i.fa-angle-double-right{
     text-decoration: none;
     color:  #5C5C5C;
 }
-/*////////////////////////////////////////////////////////*/
+/*///////////////////// ABOUT ///////////////////////////////////*/
+.about-container{
+    margin-top: 40px;
+    min-height: 900px;
+}
+.about-right{
+margin-top: 100px;
+    padding: 30px;
+}
+.about-left{
+    margin-top: 60px;
+    float: right;
+}
+.about-left h1{
+    background: linear-gradient(230deg, #FFC000 1.55%, #FF8A00 95.8%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 30px;
+}
+.about-row1{
+    height: 200px;
+    padding: 10px;
+}
+.about-row2{
+    height: 300px;
+    padding: 10px;
+}
+.about-float-right{
+    float: right;
+}
 
+.about-left .col-lg-5{
+    padding: 0;
+}
+.about-left .col-lg-7{
+    padding: 0;
+}
 /*////////////////////////////////////////////////////////*/
 
 /*////////////////////////////////////////////////////////*/
