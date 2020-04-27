@@ -369,6 +369,110 @@ margin-top: 100px;
 .about-left .col-lg-7{
     padding: 0;
 }
+/*//////////////////// VOLUNTEERS ////////////////////////////////////*/
+.volunteers-container{
+    min-height: 1000px;
+    background: linear-gradient(235.82deg, #FFC000 1.55%, #FF8A00 95.8%);
+    color: #5C5C5C;
+    position: relative;
+    padding-top: 40px;
+}
+.volunteers-line{
+    min-height: 40px;
+    background: linear-gradient(235.82deg, #FFC000 1.55%, #FF8A00 95.8%);
+    position: relative;
+}
+.volunteers-text-area{
+    position: relative;
+    width: 100%;
+    background-color: white;
+}
+
+.volunteers-text-area2{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 80px;
+}
+
+.volunteers-text-area2 h5 {
+    float: right;
+}
+.volunteers-text-area2 p {
+    margin: 0;
+}
+.volunteers{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0; right: 0;
+    width: 80%;
+}
+.column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+}
+.card{
+    text-align: center;
+    display: block;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+    width: 90%;
+}
+.card-img-top{
+    padding: 15px;
+}
+div.card-body{
+    padding-top: 10px;
+    font-weight: bold;
+}
+@media screen and (max-width: 800px) {
+    .column {
+        width: 50%;
+        display: block;
+        margin-bottom: 20px;
+    }
+    .volunteers {
+        margin-top: 10px;
+    }
+    .volunteers-text-area{
+        text-align: center;
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+    .volunteers-text-area2 h5 {
+        float: none;
+    }
+    .volunteers-text-area2{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+    }
+    .volunteers {
+        margin-top: 20px;
+    }
+}
+.vol-row{
+    margin-bottom: 30px;
+}
+
+
+/*////////////////////////////////////////////////////////*/
+
+/*////////////////////////////////////////////////////////*/
+
+/*////////////////////////////////////////////////////////*/
+
+/*////////////////////////////////////////////////////////*/
+
+/*////////////////////////////////////////////////////////*/
+
 /*////////////////////////////////////////////////////////*/
 
 /*////////////////////////////////////////////////////////*/
