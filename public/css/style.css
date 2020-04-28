@@ -159,7 +159,7 @@ a.logo:hover{
     }
     .navbar-right a{
         padding: 6px;
-        font-size: 14px;
+        font-size: 13px;
         line-height: 50px;
     }
 }
@@ -371,16 +371,16 @@ margin-top: 100px;
 }
 /*//////////////////// VOLUNTEERS ////////////////////////////////////*/
 .volunteers-container{
-    min-height: 1000px;
+    min-height: 1100px;
     background: linear-gradient(235.82deg, #FFC000 1.55%, #FF8A00 95.8%);
     color: #5C5C5C;
     position: relative;
     padding-top: 40px;
+    padding-bottom: 30px;
 }
 .volunteers-line{
     min-height: 40px;
     background: linear-gradient(235.82deg, #FFC000 1.55%, #FF8A00 95.8%);
-    position: relative;
 }
 .volunteers-text-area{
     position: relative;
@@ -426,6 +426,10 @@ div.card-body{
     padding-top: 10px;
     font-weight: bold;
 }
+
+.vol-row{
+    margin-bottom: 30px;
+}
 @media screen and (max-width: 800px) {
     .column {
         width: 50%;
@@ -446,6 +450,9 @@ div.card-body{
     .volunteers-text-area2{
         width: 90%;
     }
+    .vol-row {
+        margin-bottom: 0px;
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -458,14 +465,103 @@ div.card-body{
         margin-top: 20px;
     }
 }
-.vol-row{
-    margin-bottom: 30px;
+
+
+/*///////////////////////// ACTIVITIES ///////////////////////////////*/
+.activities-container{
+    min-height: 1000px;
+    background: linear-gradient(235.82deg, #FFC000 1.55%, #FF8A00 95.8%);
+    color: #5C5C5C;
+    position: relative;
+    padding-top: 40px;
+    padding-bottom: 30px;
+}
+.activities{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.activity{
+    min-height: 100px;
+    background: white;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 50px;
+    margin-bottom: 20px;
+}
+.img-col{
+    padding: 20px;
+}
+.activity-img{
+    width: 100%;
+    border-radius: 40px;
+    /*margin: 15px;*/
+}
+.activity .col-lg-4{
+    padding: 0;
 }
 
+@media screen and (max-width: 800px) {
+    .activities{
+        width: 80%;
+    }
+}
+/*////////////////////// EVENTS //////////////////////////////////*/
+/*body{*/
+/*    background:#ccc;*/
+/*}*/
+.months-container{
+    min-height: 1000px;
+    /*width:80%;*/
+    width: 800px;
+    display:block;
+    margin:0 auto;
+}
+h3 {
+    background: #000;
+    color: #3498db;
+    font-size: 36px;
+    line-height: 100px;
+    margin: 10px;
+    padding: 2%;
+    position: relative;
+    text-align: center;
+}
+.action{
+    display:block;
+    margin:100px auto;
+    width:100%;
+    text-align:center;
+}
+.action a {
+    display:inline-block;
+    padding:5px 10px;
+    background:#f30;
+    color:#FF8A00;
+    text-decoration:none;
+}
+.action a:hover{
+    background:#4488BB;
+}
+/*ooooooooooooooooooooooooooooo*/
+.slick-prev:before {
+    content: "<";
+    color: red;
+    font-size: 30px;
+}
 
-/*////////////////////////////////////////////////////////*/
+.slick-next:before {
+    content: ">";
+    color: red;
+    font-size: 30px;
+}
 
-/*////////////////////////////////////////////////////////*/
+.slick-next:before, .slick-prev:before {
+    font-size: 20px;
+    line-height: 1;
+    opacity: .75;
+    color: red; !important;
+}
+
 
 /*////////////////////////////////////////////////////////*/
 
