@@ -262,6 +262,14 @@ i.fa-angle-double-right{
     line-height: 120%;
     font-weight: bold;
 }
+@media screen and (max-width: 800px){
+    .header-title{
+        margin-top: 2rem;
+    }
+    .header-container{
+        padding-bottom: 40px;
+    }
+}
 /*//////////////////// CONTACT US ////////////////////////////////////*/
 .contacts-container{
     background: linear-gradient(110deg, rgba(255, 184, 0, 0.2) 1.55%, rgba(255, 138, 0, 0.2) 95.8%);
@@ -341,10 +349,24 @@ i.fa-angle-double-right{
     text-decoration: none;
     color:  #5C5C5C;
 }
+@media screen and (max-width: 800px) {
+    .dropdown{
+        width: 100%;
+    }
+    .d-item{
+        width: 33%;
+        float: left;
+        text-align: center;
+    }
+    .navbar{box-shadow: 0px 6px 15px rgba(160, 121, 0, 0.2);
+    }
+}
+
 /*///////////////////// ABOUT ///////////////////////////////////*/
 .about-container{
     margin-top: 40px;
     min-height: 900px;
+    padding:15px;
 }
 .about-right{
 margin-top: 100px;
@@ -378,6 +400,30 @@ margin-top: 100px;
 .about-left .col-lg-7{
     padding: 0;
 }
+
+.about-container .col-lg-5{
+    padding: 0;
+}
+.about-container .col-lg-7{
+    padding: 0;
+}
+@media screen and (max-width: 800px) {
+    .about-left{
+        float: none;
+    }
+    .about-left .row{
+        margin: 0px;
+    }
+    .about-left h1{
+        text-align: center;
+    }
+    .about-right{
+        margin: 0;
+        padding: 40px;
+    }
+}
+
+
 /*//////////////////// VOLUNTEERS ////////////////////////////////////*/
 .volunteers-container{
     min-height: 1100px;
