@@ -87,8 +87,11 @@ app.get('/volunteers.html', function(req, res) {
   res.sendFile(path.join(__dirname + '/public/pages/volunteers.html'));
 });
 
-app.get('/singleEvent.html', function(req, res) {
-  res.sendFile(path.join(__dirname + '/public/pages/singleEvent.html'));
+app.get('/event.html', function(req, res) {
+  res.sendFile(path.join(__dirname + '/public/pages/event.html'));
+});
+app.get('/volunteer.html', function(req, res) {
+  res.sendFile(path.join(__dirname + '/public/pages/volunteer.html'));
 });
 
 app.get('/about.html', function(req, res) {

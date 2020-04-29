@@ -210,6 +210,9 @@ a.active-button{
 i.fa-angle-double-right{
     color: white;
 }
+.small-navbar a:hover{
+    color: #fdcf00;
+}
 /*////////////////////// COMMENTS //////////////////////////////////*/
 .comments{
     width: 85%;
@@ -336,29 +339,74 @@ i.fa-angle-double-right{
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     min-width: 180px;
 }
+.dropdown2{
+    position: relative;
+    float: right;
+    top: 0px;
+    border-radius: 0px 0px 0px 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    min-width: 180px;
+}
 .dropdown div.active-button{
      background: linear-gradient(230deg, #FFC000 1.55%, #FF8A00 95.8%);
  }
 .dropdown div.active-button a{
     color: white;
 }
+.dropdown2 div.active-button{
+    background: linear-gradient(230deg, #FFC000 1.55%, #FF8A00 95.8%);
+}
+.dropdown2 div.active-button a{
+    color: white;
+}
 .d-item{
+    padding: 15px;
+}
+.d-item2{
     padding: 15px;
 }
 .dropdown a, a:hover{
     text-decoration: none;
     color:  #5C5C5C;
 }
-@media screen and (max-width: 800px) {
+.dropdown2 a, a:hover{
+    text-decoration: none;
+    color:  #5C5C5C;
+}
+@media screen and (max-width: 992px) {
     .dropdown{
         width: 100%;
     }
+
     .d-item{
         width: 33%;
         float: left;
         text-align: center;
     }
+    .dropdown2{
+        width: 100%;
+        box-shadow: none;
+    }
+    .d-vol{
+        border-radius: 0px 0px 0px 5px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        display: inline-block;
+        width: 66%;
+        float: right;
+    }
+
+    .d-item2{
+        width: 50%;
+        float: left;
+        text-align: center;
+    }
+
     .navbar{box-shadow: 0px 6px 15px rgba(160, 121, 0, 0.2);
+    }
+}
+@media screen and (max-width: 600px) {
+    .d-vol{
+        width: 100%;
     }
 }
 
@@ -407,7 +455,7 @@ margin-top: 100px;
 .about-container .col-lg-7{
     padding: 0;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 992px) {
     .about-left{
         float: none;
     }
@@ -485,6 +533,12 @@ div.card-body{
 
 .vol-row{
     margin-bottom: 30px;
+}
+.vol-row a{
+    color: #D37200;
+}
+.vol-row a:hover{
+    color: #fdcf00;
 }
 @media screen and (max-width: 800px) {
     .column {
@@ -711,8 +765,66 @@ div.card-body{
     padding-top: 20px;
     padding-bottom: 20px;
 }
-/*////////////////////////////////////////////////////////*/
+/*///////////////// VOLUNTEER ///////////////////////////////////////*/
+.vol-pic{
+    /*height: 250px;*/
+    width: 100%;
+}
+.vol-pic-container{
+    float: left;
+    width: 100%;
+    /*text-align: left;*/
+}
+.vol-events-container{
+    float: left;
+    width: 100%;
+    margin-top: 30px;
+    /*text-align: right;*/
+}
+.vol-left-container{
+    position: relative;
+    float: right;
+    width: 70%;
+}
+.vol-events-container a{
+    color: #D37200;
+}
 
+@media screen and (max-width: 992px) {
+    .vol-pic-container{
+        width: 50%;
+
+        padding-left: 40px;
+    }
+    .vol-events-container{
+        width: 50%;
+        float: left;
+        margin-top: 100px;
+        padding: 40px;
+    }
+    .vol-left-container{
+        width: 100%;
+        height: 100%;
+    }
+}
+@media screen and (max-width: 600px) {
+    .vol-pic-container{
+        width: 100%;
+
+        padding-right: 40px;
+    }
+    .vol-events-container{
+        width: 100%;
+        /*float: left;*/
+        margin-top: 0;
+        padding-bottom: 0;
+
+    }
+    .vol-left-container{
+        width: 100%;
+        height: 100%;
+    }
+}
 /*////////////////////////////////////////////////////////*/
 
 /*////////////////////////////////////////////////////////*/
