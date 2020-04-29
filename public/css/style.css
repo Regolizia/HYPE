@@ -18,6 +18,7 @@ body {
     min-height: 100%;
     font-family: 'Roboto', sans-serif;
 }
+a{color: #FF8A00}
 /*///////////////////////////////////////////////////////////////////////////////////////*/
 .footer{
     min-height: 100px;
@@ -135,7 +136,6 @@ a.contact-title p{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 a.logo{
     position: absolute;
     font-style: normal;
@@ -370,9 +370,9 @@ i.fa-angle-double-right{
     color:  #5C5C5C;
 }
 .dropdown2 a, a:hover{
-    text-decoration: none;
-    color:  #5C5C5C;
-}
+     text-decoration: none;
+     color:  #5C5C5C;
+ }
 @media screen and (max-width: 992px) {
     .dropdown{
         width: 100%;
@@ -413,7 +413,7 @@ i.fa-angle-double-right{
 /*///////////////////// ABOUT ///////////////////////////////////*/
 .about-container{
     margin-top: 40px;
-    min-height: 900px;
+    min-height: 800px;
     padding:15px;
 }
 .about-right{
@@ -423,6 +423,10 @@ margin-top: 100px;
 .about-left{
     margin-top: 60px;
     float: right;
+}
+.about-right h2{
+    font-size: 1.5rem;
+    margin-bottom: 30px;
 }
 .about-left h1{
     background: linear-gradient(230deg, #FFC000 1.55%, #FF8A00 95.8%);
@@ -592,11 +596,16 @@ div.card-body{
     margin-right: auto;
 }
 .activity{
+
+    width: 100%;
     min-height: 100px;
     background: white;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
     border-radius: 50px;
     margin-bottom: 20px;
+}
+.activity .row{
+    margin: 0;
 }
 .img-col{
     padding: 20px;
@@ -733,6 +742,11 @@ div.card-body{
     background: black;
     font-size: 14px;
 }
+
+.slider-container a{
+    color: white;
+    color: white;
+}
 .event-card-body{
     background: linear-gradient(243.84deg, #FFC000 1.55%, #FF8A00 95.8%);
     font-size: 12px;
@@ -789,6 +803,9 @@ div.card-body{
 .vol-events-container a{
     color: #D37200;
 }
+.vol-left-container h1{
+    font-size: 2rem
+}
 
 @media screen and (max-width: 992px) {
     .vol-pic-container{
@@ -799,8 +816,9 @@ div.card-body{
     .vol-events-container{
         width: 50%;
         float: left;
-        margin-top: 100px;
+        margin-top: 0px;
         padding: 40px;
+        padding-bottom: 0;
     }
     .vol-left-container{
         width: 100%;
@@ -825,8 +843,36 @@ div.card-body{
         height: 100%;
     }
 }
-/*////////////////////////////////////////////////////////*/
-
+/*//////////////////// EVENT ////////////////////////////////////*/
+.event-activities{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.event-activities-right{
+    display: inline-block;
+}
+.e-act{
+    display: flex;
+    width: 100%;
+    float: left;
+}
+.e-act-container{
+    position: relative;
+    float: left;
+}
+.e-act a{
+    color: white;
+}
+.e-act a:hover{
+    color: black;
+}
+.e-act-button{
+    padding: 15px;
+    margin-right: 10px;
+    background: linear-gradient(230deg, #FFC000 1.55%, #FF8A00 95.8%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
 /*////////////////////////////////////////////////////////*/
 
 /*////////////////////////////////////////////////////////*/
