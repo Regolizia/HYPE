@@ -806,8 +806,12 @@ div.card-body{
 .vol-events-container a{
     color: #D37200;
 }
-.vol-left-container h1{
-    font-size: 2rem
+.vol-left-container h1 {
+    font-size: 2rem;
+    background: linear-gradient(230deg, #FFC000 1.55%, #FF8A00 95.8%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 30px;
 }
 
 @media screen and (max-width: 992px) {
@@ -877,6 +881,14 @@ div.card-body{
     background: linear-gradient(230deg, #FFC000 1.55%, #FF8A00 95.8%);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+@media screen and (max-width: 992px) {
+    .event-activities .e-act-button{
+        margin: 5px;
+    }
+    .event-activities .col-lg-5{
+        margin-bottom: 20px;
+    }
+}
 /*//////////////////// ACTIVITY ////////////////////////////////////*/
 /*.act-left-container{*/
 /*    position: relative;*/
@@ -898,6 +910,13 @@ div.card-body{
 .sidebar div.active-button a{
     color: white;
 }
+
+.event-activities .col-lg-3 {
+    text-align: center;
+    padding-top: 60px;
+}
+
+
 .act-container{
     margin-top: 40px;
     min-height: 800px;
@@ -905,8 +924,8 @@ div.card-body{
 
 }
 .act-card {
-    border: none;
-    /*box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);*/
+        border: none;
+        /*box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);*/
     margin: 10px;
     max-width: 8rem;
 }
@@ -929,6 +948,79 @@ div.card-body{
 }
 .act-org-text{
     text-align: right;
+}
+.act-pic{
+    height: 70px;
+}
+.act-pic-large{
+    width: 100%;
+}
+.act-pic-container{
+    float: right;
+    /*height: 100px;*/
+    width: 100%;
+}
+.pics-track{
+    width: 100%;
+}
+
+.act-right{
+    margin-top: 50px;
+    padding: 30px;
+}
+
+.act-right h2{
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+.lower{
+    margin-bottom: 40px;
+}
+@media screen and (max-width: 992px) {
+    .sidebar{
+        width: 100%;
+        box-shadow: none;
+    }
+    .flex-row-reverse {
+        flex-direction: row;!important;
+    }
+    .event-activities {
+        width: 90%;
+    }
+    .event-activities .col-lg-3{
+        padding: 0;
+    }
+    .e-act{
+        margin-bottom: 40px;
+        float: none;
+    }
+    .act-container .e-act-button{
+
+        margin-left: auto;
+        margin-right: auto;
+
+        /*margin: 5px;*/
+    }
+    .e-act-container{
+        float: none;
+    }
+}
+@media screen and (max-width: 600px) {
+    .sidebar-inner {
+        width: 100%;
+    }
+    .event-activities {
+        width: 100%;
+    }
+    .act-card {
+        margin: 3px;
+    }
+    .act-right {
+        padding: 15px;
+    }
+    .act-container h1{
+        margin-top: 20px;
+    }
 }
 /*////////////////////////////////////////////////////////*/
 
