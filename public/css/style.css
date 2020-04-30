@@ -626,6 +626,14 @@ div.card-body{
     .activities{
         width: 80%;
     }
+    .activity{
+        border-radius: 35px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .activity{
+        border-radius: 25px;
+    }
 }
 /*////////////////////// EVENTS //////////////////////////////////*/
 /*body{*/
