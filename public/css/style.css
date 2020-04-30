@@ -702,11 +702,11 @@ div.card-body{
 }
 
 .slider{
-    width: 90%;
+    width: 80%;
     float: left;
 }
 .arrow-slider{
-    width: 5%;
+    width: 10%;
     float: left;
     height: 100%;
 }
