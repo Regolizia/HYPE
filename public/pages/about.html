@@ -39,14 +39,15 @@
 </header>
 
 <nav role="navigation" class="dropdown">
-    <a class="active-a" href="#"><div class="active-button d-item">Welcome</div></a>
-    <a href="#"><div  class="d-item">History</div></a>
-    <a href="#"><div  class="d-item">Thanks</div></a>
+    <a class="active-a dr-a" href="#" onclick="openDA('first')"><div class="active-button d-item dr-it">Welcome</div></a>
+    <a class="dr-a" href="#" onclick="openDA('second')"><div  class="d-item dr-it">History</div></a>
+    <a class="dr-a" href="#" onclick="openDA('third')"><div  class="d-item dr-it">Thanks</div></a>
 </nav>
 <!--///////////////////////////   NAVBAR   ///////////////////////////////////-->
 
 
 <main role="main" class="about-container">
+    <div id="first" class="DA">
     <div class="row">
         <div class="col-lg-5">
             <div class="about-left">
@@ -91,6 +92,11 @@
             </div>
         </div>
     </div>
+    </div>
+    <div id="second" class="DA">
+    </div>
+    <div id="third" class="DA">
+    </div>
 </main>
 
 
@@ -130,7 +136,39 @@
 </footer>
 <!--///////////////////////////   FOOTER   ///////////////////////////////////-->
 
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+</script>
 
+<script>
+    function openDA(DAname) {
+        var i;
+        var x = document.getElementsByClassName("DA");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        document.getElementById(DAname).style.display = "block";
+
+        var y = document.getElementsByClassName('dr-a');
+        for (i = 0; i < y.length; i++) {
+            if(y[i].className === 'active-a'){
+                y[i].remon
+            }
+        }
+        $('.dr-a').removeClass('active-a');
+        $('.dr-it').removeClass('active-button');
+    }
+</script>
+<script>
+    $( ".dr-a" ).each(function() {
+        var $thisA = $( this );
+        $thisA.click(function() {
+            $thisA.toggleClass( "active-a");
+            $thisA.children().toggleClass( "active-button");
+
+        });
+    });
+</script>
 
 </body>
 

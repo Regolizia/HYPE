@@ -47,14 +47,15 @@
 
 <nav role="navigation" class="dropdown2">
     <div class="d-vol">
-        <a class="active-a" href="#"><div class="active-button d-item2">Profile</div></a>
-        <a href="#"><div  class="d-item2">Activities & Contacts</div></a>
+        <a class="active-a dr-a" href="#" onclick="openDA('first')"><div class="active-button d-item2 dr-it">Profile</div></a>
+        <a class="dr-a" href="#" onclick="openDA('second')"><div  class="d-item2 dr-it">Activities & Contacts</div></a>
     </div>
 </nav>
 <!--///////////////////////////   NAVBAR   ///////////////////////////////////-->
 
 
 <main role="main" class="about-container">
+    <div id="first" class="DA">
     <div class="row">
         <div class="col-lg-5">
             <div class="about-left">
@@ -96,6 +97,9 @@
             </div>
         </div>
     </div>
+    </div>
+    <div id="second" class="DA">
+    </div>
 </main>
 
 
@@ -135,7 +139,22 @@
 </footer>
 <!--///////////////////////////   FOOTER   ///////////////////////////////////-->
 
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+</script>
 
+<script>
+    function openDA(DAname) {
+        var i;
+        var x = document.getElementsByClassName("DA");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        document.getElementById(DAname).style.display = "block";
+        $('.dr-it').toggleClass('active-button');
+        $('.dr-a').toggleClass('active-a');
+    }
+</script>
 
 </body>
 
