@@ -117,9 +117,9 @@ a.contact-title p{
 
 .navbar-right a{
 
-    font-weight: bold;
+    /*font-weight: bold;*/
     font-style: normal;
-    /*font-weight: 500;*/
+    font-weight: 500;
     font-size: 15px;
     line-height: 110px;
     background: linear-gradient(230deg, #FFC000 1.55%, #FF8A00 95.8%);
@@ -296,6 +296,7 @@ i.fa-angle-double-right{
 @media screen and (max-width: 800px){
     .header-title{
         margin-top: 2rem;
+        font-size: 30px;
     }
     .header-container{
         padding-bottom: 40px;
@@ -1091,7 +1092,7 @@ a.menu-button{
         width: 100%;
     }
     .act-card {
-        margin: 3px;
+        margin: 1px;
     }
     .act-right {
         padding: 15px;
@@ -1188,4 +1189,31 @@ a.menu-button{
         display: none;
     }
 }
+/*////////////////////// TERMS //////////////////////////////////*/
+.terms-container{
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.terms-container h1{
+    font-size: 30px;
+}
+.terms-container h2{
+    font-size: 26px;
+}
+@media screen and (max-width: 600px) {
+    .terms-container{
+        padding: 30px;
+        padding-top: 80px;
+    }
+}
+/*////////////////////////////////////////////////////////*/
+
+/*////////////////////////////////////////////////////////*/
+
+/*////////////////////////////////////////////////////////*/
+
+/*////////////////////////////////////////////////////////*/
+
 /*////////////////////////////////////////////////////////*/

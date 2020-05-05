@@ -106,6 +106,10 @@ app.get('/contact-us.html', function(req, res) {
   res.sendFile(path.join(__dirname + '/public/pages/contact-us.html'));
 });
 
+app.get('/terms.html', function(req, res) {
+  res.sendFile(path.join(__dirname + '/public/pages/terms.html'));
+});
+
 
 
 
