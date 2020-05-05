@@ -44,8 +44,8 @@
 </nav>
 <nav role="navigation" class="dropdown2">
     <div class="d-vol">
-        <a class="active-a" href="#" onclick="openDA('first')"><div class="active-button d-item2">First part</div></a>
-        <a href="#" onclick="openDA('second')"><div  class="d-item2" >Second part</div></a>
+        <a class="active-a dr-a" href="#" onclick="openDA('first')"><div class="active-button d-item2 dr-it">First part</div></a>
+        <a class="dr-a" href="#" onclick="openDA('second')"><div  class="d-item2 dr-it" >Second part</div></a>
     </div>
 </nav>
 
@@ -205,6 +205,9 @@
             x[i].style.display = "none";
         }
         document.getElementById(DAname).style.display = "block";
+
+        $('.dr-it').toggleClass('active-button');
+        $('.dr-a').toggleClass('active-a');
     }
 </script>
 
