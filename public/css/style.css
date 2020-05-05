@@ -116,8 +116,10 @@ a.contact-title p{
 }
 
 .navbar-right a{
+
+    font-weight: bold;
     font-style: normal;
-    font-weight: 500;
+    /*font-weight: 500;*/
     font-size: 15px;
     line-height: 110px;
     background: linear-gradient(230deg, #FFC000 1.55%, #FF8A00 95.8%);
@@ -161,15 +163,22 @@ a.logo:hover{
         left: 0px;
     }
     .navbar-right{
+        text-align: center;
+        width: 100%;
         margin-left:auto;
         margin-right:auto;
         position: relative;
         right: 0px;
     }
     .navbar-right a{
-        padding: 6px;
-        font-size: 13px;
+        float: left;
+        width: 25%;
+        padding: 2px;
+        font-size: 16px;
         line-height: 50px;
+    }
+    .navbar-right a i{
+        display: none;
     }
 }
 a.active-button{
@@ -180,7 +189,7 @@ a.active-button{
 .small-navbar{
     position: relative;
     width: 100%;
-    height:40px;
+    height:50px;
     left: 0px;
     top: 0px;
     background: #000000;
@@ -192,7 +201,7 @@ a.active-button{
 /*    text-decoration:none;*/
 /*}*/
 .small-navbar-text{
-    padding: 8px 12px;
+    padding: 12px 12px;
     color: white;
     display: inline-block;
 }
@@ -200,7 +209,7 @@ a.active-button{
     color: white;
 }
 .small-navbar-text-link{
-    padding: 8px 12px;
+    padding: 12px 12px;
     color: #FF8A00;
     display: inline-block;
 }
@@ -212,6 +221,25 @@ i.fa-angle-double-right{
 }
 .small-navbar a:hover{
     color: #fdcf00;
+}
+/* CONNECTED TO MENU-BUTTON, SAME NUMBER*/
+@media screen and (max-width: 992px) {
+    .sidebar{
+        display: none;
+    }
+}
+@media screen and (max-width: 800px){
+    .small-navbar{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .small-navbar-text{
+        font-size: 18px;
+    }
+    .small-navbar-text-link{
+        font-size: 18px;
+    }
+
 }
 /*////////////////////// COMMENTS //////////////////////////////////*/
 .comments{
@@ -263,7 +291,7 @@ i.fa-angle-double-right{
 }
 .header-description{
     line-height: 120%;
-    font-weight: bold;
+    /*font-weight: bold;*/
 }
 @media screen and (max-width: 800px){
     .header-title{
@@ -376,6 +404,7 @@ a.active-a{
 a.active-a:hover{
     color:  black;
 }
+/* CONNECTED TO MENU-BUTTON, SAME NUMBER*/
 @media screen and (max-width: 992px) {
     .dropdown{
         width: 100%;
@@ -405,6 +434,7 @@ a.active-a:hover{
     }
 
     .navbar{box-shadow: 0px 6px 15px rgba(160, 121, 0, 0.2);
+        padding: 0rem;
     }
 }
 @media screen and (max-width: 600px) {
@@ -565,7 +595,10 @@ div.card-body{
         float: none;
     }
     .volunteers-text-area2{
-        width: 90%;
+        width: 95%;
+    }
+    .volunteers-text-area2 p {
+        font-size: 15px;
     }
     .vol-row {
         margin-bottom: 0px;
@@ -621,18 +654,33 @@ div.card-body{
 .activity .col-lg-4{
     padding: 0;
 }
-
+.activity h3{
+     margin-top: 0;
+     /*margin-bottom: 0rem;*/
+}
 @media screen and (max-width: 800px) {
     .activities{
-        width: 80%;
+        width: 60%;
     }
     .activity{
         border-radius: 35px;
+    }
+
+    .activity h3{
+        font-size: 24px;
+
+        margin-bottom: 1rem;
     }
 }
 @media screen and (max-width: 600px) {
     .activity{
         border-radius: 25px;
+    }
+    .activities {
+        width: 80%;
+    }
+    .activity h3{
+        font-size: 20px;
     }
 }
 /*////////////////////// EVENTS //////////////////////////////////*/
@@ -734,18 +782,7 @@ div.card-body{
     font-size: 13px;
 }
 
-@media screen and (max-width: 800px) {
 
-    .events-text-area {
-        text-align: center;
-        padding-bottom: 10px;
-        padding-top: 10px;
-    }
-
-    .events-text-area h5 {
-        float: none;
-    }
-}
 .slick-slider {
     margin-bottom: 15px;
 }
@@ -789,6 +826,32 @@ div.card-body{
 .home-events{
     padding-top: 20px;
     padding-bottom: 20px;
+}
+@media screen and (max-width: 800px) {
+
+    .events-text-area {
+        text-align: center;
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+    .events-text-area {
+        width: 95%;
+        min-height: 80px;
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+    .events-text-area p {
+        font-size: 15px;
+    }
+    .event-card-title {
+        font-size: 15px;
+    }
+    .event-card-body {
+        font-size: 15px;
+    }
+    .events-text-area h5 {
+        float: none;
+    }
 }
 /*///////////////// VOLUNTEER ///////////////////////////////////////*/
 .vol-pic{
@@ -923,7 +986,14 @@ div.card-body{
     text-align: center;
     padding-top: 60px;
 }
+a.menu-button{
+    float: right;
+    color: white;
 
+    z-index: 110;
+    /*padding: 8px 12px;*/
+    /*height: 40px;*/
+}
 
 .act-container{
     margin-top: 40px;
@@ -1030,6 +1100,92 @@ div.card-body{
         margin-top: 20px;
     }
 }
-/*////////////////////////////////////////////////////////*/
+/*/////////////////// MENU /////////////////////////////////////*/
 
+.mainMenu {
+    background: linear-gradient(230deg, #FFC000 1.55%, #FF8A00 95.8%);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    height: 100vh;
+    width: 100vw;
+    display: none;
+    text-align: center;
+    transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    /*transform: scale(0);*/
+
+
+}
+.act {
+    display: flex;
+    /*transform: scale(0);*/
+    -webkit-animation: rotate-in-center 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: rotate-in-center 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+@-webkit-keyframes rotate-in-center {
+    0% {
+        -webkit-transform: rotate(-360deg);
+        transform: rotate(-360deg);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+        opacity: 1;
+    }
+}
+@keyframes rotate-in-center {
+    0% {
+        -webkit-transform: rotate(-360deg);
+        transform: rotate(-360deg);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+        opacity: 1;
+    }
+}
+
+
+.mainMenu a{
+    color: white;
+    font-size: 22px;
+}
+.mainMenu-inner{
+    margin-top: 10px;
+    width: 100vw;
+}
+.mainMenu-inner a div {
+    padding: 10px;
+    width: 100vw;
+}
+.mainMenu-inner div:hover{
+    background: white;
+}
+.mainMenu-inner a:hover{
+    color: black;
+}
+.mainMenu p{
+    color: white;
+    font-size: 24px;
+
+    margin-top: 20px;
+}
+.mainMenu-inner a.menu-button {
+    float: none;
+    font-size: 46px;
+}
+.mainMenu-inner a.active-a{
+    color: white;
+}
+.mainMenu-inner div.active-button{
+    background: #ff7700;
+}
+@media screen and (min-width: 992px) {
+    .menu-button {
+        display: none;
+    }
+}
 /*////////////////////////////////////////////////////////*/

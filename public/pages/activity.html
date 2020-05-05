@@ -43,6 +43,8 @@
     <a class="small-navbar-text-link" href=/pages/activities.html>Activities</a>
     <a class="small-navbar-text" href=#> <i class="fa fa-angle-double-right" ></i></a>
     <a class="small-navbar-text" href=#>Writing poetry</a>
+
+    <a class="small-navbar-text menu-button"><i class="fa fa-bars" aria-hidden="true"></i></a>
 </nav>
 <nav role="navigation-activities" class="sidebar">
     <div class="sidebar-inner">
@@ -60,6 +62,38 @@
     </div>
 </nav>
 
+
+<nav class="mainMenu align-items-center justify-content-center inact">
+<!--    <div class="e-act-container lower">-->
+        <div class="mainMenu-inner">
+            <a class="menu-button"><div><i class="fa fa-close" aria-hidden="true"></i></div></a>
+
+            <p>Activities</p>
+            <a href="#">
+            <div>
+                Public speaking
+            </div>
+            </a>
+
+            <a href="#">
+                <div>
+                    Express yourself
+                </div>
+            </a>
+
+            <a href="#" class="active-a">
+                <div class="active-button">
+                    Writing poetry
+                </div>
+            </a>
+
+            <a href="#">
+                <div>
+                    Poetry Slam
+                </div>
+            </a>
+<!--        </div>-->
+</nav>
 <!--///////////////////////////   NAVBAR   ///////////////////////////////////-->
 
 
@@ -300,13 +334,16 @@
             $(respId).slick('slickNext');
         });
 
-
-
-
-
     });
 </script>
 
+<!-- MENU-->
+<script>$(document).ready(function(){
+    // menu click event
+    $('.menu-button').click(function() {
+        $('.mainMenu').toggleClass('act');
+    });
+});</script>
 
 
 </body>
