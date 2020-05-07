@@ -4,10 +4,12 @@ let sqlDb;
 
 exports.eventsDbSetup = function(database) {
     sqlDb = database;
-    return database.schema.hasTable("events").then(exists => {
+    console.log("name: " + database.name);
+    // return database.schema.hasTable("events").then(exists => { CHANGED
+    return sqlDb.schema.hasTable("Event").then(exists => {
         if (!exists) {
-            //console.log("It doesn't so we create it");
-            return database.schema.createTable("events", table => {
+            console.log("Table doesn't exist so we create it");
+            return database.schema.createTable("Event", table => {
                 //table.increments();
                 table.increments("id").primary();
                 table.string("name");
@@ -22,7 +24,7 @@ exports.eventsDbSetup = function(database) {
             });
         }
         else{
-            //console.log("table already exists");
+            console.log("Table already exists");
         }
     });
 };
@@ -43,25 +45,43 @@ exports.eventIdGET = function(id) {
         .then(data => {
             return data
         });
-}
+};
 
 
 
 
 
 /**
- * Events availble in the store
- * List of events available in the inventory
+ * Events scheduled
+ * List of events scheduled
  *
  * returns List
  **/
 exports.eventsGET = function() {
-    return sqlDb("events")
-        .orderBy('id')
-        .then(data => {
-            return data
-        });
+    return sqlDb('Event')
 };
+//   return new Promise(function(resolve, reject) {
+//     var examples = {};
+//     examples['application/json'] = [ {
+//   "id" : 0,
+//   "name" : "How to create a poem",
+//   "date" : "2020-07-21",
+//   "location" : "Honolulu",
+//   "description" : "Expressing your thoughts"
+// }, {
+//   "id" : 0,
+//   "name" : "How to create a poem",
+//   "date" : "2020-07-21",
+//   "location" : "Honolulu",
+//   "description" : "Expressing your thoughts"
+// } ];
+//     if (Object.keys(examples).length > 0) {
+//       resolve(examples[Object.keys(examples)[0]]);
+//     } else {
+//       resolve();
+//     }
+//   });
+// }
 
 
 /**

@@ -1,15 +1,15 @@
 swagger: '2.0'
 info:
   version: '1.0.0'
-  title: 'Association'
+  title: 'Youth Speak Hawaii'
   description: 'This is voluntary association'
   contact:
     email: "leosmile38@gmail.com"
   license:
     name: "Apache-2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
-host: "youthspeakshawaii.herokuapp.com"
-# host: "localhost:5000"
+# host: "youthspeakshawaii.herokuapp.com"
+host: "localhost:3000"
 basePath: "/v2"
 
 schemes:
@@ -18,12 +18,12 @@ schemes:
 
 tags:
   - name: "event"
-    description: "Events available"
-  - name: "activity"
+    description: "Events scheduled"
+  - name: "service"
     description: "Services offered"
   - name: "contact"
-    description: "Main organizers"
-    
+    description: "Volunteers"
+
     # book -> event
     # event -> activity
     # author -> contact
@@ -38,6 +38,15 @@ paths:
       operationId: "eventsGET"
       produces:
         - "application/json"
+      parameters:
+        - name: "limit"
+          in: "query"
+          description: "max number of events"
+          type: "integer"
+        - name: "offset"
+          in: "query"
+          description: "Pagination offset. Default is 0"
+          type: "integer"
       responses:
         '200':
           description: "Collection of events"
@@ -63,10 +72,14 @@ paths:
           type: "integer"
           format: "int64"
       responses:
-        200:
+        '200':
           description: "operation was successful"
           schema:
             $ref: '#/definitions/Event'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Event not found
       x-swagger-router-controller: "Event"
 
   /events/{id}/contact:
@@ -109,27 +122,27 @@ paths:
             $ref: '#/definitions/Activity'
 
       x-swagger-router-controller: "Event"
-      
-  # /events/{id}/similar:
-  #   get:
-  #     tags:
-  #       - "book"
-  #     summary: "Get similar books to the chosen one"
-  #     operationId: "booksIdSimilarGET"
-  #     parameters:
-  #       - name: "id"
-  #         in: "path"
-  #         description: "id of the book you want the similars of"
-  #         required: true
-  #         type: "integer"
-  #         format: "int64"
-  #     responses:
-  #       '200':
-  #         description: "successful operation"
-  #         schema:
-  #           $ref: '#/definitions/Book'
-  #     x-swagger-router-controller: "Book"
-      
+
+      # /events/{id}/similar:
+      #   get:
+      #     tags:
+      #       - "book"
+      #     summary: "Get similar books to the chosen one"
+      #     operationId: "booksIdSimilarGET"
+      #     parameters:
+      #       - name: "id"
+      #         in: "path"
+      #         description: "id of the book you want the similars of"
+      #         required: true
+      #         type: "integer"
+      #         format: "int64"
+      #     responses:
+      #       '200':
+      #         description: "successful operation"
+      #         schema:
+      #           $ref: '#/definitions/Book'
+      #     x-swagger-router-controller: "Book"
+
   # /books/themes:
   #   get:
   #     tags:
@@ -274,7 +287,7 @@ paths:
             items:
               $ref: '#/definitions/Contact'
       x-swagger-router-controller: "Contact"
-      
+
   /contacts/{id}:
     get:
       tags:
@@ -320,7 +333,7 @@ paths:
             items:
               $ref: '#/definitions/Event'
       x-swagger-router-controller: "Contact"
-      
+
   # /user/login:
   #   post:
   #     tags:
@@ -470,8 +483,8 @@ paths:
   #       200:
   #         description: "operation status"
   #     x-swagger-router-controller: "User"
-  
-  
+
+
 definitions:
 
   Event:

@@ -38,6 +38,8 @@
 <!--        </a>-->
 </header>
 <!--///////////////////////////   NAVBAR   ///////////////////////////////////-->
+<ul></ul>
+
 <main role="main">
 <div class="header-container">
 
@@ -266,6 +268,20 @@
     });
 </script>
 
+<!-- FAKE RETRIEVE SCRIPT-->
+<script>
+    var myList = document.querySelector("ul");
+    fetch("v2/events").then(function (response) {
+        return response.json();
+    }).then(function (json) {
+        for(var i=0; i<json.length; i++){
+            var listItem = document.createElement("li");
+            let{title, location, description, date}  = json[i];
+            listItem.innerHTML = title + " --- " + location + " ----  " + description + " ----  " + date;
+            myList.appendChild(listItem);
+        }
+    })
+</script>
 
 
 </body>
