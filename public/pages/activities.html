@@ -39,96 +39,31 @@
 </header>
 <!--///////////////////////////   NAVBAR   ///////////////////////////////////-->
 <main role="main">
-<div class="volunteers-line"></div>
+    <div class="volunteers-line"></div>
 
-<div class="volunteers-text-area">
-    <div class="row volunteers-text-area2">
-        <div class="col-lg-4 my-auto">
-            <h5>Activities</h5>
-        </div>
-        <div class="col-lg-8 my-auto">
-            <p>
-            We offer various activities during our events.<br>
-            Here you can find the complete list of what we offer.
-            Select one to get more information regarding what the activity is about and how it is structured.
-            </p>
+    <div class="volunteers-text-area">
+        <div class="row volunteers-text-area2">
+            <div class="col-lg-4 my-auto">
+                <h5>Activities</h5>
+            </div>
+            <div class="col-lg-8 my-auto">
+                <p>
+                    We offer various activities during our events.<br>
+                    Here you can find the complete list of what we offer.
+                    Select one to get more information regarding what the activity is about and how it is structured.
+                </p>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="activities-container">
-    <div class="activities">
-        <div class="activity">
-
-            <a href=/pages/activity.html>
-            <div class="row">
-
-
-            <div class="col-lg-5 img-col d-flex justify-content-center align-items-center">
-            <img class="activity-img " src="/img/activity-1.jpg" alt="Activity image">
-            </div>
-            <div class="col-lg-7 d-flex justify-content-center align-items-center">
-                <h3>Activity something</h3>
-            </div>
-
-            </div>
-            </a>
+    <div class="activities-container">
+        <div class="activities">
 
         </div>
-        <div class="activity">
-
-        <a href=/pages/activity.html>
-            <div class="row">
-
-
-                <div class="col-lg-5 img-col d-flex justify-content-center align-items-center">
-                    <img class="activity-img " src="/img/activity-2.jpg" alt="Activity image">
-                </div>
-                <div class="col-lg-7 d-flex justify-content-center align-items-center">
-                    <h3>Activity something</h3>
-                </div>
-
-            </div>
-        </a>
-
-        </div>
-        <div class="activity">
-
-            <a href=/pages/activity.html>
-                <div class="row">
-
-
-                    <div class="col-lg-5 img-col d-flex justify-content-center align-items-center">
-                        <img class="activity-img " src="/img/activity-3.jpg" alt="Activity image">
-                    </div>
-                    <div class="col-lg-7 d-flex justify-content-center align-items-center">
-                        <h3>Activity something</h3>
-                    </div>
-
-                </div>
-            </a>
-
-        </div>
-        <div class="activity">
-
-            <a href=/pages/activity.html>
-                <div class="row">
-
-
-                    <div class="col-lg-5 img-col d-flex justify-content-center align-items-center">
-                        <img class="activity-img " src="/img/activity-4.jpg" alt="Activity image">
-                    </div>
-                    <div class="col-lg-7 d-flex justify-content-center align-items-center">
-                        <h3>Activity something</h3>
-                    </div>
-
-                </div>
-            </a>
-
-        </div>
-</div>
-</div>
+    </div>
 </main>
+
+
 <!--///////////////////////////   FOOTER   ///////////////////////////////////-->
 <footer role="contentinfo" class="footer-wrapper">
     <div class="footer">
@@ -162,7 +97,61 @@
 </footer>
 <!--///////////////////////////   FOOTER   ///////////////////////////////////-->
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js"></script>
 
+<!-- DB DATA -->
+<script>
+    var activities = document.querySelector(".activities");
+
+    fetch("v2/activities").then(function (response) {
+        return response.json();
+    }).then(function (json) {
+        for(var i=0; i<json.length; i++){
+            var actDiv = document.createElement("div");
+            var actLink = document.createElement("a");
+            var actDiv2 = document.createElement("div");
+            var actDiv3 = document.createElement("div");
+            var actDiv4 = document.createElement("div");
+            var actTitle = document.createElement("h3");
+
+            actDiv.setAttribute('class', 'activity');
+            actLink.setAttribute('href', '#');
+            actDiv2.setAttribute('class', 'row');
+            actDiv3.setAttribute('class', 'col-lg-5 img-col d-flex justify-content-center align-items-center');
+            actDiv4.setAttribute('class', 'col-lg-7 d-flex justify-content-center align-items-center');
+
+            let{title}  = json[i];
+
+            actTitle.innerHTML = title;
+
+            actDiv4.appendChild(actTitle);
+            // actDiv3.appendChild(actImg);
+            actDiv2.appendChild(actDiv3);
+            actDiv2.appendChild(actDiv4);
+            actLink.appendChild(actDiv2);
+            actDiv.appendChild(actLink);
+            activities.appendChild(actDiv);
+
+
+        }
+    })
+
+</script>
+
+
+<!--<div class="activity">-->
+
+<!--    <a href=/pages/activity.html>-->
+<!--        <div2 class="row">-->
+
+
+<!--            <div 3class="col-lg-5 img-col d-flex justify-content-center align-items-center">-->
+<!--                <img class="activity-img " src="/img/activity-1.jpg" alt="Activity image">-->
+<!--            </div>-->
+<!--            <div 4class="col-lg-7 d-flex justify-content-center align-items-center">-->
+<!--                <h3>Activity something</h3>-->
 
 </body>
 
