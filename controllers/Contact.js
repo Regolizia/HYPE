@@ -3,9 +3,9 @@
 var utils = require('../utils/writer.js');
 var Contact = require('../service/ContactService');
 
-module.exports.contactGET = function contactGET (req, res, next) {
+module.exports.contactsGET = function contactsGET (req, res, next) {
 
-    Contact.contactGET()
+    Contact.contactsGET()
         .then(function (response) {
             utils.writeJson(res, response);
         })

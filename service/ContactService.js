@@ -5,19 +5,21 @@ let sqlDb;
 
 exports.contactsDbSetup = function(database) {
     sqlDb = database;
-    return database.schema.hasTable("contacts").then(exists => {
+    return database.schema.hasTable("Person").then(exists => {
         if (!exists) {
             //console.log("It doesn't so we create it");
-            return database.schema.createTable("contacts", table => {
+            return database.schema.createTable("Person", table => {
                 //table.increments();
                 table.increments("id").primary();
-                table.string("name");
-                table.string("surname");
-                table.text("info");
+                table.string("full_name");
+                table.string("email");
+                table.string("phone");
+                table.string("bio");
+                table.integer("IDperson");
             });
         }
         else{
-            //console.log("table already exists");
+            console.log("Table already exists");
         }
     });
 };
@@ -31,11 +33,8 @@ exports.contactsDbSetup = function(database) {
  *
  * returns List
  **/
-exports.contactGET = function() {
-    return sqlDb("contacts")
-        .then(data => {
-            return data
-        });
+exports.contactsGET = function() {
+    return sqlDb('Person');
 };
 
 

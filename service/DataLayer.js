@@ -1,7 +1,7 @@
 const sqlDbFactory = require("knex");
 
 let { eventsDbSetup } = require("./EventService");
-// let { contactsDbSetup } = require("./ContactService");
+let { contactsDbSetup } = require("./ContactService");
 // let { activitiesDbSetup } = require("./ActivityService");
 
 let sqlDb = sqlDbFactory({
@@ -27,8 +27,8 @@ let sqlDb = sqlDbFactory({
 
 function setupDataLayer() {
     console.log("Setting up data layer");
-    return eventsDbSetup(sqlDb);
-    // .then(() => contactsDbSetup(sqlDb)
+    return eventsDbSetup(sqlDb)
+    .then(() => contactsDbSetup(sqlDb));
     //     .then(() => activitiesDbSetup(sqlDb)));
 }
 

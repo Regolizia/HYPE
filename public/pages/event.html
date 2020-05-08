@@ -56,68 +56,52 @@
 
 <main role="main" class="about-container">
     <div id="first" class="DA">
-    <div class="row">
-        <div class="col-lg-5">
-            <div class="about-left">
-                <div class="vol-left-container">
-                    <h1>First spring tutoring</h1>
-                    <div class="vol-pic-container">
-                        <img src="/img/E02.jpg" class="vol-pic" alt="Event text">
-                    </div>
-                    <div class="vol-events-container">
-
-                        <p><strong>When</strong>
-                        <br>
-                        05/26/2020, 15:00 - 17:00
-                        </p>
-                        <p><strong>Where</strong>
-                        <br>
-                        Kawaiahaʻo Plaza, Honolulu
-                        </p>
-
-                        <p> <strong>Main organizer</strong>
-                        <br>
-                        <a href=# >Stefania Dratz</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-7">
-            <div class="about-right">
-                <h2>Overview</h2>
-                <p>Welcome back everybody!
-                </p><p>
-                    After this long winter we are back the first tutoring session on how to compose poetry!
-                    During this event not only we'll explain the basics on how to start but moreover we'll
-                    talk about how to speak to an audience and defeat anxiety onstage. We are aware of the
-                    fact that both newbies and veterans will attend and we are sure to keep everyone entertained and informed.
-                </p><p>
-                    If you need more information on this event, feel free to contact the main organizer.
-                </p><p>
-                    Additional information about the location or how to reach are in the Practical info section.
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <div class="event-activities">
         <div class="row">
-            <div class="col-lg-5 d-flex align-items-center justify-content-center">Activities of this event</div>
-            <div class="col-lg-7 event-activities-right">
+            <div class="col-lg-5">
+                <div class="about-left">
+                    <div class="vol-left-container">
+                        <h1>First spring tutoring</h1>
+                        <div class="vol-pic-container">
 
-                <div class="e-act-container">
-                    <div class="e-act">
-                        <a href="#"><div class="active-button e-act-button">Writing poetry</div></a>
-                        <a href="#"><div class="active-button e-act-button">Express yourself</div></a>
-                        <a href="#"><div class="active-button e-act-button">Public speaking</div></a>
+                        </div>
+                        <div class="vol-events-container">
+                            <p class="when"> <strong>When</strong>
+                                <br>
+                            </p>
+                            <p class="where"> <strong>Where</strong>
+                                <br>
+                            </p>
+                            <p class="contact"> <strong>Main organizer</strong>
+                                <br>
+                            </p>
+                        </div>
                     </div>
                 </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="about-right">
 
+                </div>
             </div>
         </div>
 
-    </div>
+        <div class="event-activities">
+            <div class="row">
+                <div class="col-lg-5 d-flex align-items-center justify-content-center">Activities of this event</div>
+                <div class="col-lg-7 event-activities-right">
+
+                    <div class="e-act-container">
+                        <div class="e-act">
+                            <a href="#"><div class="active-button e-act-button">Writing poetry</div></a>
+                            <a href="#"><div class="active-button e-act-button">Express yourself</div></a>
+                            <a href="#"><div class="active-button e-act-button">Public speaking</div></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
 
     </div>
     <div id="second" class="DA">
@@ -165,6 +149,37 @@
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
 </script>
+
+<!-- DB DATA -->
+<script>
+    var when = document.querySelector("p.when");
+    var where = document.querySelector("p.where");
+    var contact = document.querySelector("p.contact");
+    var Edescription = document.querySelector(".about-right");
+    var picContainer = document.querySelector(".vol-pic-container");
+
+    fetch("v2/events").then(function (response) {
+        return response.json();
+    }).then(function (json) {
+        let{date, start_time, end_time, location, IDperson, description, img}  = json[0];
+
+        var shortDate = date.substr(0,10);
+        when.innerHTML += shortDate + ", " + start_time + " - " + end_time;
+        where.innerHTML += location;
+        var contactLink = document.createElement("a");
+        contactLink.innerHTML = IDperson;
+        contact.appendChild(contactLink);
+        Edescription.innerHTML += description;
+        var pic = document.createElement("img");
+        pic.setAttribute('class', 'vol-pic');
+        var path = "/img/";
+        path += img;
+        pic.setAttribute('src', path);
+        pic.setAttribute('alt', 'event picture');
+        picContainer.appendChild(pic);
+    })
+</script>
+
 
 <script>
     function openDA(DAname) {

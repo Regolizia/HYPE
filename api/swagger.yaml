@@ -276,7 +276,7 @@ paths:
         - "contact"
       summary: "Finds contacts"
       description: "Get contact"
-      operationId: "contactGET"
+      operationId: "contactsGET"
       produces:
         - "application/json"
       responses:

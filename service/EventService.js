@@ -12,9 +12,11 @@ exports.eventsDbSetup = function(database) {
             return database.schema.createTable("Event", table => {
                 //table.increments();
                 table.increments("id").primary();
-                table.string("name");
-                table.integer("eventId");
+                table.string("title");
+                table.integer("IDevent");
                 table.date("date");
+                table.time("start_time");
+                table.time("end_time");
                 table.string("location");
                 table.text("description");
 
