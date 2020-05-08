@@ -56,47 +56,32 @@
 
 <main role="main" class="about-container">
     <div id="first" class="DA">
-    <div class="row">
-        <div class="col-lg-5">
-            <div class="about-left">
-                <div class="vol-left-container">
-                    <h1>Stefania Dratz</h1>
-                    <div class="vol-pic-container">
-                        <img src="/img/P01.jpg" class="vol-pic" alt="Alt text">
-                    </div>
-                    <div class="vol-events-container">
-                        <p> <strong>Currently organizes</strong></p>
-                        <p><a href=# >First spring tutoring</a>
-                            <br>
-                            <a href=# >Come what May</a>
-                            <br>
-                            <a href=# >Poetry Slam</a>
-                        </p>
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="about-left">
+                    <div class="vol-left-container">
+                        <h1>Stefania Dratz</h1>
+                        <div class="vol-pic-container">
+
+                        </div>
+                        <div class="vol-events-container">
+                            <p> <strong>Currently organizes</strong></p>
+                            <p><a href=# >First spring tutoring</a>
+                                <br>
+                                <a href=# >Come what May</a>
+                                <br>
+                                <a href=# >Poetry Slam</a>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-7">
-            <div class="about-right">
-                <h2>Profile</h2>
-                <p>Stefania Dratz (born 4 October 1992) is a Canadian poet and author.
-                    Her works have been at the forefront of Instapoetry, a new genre of social-media-centered,
-                    short, and easily accessible poetry. She received widespread popularity after the publication
-                    of her debut book “Mint water” (2014) which went on to sell over 2.5 million copies
-                    worldwide and spent more than a year on The New York Times Best Seller list. She has
-                    been further subject to widespread media fame, after using menstrual blood to create varied forms of visual poetry.
-                </p><p>
-                    She attended Turner Fenton Secondary School, before studying rhetoric and professional
-                    writing at the University of Waterloo.
-                </p><p>
-                    Her work is written exclusively in lowercase, using only the period as a form of
-                    punctuation. Kaur writes this way to honour her culture. She has said that she enjoys
-                    the equality of letters and that the style reflects her worldview. Her written work is
-                    meant to be an experience that is easy for the reader to follow, with simple drawings to elevate her words.
-                </p>
+            <div class="col-lg-7">
+                <div class="about-right">
+
+                </div>
             </div>
         </div>
-    </div>
     </div>
     <div id="second" class="DA">
     </div>
@@ -141,6 +126,36 @@
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+</script>
+
+<!-- DB DATA -->
+<script>
+    // var when = document.querySelector("p.when");
+    // var where = document.querySelector("p.where");
+    // var contact = document.querySelector("p.contact");
+    var Vbio = document.querySelector(".about-right");
+    var picContainer = document.querySelector(".vol-pic-container");
+
+    fetch("v2/contacts").then(function (response) {
+        return response.json();
+    }).then(function (json) {
+        let{full_name, bio, phone, email,  img}  = json[0];
+
+        // var shortDate = date.substr(0,10);
+        // when.innerHTML += shortDate + ", " + start_time + " - " + end_time;
+        // where.innerHTML += location;
+        // var contactLink = document.createElement("a");
+        // contactLink.innerHTML = IDperson;
+        // contact.appendChild(contactLink);
+        Vbio.innerHTML += bio;
+        var pic = document.createElement("img");
+        pic.setAttribute('class', 'vol-pic');
+        var path = "/img/";
+        path += img;
+        pic.setAttribute('src', path);
+        pic.setAttribute('alt', 'volunteer picture');
+        picContainer.appendChild(pic);
+    })
 </script>
 
 <script>
