@@ -168,10 +168,7 @@
         var shortDate = date.substr(0,10);
         when.innerHTML += shortDate + ", " + start_time + " - " + end_time;
         where.innerHTML += location;
-        var contactLink = document.createElement("a");
-        contactLink.innerHTML = IDperson;
-        contact.appendChild(contactLink);
-        Edescription.innerHTML += description;
+                Edescription.innerHTML += description;
         var pic = document.createElement("img");
         pic.setAttribute('class', 'vol-pic');
         var path = "/img/";
@@ -179,6 +176,17 @@
         pic.setAttribute('src', path);
         pic.setAttribute('alt', 'event picture');
         picContainer.appendChild(pic);
+
+        var contactLink = document.createElement("a");
+
+        fetch("v2/contacts").then(function (response) {
+            return response.json();
+        }).then(function (data) {
+            let{full_name}  = data[0];
+            contactLink.innerHTML = full_name;
+            contact.appendChild(contactLink);
+        })
+
     })
 </script>
 
