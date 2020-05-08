@@ -1062,10 +1062,12 @@ a.menu-button{
     text-align: right;
 }
 .act-pic{
-    height: 70px;
+    width: 100%;
+    height: auto;
 }
 .act-pic-large{
     width: 100%;
+    height: auto;
 }
 .act-pic-container{
     float: right;
@@ -1088,6 +1090,12 @@ a.menu-button{
 .lower{
     margin-bottom: 40px;
 }
+/*.act-pic-container .slick-slide{         ACTIVITY IMAGE     */
+
+/*    !*width: auto!important;*!*/
+/*    !*height: 100%;*!*/
+/*}*/
+
 @media screen and (max-width: 992px) {
     .sidebar{
         width: 100%;
