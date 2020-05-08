@@ -48,10 +48,10 @@
 </nav>
 <nav role="navigation-activities" class="sidebar">
     <div class="sidebar-inner">
-        <a  href="#"><div  class="d-item2">Public speaking</div></a>
-        <a href="#"><div  class="d-item2">Express yourself</div></a>
-        <a class="active-a" href="#"><div class="active-button d-item2">Writing poetry</div></a>
-        <a href="#"><div  class="d-item2">Poetry Slam</div></a>
+        <!--        <a  href="#"><div  class="d-item2">Public speaking</div></a>-->
+        <!--        <a href="#"><div  class="d-item2">Express yourself</div></a>-->
+        <!--        <a class="active-a" href="#"><div class="active-button d-item2">Writing poetry</div></a>-->
+        <!--        <a href="#"><div  class="d-item2">Poetry Slam</div></a>-->
     </div>
 </nav>
 
@@ -69,30 +69,29 @@
         <a class="menu-button"><div><i class="fa fa-close" aria-hidden="true"></i></div></a>
 
         <p>Activities</p>
-        <a href="#">
-            <div>
-                Public speaking
-            </div>
-        </a>
+        <!--        <a href="#">-->
+        <!--            <div>-->
+        <!--                Public speaking-->
+        <!--            </div>-->
+        <!--        </a>-->
 
-        <a href="#">
-            <div>
-                Express yourself
-            </div>
-        </a>
+        <!--        <a href="#">-->
+        <!--            <div>-->
+        <!--                Express yourself-->
+        <!--            </div>-->
+        <!--        </a>-->
 
-        <a href="#" class="active-a">
-            <div class="active-button">
-                Writing poetry
-            </div>
-        </a>
+        <!--        <a href="#" class="active-a">-->
+        <!--            <div class="active-button">-->
+        <!--                Writing poetry-->
+        <!--            </div>-->
+        <!--        </a>-->
 
-        <a href="#">
-            <div>
-                Poetry Slam
-            </div>
-        </a>
-        <!--        </div>-->
+        <!--        <a href="#">-->
+        <!--            <div>-->
+        <!--                Poetry Slam-->
+        <!--            </div>-->
+        <!--        </a>-->
 </nav>
 <!--///////////////////////////   NAVBAR   ///////////////////////////////////-->
 
@@ -263,6 +262,8 @@
     var Atitle = document.querySelector(".title");
     var Adescription = document.querySelector(".act-right");
     var picContainer = document.querySelector(".vol-pic-container");
+    var activities = document.querySelector(".sidebar-inner");
+    var activitiesSmall = document.querySelector(".mainMenu-inner");
 
     fetch("v2/activities").then(function (response) {
         return response.json();
@@ -284,8 +285,43 @@
         // pic.setAttribute('src', path);
         // pic.setAttribute('alt', 'volunteer picture');
         // picContainer.appendChild(pic);
+
+        fetch("v2/activities").then(function (response) {
+            return response.json();
+        }).then(function (json) {
+            for(var i=0; i<json.length; i++){
+                var actLink = document.createElement("a");
+                var actLinkSmall = document.createElement("a");
+                var actDiv = document.createElement("div");
+                var actDivSmall = document.createElement("div");
+
+                let{title}  = json[i];
+                actDiv.innerHTML = title;
+                actDiv.setAttribute('class', 'd-item2');
+                actLink.setAttribute('href', '#');
+                actLink.appendChild(actDiv);
+                activities.appendChild(actLink);
+
+                actDivSmall.innerHTML = title;
+                actLinkSmall.appendChild(actDivSmall);
+                activitiesSmall.appendChild(actLinkSmall);
+
+            }
+        })
     })
+
 </script>
+
+<!--     SELECTED ACTIVITY HAS OTHER CLASSES!    -->
+<!--<a class="active-a" href="#"><div class="active-button d-item2">Writing poetry</div></a>-->
+
+<!--    SMALL SIDEBAR VERISON   -->
+<!--        <a href="#" class="active-a">-->
+<!--            <div class="active-button">-->
+<!--                Writing poetry-->
+<!--            </div>-->
+<!--        </a>-->
+
 
 <script>
     $('.slider-nav').each(function(key, item) {
