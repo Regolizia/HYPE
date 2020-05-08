@@ -14,7 +14,8 @@
     <!--    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
     <title>Youth Speaks Hawai‘i</title>
     <link rel="icon" href="/img/icon.ico">
-    <!--    <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/owl.carousel.min.js" rel="stylesheet" />-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.css"/>
 </head>
 
 <body>
@@ -39,52 +40,176 @@
 </header>
 
 <nav role="navigation-back" class="small-navbar">
-    <a class="small-navbar-text-link" href=/pages/volunteers.html>Volunteers</a>
+    <a class="small-navbar-text-link" href=/pages/activities.html>Activities</a>
     <a class="small-navbar-text" href=#> <i class="fa fa-angle-double-right" ></i></a>
-    <a class="small-navbar-text" href=#>Stefania Dratz</a>
-</nav>
+    <a class="small-navbar-text" href=#>Writing poetry</a>
 
+    <a class="small-navbar-text menu-button"><i class="fa fa-bars" aria-hidden="true"></i></a>
+</nav>
+<nav role="navigation-activities" class="sidebar">
+    <div class="sidebar-inner">
+        <a  href="#"><div  class="d-item2">Public speaking</div></a>
+        <a href="#"><div  class="d-item2">Express yourself</div></a>
+        <a class="active-a" href="#"><div class="active-button d-item2">Writing poetry</div></a>
+        <a href="#"><div  class="d-item2">Poetry Slam</div></a>
+    </div>
+</nav>
 
 <nav role="navigation" class="dropdown2">
     <div class="d-vol">
-        <a class="active-a dr-a" href="#" onclick="openDA('first')"><div class="active-button d-item2 dr-it">Profile</div></a>
-        <a class="dr-a" href="#" onclick="openDA('second')"><div  class="d-item2 dr-it">Activities & Contacts</div></a>
+        <a class="active-a dr-a" href="#" onclick="openDA('first')"><div class="active-button d-item2 dr-it">Presentation</div></a>
+        <a class="dr-a" href="#" onclick="openDA('second')"><div  class="d-item2 dr-it">Practical info</div></a>
     </div>
+</nav>
+
+
+<nav class="mainMenu align-items-center justify-content-center inact">
+    <!--    <div class="e-act-container lower">-->
+    <div class="mainMenu-inner">
+        <a class="menu-button"><div><i class="fa fa-close" aria-hidden="true"></i></div></a>
+
+        <p>Activities</p>
+        <a href="#">
+            <div>
+                Public speaking
+            </div>
+        </a>
+
+        <a href="#">
+            <div>
+                Express yourself
+            </div>
+        </a>
+
+        <a href="#" class="active-a">
+            <div class="active-button">
+                Writing poetry
+            </div>
+        </a>
+
+        <a href="#">
+            <div>
+                Poetry Slam
+            </div>
+        </a>
+        <!--        </div>-->
 </nav>
 <!--///////////////////////////   NAVBAR   ///////////////////////////////////-->
 
 
-<main role="main" class="about-container">
+
+<main role="main" class="act-container">
     <div id="first" class="DA">
         <div class="row">
+            <!--        <div class="col-lg-2">-->
+            <!--        </div>-->
             <div class="col-lg-5">
-                <div class="about-left">
+                <div>
                     <div class="vol-left-container">
-                        <h1>Stefania Dratz</h1>
-                        <div class="vol-pic-container">
+                        <h1 class="title"></h1>
+                        <div class="slider slider-for act-pic-container">
+
+                            <div><img src="/img/E01.jpg" class="act-pic-large" alt="Alt text"></div>
+                            <div><img src="/img/E02.jpg" class="act-pic-large" alt="Alt text"></div>
+                            <div><img src="/img/E01.jpg" class="act-pic-large" alt="Alt text"></div>
+                            <div><img src="/img/E02.jpg" class="act-pic-large" alt="Alt text"></div>
+                            <div><img src="/img/E01.jpg" class="act-pic-large" alt="Alt text"></div>
 
                         </div>
-                        <div class="vol-events-container">
-                            <p> <strong>Currently organizes</strong></p>
-                            <p><a href=# >First spring tutoring</a>
-                                <br>
-                                <a href=# >Come what May</a>
-                                <br>
-                                <a href=# >Poetry Slam</a>
-                            </p>
+
+                        <div class="slider slider-nav responsive pics-track">
+
+                            <div><img src="/img/E01.jpg" class="act-pic" alt="Alt text"></div>
+                            <div><img src="/img/E02.jpg" class="act-pic" alt="Alt text"></div>
+                            <div><img src="/img/E01.jpg" class="act-pic" alt="Alt text"></div>
+                            <div><img src="/img/E02.jpg" class="act-pic" alt="Alt text"></div>
+                            <div><img src="/img/E01.jpg" class="act-pic" alt="Alt text"></div>
                         </div>
+
+
+
+
+
+
                     </div>
                 </div>
             </div>
             <div class="col-lg-7">
-                <div class="about-right">
+                <div class="act-right">
+
+                </div>
+
+                <div class="e-act-container lower">
+                    <div class="e-act">
+                        <div class="active-button e-act-button"><a href="#">Events where you can find this activity</a></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="event-activities">
+            <div class="row">
+                <div class="col-lg-3  "><p>Organizers</p></div>
+                <div class="col-lg-9 event-activities-right">
+
+                    <div class="e-act-container">
+                        <div class="e-act">
+                            <div class="act-card">
+                                <a href=/pages/volunteer.html>
+                                    <img class="act-card-img-top" src="/img/P01.jpg" alt="Volunteer image">
+                                    <div class="act-card-body">
+                                        <p class="card-text">Stefania Dratz</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="act-card">
+                                <a href=/pages/volunteer.html>
+                                    <img class="act-card-img-top" src="/img/P01.jpg" alt="Volunteer image">
+                                    <div class="act-card-body">
+                                        <p class="card-text">Stefania Dratz</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="act-card">
+                                <a href=/pages/volunteer.html>
+                                    <img class="act-card-img-top" src="/img/P01.jpg" alt="Volunteer image">
+                                    <div class="act-card-body">
+                                        <p class="card-text">Stefania Dratz</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="act-card">
+                                <a href=/pages/volunteer.html>
+                                    <img class="act-card-img-top" src="/img/P01.jpg" alt="Volunteer image">
+                                    <div class="act-card-body">
+                                        <p class="card-text">Stefania Dratz</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="act-card">
+                                <a href=/pages/volunteer.html>
+                                    <img class="act-card-img-top" src="/img/P01.jpg" alt="Volunteer image">
+                                    <div class="act-card-body">
+                                        <p class="card-text">Stefania Dratz</p>
+                                    </div>
+                                </a>
+                            </div>
+
+
+
+                        </div>
+                    </div>
 
                 </div>
             </div>
+
         </div>
+
     </div>
     <div id="second" class="DA">
     </div>
+
 </main>
 
 
@@ -124,22 +249,25 @@
 </footer>
 <!--///////////////////////////   FOOTER   ///////////////////////////////////-->
 
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-</script>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js"></script>
 
 <!-- DB DATA -->
 <script>
     // var when = document.querySelector("p.when");
     // var where = document.querySelector("p.where");
-    // var contact = document.querySelector("p.contact");
-    var Vbio = document.querySelector(".about-right");
+    var Atitle = document.querySelector(".title");
+    var Adescription = document.querySelector(".act-right");
     var picContainer = document.querySelector(".vol-pic-container");
 
-    fetch("v2/contacts").then(function (response) {
+    fetch("v2/activities").then(function (response) {
         return response.json();
     }).then(function (json) {
-        let{full_name, bio, phone, email,  img}  = json[0];
+        let{title, description, practical_info}  = json[0];
 
         // var shortDate = date.substr(0,10);
         // when.innerHTML += shortDate + ", " + start_time + " - " + end_time;
@@ -147,16 +275,103 @@
         // var contactLink = document.createElement("a");
         // contactLink.innerHTML = IDperson;
         // contact.appendChild(contactLink);
-        Vbio.innerHTML += bio;
-        var pic = document.createElement("img");
-        pic.setAttribute('class', 'vol-pic');
-        var path = "/img/";
-        path += img;
-        pic.setAttribute('src', path);
-        pic.setAttribute('alt', 'volunteer picture');
-        picContainer.appendChild(pic);
+        Adescription.innerHTML += description;
+        Atitle.innerHTML += title;
+        // var pic = document.createElement("img");
+        // pic.setAttribute('class', 'vol-pic');
+        // var path = "/img/";
+        // path += img;
+        // pic.setAttribute('src', path);
+        // pic.setAttribute('alt', 'volunteer picture');
+        // picContainer.appendChild(pic);
     })
 </script>
+
+<script>
+    $('.slider-nav').each(function(key, item) {
+
+        var sliderIdName = 'slider' + key;
+        var sliderNavIdName = 'sliderNav' + key;
+        var sliderArrowIdName = 'sliderArrow' + key;
+        var sliderArrowIdName2 = 'sliderArrow2' + key;
+        var respName = 'resp' + key;
+
+        $('.slider-for')[key].id = sliderIdName;
+        $('.slider-nav')[key].id = sliderNavIdName;
+        // $('.left')[key].id = sliderArrowIdName;
+        // $('.right')[key].id = sliderArrowIdName2;
+        $('.responsive')[key].id = respName;
+
+        var sliderId = '#' + sliderIdName;
+        var sliderNavId = '#' + sliderNavIdName;
+        var sliderArrowId = '#' + sliderArrowIdName;
+        var sliderArrowId2 = '#' + sliderArrowIdName2;
+        var respId = '#' + respName;
+
+        $(sliderId).slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            fade: true,
+            asNavFor: respId
+
+        });
+
+        $(respId).slick({
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            asNavFor: sliderId,
+            dots: true,
+            // centerMode: true,
+            focusOnSelect: true,
+            arrows: false,
+            // });
+            autoplay: true,
+            autoplaySpeed: 2000,
+            responsive: [
+                {
+                    breakpoint: 1224,
+                    settings: {
+                        slidesToShow: 5,
+                        slidesToScroll: 2,
+                        // dots: true
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+
+        $(sliderArrowId).click(function(){
+            $(respId).slick('slickPrev');
+        });
+
+        $(sliderArrowId2).click(function(){
+            $(respId).slick('slickNext');
+        });
+
+    });
+</script>
+
+<!-- MENU-->
+<script>$(document).ready(function(){
+    // menu click event
+    $('.menu-button').click(function() {
+        $('.mainMenu').toggleClass('act');
+    });
+});</script>
 
 <script>
     function openDA(DAname) {

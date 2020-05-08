@@ -5,17 +5,18 @@ let sqlDb;
 
 exports.activitiesDbSetup = function(database) {
     sqlDb = database;
-    return database.schema.hasTable("events").then(exists => {
+    return database.schema.hasTable("Activity").then(exists => {
         if (!exists) {
             //console.log("It doesn't so we create it");
-            return database.schema.createTable("events", table => {
+            return database.schema.createTable("Activity", table => {
                 //table.increments();
                 table.increments("id").primary();
-                table.string("name");
-                table.integer("eventId");
+                table.string("title");
+                table.integer("IDactivity");
                 table.text("description");
+                table.text("practical_info");
 
-                table.foreign("eventId").references("events.id");
+                // table.foreign("eventId").references("events.id");
             });
         }
         else{
@@ -33,13 +34,13 @@ exports.activitiesDbSetup = function(database) {
  **/
 exports.activityIdGET = function(id) {
     return sqlDb
-        .from('activities')
+        .from('Activity')
         .select()
         .where({ id: id })
         .then(data => {
             return data
         });
-}
+};
 
 
 /**
@@ -49,12 +50,8 @@ exports.activityIdGET = function(id) {
  * returns List
  **/
 exports.activitiesGET = function() {
-
-    return sqlDb("activities")
-        .then(data => {
-            return data
-        });
-}
+    return sqlDb('Activity')
+};
 
 
 /**

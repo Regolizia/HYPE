@@ -25,13 +25,13 @@ module.exports.activitiesGET = function activitiesGET (req, res, next) {
         });
 };
 
-module.exports.activitiesIdBookGET = function activitiesIdBookGET (req, res, next) {
-    var id = req.swagger.params['id'].value;
-    Activity.activitiesIdBookGET(id)
-        .then(function (response) {
-            utils.writeJson(res, response);
-        })
-        .catch(function (response) {
-            utils.writeJson(res, response);
-        });
-};
+// module.exports.activitiesIdBookGET = function activitiesIdBookGET (req, res, next) {
+//     var id = req.swagger.params['id'].value;
+//     Activity.activitiesIdBookGET(id)
+//         .then(function (response) {
+//             utils.writeJson(res, response);
+//         })
+//         .catch(function (response) {
+//             utils.writeJson(res, response);
+//         });
+// };
