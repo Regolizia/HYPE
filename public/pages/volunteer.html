@@ -60,7 +60,7 @@
             <div class="col-lg-5">
                 <div class="about-left">
                     <div class="vol-left-container">
-                        <h1>Stefania Dratz</h1>
+                        <h1 class="title"></h1>
                         <div class="vol-pic-container">
 
                         </div>
@@ -135,6 +135,7 @@
     // var contact = document.querySelector("p.contact");
     var Vbio = document.querySelector(".about-right");
     var picContainer = document.querySelector(".vol-pic-container");
+    var Vtitle = document.querySelector(".title");
 
     fetch("v2/contacts").then(function (response) {
         return response.json();
@@ -147,6 +148,7 @@
         // var contactLink = document.createElement("a");
         // contactLink.innerHTML = IDperson;
         // contact.appendChild(contactLink);
+        Vtitle.innerHTML += full_name;
         Vbio.innerHTML += bio;
         var pic = document.createElement("img");
         pic.setAttribute('class', 'vol-pic');

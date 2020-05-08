@@ -60,7 +60,7 @@
             <div class="col-lg-5">
                 <div class="about-left">
                     <div class="vol-left-container">
-                        <h1>First spring tutoring</h1>
+                        <h1 class="title"></h1>
                         <div class="vol-pic-container">
 
                         </div>
@@ -152,6 +152,7 @@
 
 <!-- DB DATA -->
 <script>
+    var Etitle = document.querySelector(".title");
     var when = document.querySelector("p.when");
     var where = document.querySelector("p.where");
     var contact = document.querySelector("p.contact");
@@ -161,8 +162,9 @@
     fetch("v2/events").then(function (response) {
         return response.json();
     }).then(function (json) {
-        let{date, start_time, end_time, location, IDperson, description, img}  = json[0];
+        let{title, date, start_time, end_time, location, IDperson, description, img}  = json[0];
 
+        Etitle.innerHTML += title;
         var shortDate = date.substr(0,10);
         when.innerHTML += shortDate + ", " + start_time + " - " + end_time;
         where.innerHTML += location;
