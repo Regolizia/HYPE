@@ -39,129 +39,31 @@
 </header>
 <!--///////////////////////////   NAVBAR   ///////////////////////////////////-->
 <main role="main">
-<div class="volunteers-line"></div>
+    <div class="volunteers-line"></div>
 
-<div class="volunteers-text-area">
-    <div class="row volunteers-text-area2">
-        <div class="col-lg-4 my-auto">
-            <h5>Volunteers</h5>
-        </div>
-        <div class="col-lg-8 my-auto">
-            <p>Everything we do would not be possible without the help of our hard-working,
-                <br>
-                always-smiling and extremely competent volunteers!<br>
-                Feel free to check their work out!</p>
+    <div class="volunteers-text-area">
+        <div class="row volunteers-text-area2">
+            <div class="col-lg-4 my-auto">
+                <h5>Volunteers</h5>
+            </div>
+            <div class="col-lg-8 my-auto">
+                <p>Everything we do would not be possible without the help of our hard-working,
+                    <br>
+                    always-smiling and extremely competent volunteers!<br>
+                    Feel free to check their work out!</p>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="volunteers-container">
+    <div class="volunteers-container">
 
-    <div class="volunteers">
+        <div class="volunteers">
 
-        <div class="row vol-row">
-            <div class="column d-flex justify-content-center">
-                <div class="card">
-                    <a href=/pages/volunteer.html>
-                    <img class="card-img-top" src="/img/P01.jpg" alt="Volunteer image">
-                    <div class="card-body">
-                        <p class="card-text">Stefania Dratz</p>
-                    </div>
-                    </a>
-                </div>
-            </div>
-            <div class="column d-flex justify-content-center">
-                <div class="card">
-                    <img class="card-img-top" src="/img/P01.jpg" alt="Volunteer image">
-                    <div class="card-body">
-                        <p class="card-text">Stefania Dratz</p>
-                    </div>
-                </div>
-            </div>
-            <div class="column d-flex justify-content-center">
-                <div class="card">
-                <img class="card-img-top" src="/img/P01.jpg" alt="Volunteer image">
-                <div class="card-body">
-                    <p class="card-text">Stefania Dratz</p>
-                </div>
-            </div></div>
-            <div class="column d-flex justify-content-center">
-                <div class="card">
-                    <img class="card-img-top" src="/img/P01.jpg" alt="Volunteer image">
-                    <div class="card-body">
-                        <p class="card-text">Stefania Dratz</p>
-                    </div>
-                </div>
-            </div>
+
         </div>
 
-<!--    ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo-->
-        <div class="row vol-row">
-            <div class="column d-flex justify-content-center">
-                <div class="card">
-                    <img class="card-img-top" src="/img/P01.jpg" alt="Volunteer image">
-                    <div class="card-body">
-                        <p class="card-text">Stefania Dratz</p>
-                    </div>
-                </div>
-            </div>
-            <div class="column d-flex justify-content-center">
-                <div class="card">
-                    <img class="card-img-top" src="/img/P01.jpg" alt="Volunteer image">
-                    <div class="card-body">
-                        <p class="card-text">Stefania Dratz</p>
-                    </div>
-                </div>
-            </div>
-            <div class="column d-flex justify-content-center">
-                <div class="card">
-                    <img class="card-img-top" src="/img/P01.jpg" alt="Volunteer image">
-                    <div class="card-body">
-                        <p class="card-text">Stefania Dratz</p>
-                    </div>
-                </div></div>
-            <div class="column d-flex justify-content-center">
-                <div class="card">
-                    <img class="card-img-top" src="/img/P01.jpg" alt="Volunteer image">
-                    <div class="card-body">
-                        <p class="card-text">Stefania Dratz</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--    ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo-->
-        <div class="row vol-row">
-            <div class="column d-flex justify-content-center">
-                <div class="card">
-                    <img class="card-img-top" src="/img/P01.jpg" alt="Volunteer image">
-                    <div class="card-body">
-                        <p class="card-text">Stefania Dratz</p>
-                    </div>
-                </div>
-            </div>
-            <div class="column d-flex justify-content-center">
-                <div class="card">
-                    <img class="card-img-top" src="/img/P01.jpg" alt="Volunteer image">
-                    <div class="card-body">
-                        <p class="card-text">Stefania Dratz</p>
-                    </div>
-                </div>
-            </div>
-            <div class="column d-flex justify-content-center">
-                <div class="card">
-                    <img class="card-img-top" src="/img/P01.jpg" alt="Volunteer image">
-                    <div class="card-body">
-                        <p class="card-text">Stefania Dratz</p>
-                    </div>
-                </div></div>
-            
-        </div>
-        <!--    ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo-->
 
     </div>
-
-
-</div>
 
 
 </main>
@@ -201,7 +103,76 @@
 </footer>
 <!--///////////////////////////   FOOTER   ///////////////////////////////////-->
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js"></script>-->
 
+<!-- DB DATA -->
+<script>
+    var volunteers = document.querySelector(".volunteers");
+
+    fetch("v2/contacts").then(function (response) {
+        return response.json();
+    }).then(function (json) {
+        for(var i=0; i<json.length; i++){
+            if(i%4===0){
+                var vRow = document.createElement("div");
+                vRow.setAttribute('class', 'row vol-row');
+            }
+
+
+            var vDiv = document.createElement("div");
+            var vDiv2 = document.createElement("div");
+            var vLink = document.createElement("a");
+
+            var vImg = document.createElement("img");
+            var vDiv3 = document.createElement("div");
+            var vP = document.createElement("p");
+
+
+            vDiv.setAttribute('class', 'column d-flex justify-content-center');
+            vDiv2.setAttribute('class', 'card');
+            vLink.setAttribute('href', '#');
+
+            vImg.setAttribute('class', 'card-img-top' );
+            vImg.setAttribute('alt', 'Volunteer image' );
+
+            vDiv3.setAttribute('class', 'card-body');
+            vP.setAttribute('class', 'card-text');
+
+            let{full_name, img}  = json[i];
+
+            vP.innerHTML = full_name;
+            var path = "/img/";
+            path += img;
+            vImg.setAttribute('src', path);
+
+
+            vDiv3.appendChild(vP);
+            vLink.appendChild(vImg);
+            vLink.appendChild(vDiv3);
+            vDiv2.appendChild(vLink);
+            vDiv.appendChild(vDiv2);
+            vRow.appendChild(vDiv);
+            volunteers.appendChild(vRow);
+
+        }
+    })
+
+</script>
+
+
+<!--<div class="row vol-row">-->
+<!--    <DIV div class="column d-flex justify-content-center">-->
+<!--        <2 div class="card">-->
+<!--            <a href=/pages/volunteer.html>-->
+<!--                <img class="card-img-top" src="/img/P01.jpg" alt="Volunteer image">-->
+<!--                <3div class="card-body">-->
+<!--                    <p class="card-text">Stefania Dratz</p>-->
+<!--                </div>-->
+<!--            </a>-->
+<!--        </div>-->
+<!--    </div>-->
 
 </body>
 
