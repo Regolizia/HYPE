@@ -116,46 +116,35 @@
         var monthVal= "00";
 
         for(var i=0; i<json.length; i++){
-            // if(i%4===0){
-            //     var vRow = document.createElement("div");
-            //     vRow.setAttribute('class', 'row vol-row');
-            // }
-
-
-
-            var eDiv3 = document.createElement("div");
-            var eLink = document.createElement("a");
-            var eDiv4 = document.createElement("div");
-            var eDiv5 = document.createElement("div");
-            var eP = document.createElement("p");
-
-
-            var eText = document.createElement("div");
-            eText.setAttribute('class', 'col-lg-3 month-text-col d-flex align-items-center justify-content-center');
-            var eTextP = document.createElement("p");
-
-
-
-            eDiv3.setAttribute('class', 'card text-white mb-3');
-            eLink.setAttribute('href', '#');
-            eDiv4.setAttribute('class', 'card-header event-card-title');
-            eDiv5.setAttribute('class', 'card-body event-card-body');
-            eP.setAttribute('class', 'card-text');
-
-
 
             let{title, date, start_time, end_time, location}  = json[i];
 
 
-            if(date!=null){
-                var r =date.substring(5,7).valueOf() !== monthVal.valueOf();
-                eTextP.innerHTML = date.substring(5,7) +" - "+ monthVal + " res: "+ r;
-                if(date.substring(5,7).valueOf() !== monthVal.valueOf()) {
+            if(date!=null) {
+
+                var eDiv3 = document.createElement("div");
+                var eLink = document.createElement("a");
+                var eDiv4 = document.createElement("div");
+                var eDiv5 = document.createElement("div");
+                var eP = document.createElement("p");
+                var eText = document.createElement("div");
+                eText.setAttribute('class', 'col-lg-3 month-text-col d-flex align-items-center justify-content-center');
+                var eTextP = document.createElement("p");
+                eDiv3.setAttribute('class', 'card text-white mb-3');
+                eLink.setAttribute('href', '#');
+                eDiv4.setAttribute('class', 'card-header event-card-title');
+                eDiv5.setAttribute('class', 'card-body event-card-body');
+                eP.setAttribute('class', 'card-text');
+
+
+                var r = date.substring(5, 7).valueOf() !== monthVal.valueOf();
+                eTextP.innerHTML = date.substring(5, 7) + " - " + monthVal + " res: " + r;
+                if (date.substring(5, 7).valueOf() !== monthVal.valueOf()) {
 
                     var eRow = document.createElement("div");
                     eRow.setAttribute('class', 'row month-row');
 
-                    monthVal=date.substring(5,7);
+                    monthVal = date.substring(5, 7);
 
                     var eArrowL = document.createElement("div");
                     var eArrowLP = document.createElement("p");
@@ -191,23 +180,23 @@
                     events.appendChild(eRow);
                 }
 
-            // eTextP.innerHTML = date.substring(5,7) +" - "+ monthVal + " res: "+ r;
-            }
+                // eTextP.innerHTML = date.substring(5,7) +" - "+ monthVal + " res: "+ r;
 
-            eDiv4.innerHTML = title;
-            if(start_time!=null && end_time!=null){
-                eP.innerHTML = start_time.substr(0,5) + " - " + end_time.substr(0,5);
-            }
-            if(location!=null){
-                eP.innerHTML += "<br />"+ location;
-            }
 
-            eDiv5.appendChild(eP);
-            eLink.appendChild(eDiv4);
-            eLink.appendChild(eDiv5);
-            eDiv3.appendChild(eLink);
-            eDiv2.appendChild(eDiv3);
+                eDiv4.innerHTML = title;
+                if (start_time != null && end_time != null) {
+                    eP.innerHTML = start_time.substr(0, 5) + " - " + end_time.substr(0, 5);
+                }
+                if (location != null) {
+                    eP.innerHTML += "<br />" + location;
+                }
 
+                eDiv5.appendChild(eP);
+                eLink.appendChild(eDiv4);
+                eLink.appendChild(eDiv5);
+                eDiv3.appendChild(eLink);
+                eDiv2.appendChild(eDiv3);
+            }
 
 
             if(i===json.length-1){

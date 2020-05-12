@@ -565,7 +565,7 @@ margin-top: 100px;
     padding: 15px;
 }
 div.card-body{
-    padding-top: 10px;
+    padding: 0.8rem;
     font-weight: bold;
 }
 
@@ -821,12 +821,12 @@ div.card-body{
     margin-bottom: 15px;
 }
 .event-card-title{
+    padding: .75rem;
     background: black;
     font-size: 14px;
 }
 
 .slider-container a{
-    color: white;
     color: white;
 }
 .event-card-body{
