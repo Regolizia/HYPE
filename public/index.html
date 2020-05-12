@@ -113,14 +113,15 @@
         return response.json();
     }).then(function (json) {
 
-        var monthVal= "00";
+        var monthVal = "00";
+        var eYearVal = 0;
 
-        for(var i=0; i<json.length; i++){
+        for (var i = 0; i < json.length; i++) {
 
-            let{title, date, start_time, end_time, location}  = json[i];
+            let {title, date, start_time, end_time, location} = json[i];
 
 
-            if(date!=null) {
+            if (date != null) {
 
                 var eDiv3 = document.createElement("div");
                 var eLink = document.createElement("a");
@@ -180,8 +181,6 @@
                     events.appendChild(eRow);
                 }
 
-                // eTextP.innerHTML = date.substring(5,7) +" - "+ monthVal + " res: "+ r;
-
 
                 eDiv4.innerHTML = title;
                 if (start_time != null && end_time != null) {
@@ -196,87 +195,150 @@
                 eLink.appendChild(eDiv5);
                 eDiv3.appendChild(eLink);
                 eDiv2.appendChild(eDiv3);
+            } else {
+
+                var eDiv3Y = document.createElement("div");
+                var eLinkY = document.createElement("a");
+                var eDiv4Y = document.createElement("div");
+                var eDiv5Y = document.createElement("div");
+                var ePY = document.createElement("p");
+                var eTextY = document.createElement("div");
+                eTextY.setAttribute('class', 'col-lg-3 month-text-col d-flex align-items-center justify-content-center');
+                var eTextPY = document.createElement("p");
+                eDiv3Y.setAttribute('class', 'card text-white mb-3');
+                eLinkY.setAttribute('href', '#');
+                eDiv4Y.setAttribute('class', 'card-header event-card-title');
+                eDiv5Y.setAttribute('class', 'card-body event-card-body');
+                ePY.setAttribute('class', 'card-text');
+
+                if (eYearVal === 0) {
+
+                    var eRowY = document.createElement("div");
+                    eRowY.setAttribute('class', 'row month-row');
+
+                    var eArrowLY = document.createElement("div");
+                    var eArrowLPY = document.createElement("p");
+                    var eArrowLIY = document.createElement("i");
+                    var eArrowRY = document.createElement("div");
+                    var eArrowRPY = document.createElement("p");
+                    var eArrowRIY = document.createElement("i");
+                    eArrowLY.setAttribute('class', 'd-flex align-items-center arrow-slider justify-content-center');
+                    eArrowLPY.setAttribute('class', 'left');
+                    eArrowLIY.setAttribute('class', 'fa fa-chevron-left fa-lg');
+                    eArrowLIY.setAttribute('aria-hidden', 'true');
+                    eArrowRY.setAttribute('class', 'd-flex align-items-center arrow-slider justify-content-center');
+                    eArrowRPY.setAttribute('class', 'right');
+                    eArrowRIY.setAttribute('class', 'fa fa-chevron-right fa-lg');
+                    eArrowRIY.setAttribute('aria-hidden', 'true');
+
+
+                    var eDivY = document.createElement("div");
+                    var eDiv2Y = document.createElement("div");
+                    eDivY.setAttribute('class', 'col-lg-9 slider-container');
+                    eDiv2Y.setAttribute('class', 'slider slider-nav responsive');
+                    eTextPY.innerHTML = "Events of the year";
+
+                    eArrowLPY.appendChild(eArrowLIY);
+                    eArrowLY.appendChild(eArrowLPY);
+                    eArrowRPY.appendChild(eArrowRIY);
+                    eArrowRY.appendChild(eArrowRPY);
+                    eDivY.appendChild(eArrowLY);
+                    eDivY.appendChild(eDiv2Y);
+                    eDivY.appendChild(eArrowRY);
+                    eTextY.appendChild(eTextPY);
+                    eRowY.appendChild(eTextY);
+                    eRowY.appendChild(eDivY);
+
+                    eYearVal = 1;
+                }
+                eDiv4Y.innerHTML = title;
+
+                eDiv5Y.appendChild(ePY);
+                eLinkY.appendChild(eDiv4Y);
+                eLinkY.appendChild(eDiv5Y);
+                eDiv3Y.appendChild(eLinkY);
+                eDiv2Y.appendChild(eDiv3Y);
             }
-
-
-            if(i===json.length-1){
-                $('.slider-nav').each(function(key, item) {
-
-                    var sliderIdName = 'slider' + key;
-                    var sliderNavIdName = 'sliderNav' + key;
-                    var sliderArrowIdName = 'sliderArrow' + key;
-                    var sliderArrowIdName2 = 'sliderArrow2' + key;
-                    var respName = 'resp' + key;
-
-                    this.id = sliderIdName;
-                    $('.slider-nav')[key].id = sliderNavIdName;
-                    $('.left')[key].id = sliderArrowIdName;
-                    $('.right')[key].id = sliderArrowIdName2;
-                    $('.responsive')[key].id = respName;
-
-                    var sliderId = '#' + sliderIdName;
-                    var sliderNavId = '#' + sliderNavIdName;
-                    var sliderArrowId = '#' + sliderArrowIdName;
-                    var sliderArrowId2 = '#' + sliderArrowIdName2;
-                    var respId = '#' + respName;
-
-                    $(sliderId).slick({
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        arrows: false,
-                        fade: true,
-                        asNavFor: sliderNavId
-                    });
-
-                    $(respId).slick({
-                        slidesToShow: 4,
-                        slidesToScroll: 1,
-                        //     asNavFor: '.slider-for',
-                        //     dots: false,
-                        focusOnSelect: true,
-                        arrows: false,
-                        // });
-                        responsive: [
-                            {
-                                breakpoint: 1224,
-                                settings: {
-                                    slidesToShow: 3,
-                                    slidesToScroll: 2,
-                                    // dots: true
-                                }
-                            },
-                            {
-                                breakpoint: 600,
-                                settings: {
-                                    slidesToShow: 2,
-                                    slidesToScroll: 1
-                                }
-                            },
-                            {
-                                breakpoint: 480,
-                                settings: {
-                                    slidesToShow: 1,
-                                    slidesToScroll: 1
-                                }
-                            }
-                        ]
-                    });
-
-                    $(sliderArrowId).click(function(){
-                        $(respId).slick('slickPrev');
-                    });
-
-                    $(sliderArrowId2).click(function(){
-                        $(respId).slick('slickNext');
-                    });
-
-
-
-
-
-                });
-            }
+        // }
+        if (eRowY != null) {
+            events.appendChild(eRowY);
         }
+
+        if (i === json.length - 1) {
+            $('.slider-nav').each(function (key, item) {
+
+                var sliderIdName = 'slider' + key;
+                var sliderNavIdName = 'sliderNav' + key;
+                var sliderArrowIdName = 'sliderArrow' + key;
+                var sliderArrowIdName2 = 'sliderArrow2' + key;
+                var respName = 'resp' + key;
+
+                this.id = sliderIdName;
+                $('.slider-nav')[key].id = sliderNavIdName;
+                $('.left')[key].id = sliderArrowIdName;
+                $('.right')[key].id = sliderArrowIdName2;
+                $('.responsive')[key].id = respName;
+
+                var sliderId = '#' + sliderIdName;
+                var sliderNavId = '#' + sliderNavIdName;
+                var sliderArrowId = '#' + sliderArrowIdName;
+                var sliderArrowId2 = '#' + sliderArrowIdName2;
+                var respId = '#' + respName;
+
+                $(sliderId).slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    fade: true,
+                    asNavFor: sliderNavId
+                });
+
+                $(respId).slick({
+                    slidesToShow: 4,
+                    slidesToScroll: 1,
+                    //     asNavFor: '.slider-for',
+                    //     dots: false,
+                    focusOnSelect: true,
+                    arrows: false,
+                    // });
+                    responsive: [
+                        {
+                            breakpoint: 1224,
+                            settings: {
+                                slidesToShow: 3,
+                                slidesToScroll: 2,
+                                // dots: true
+                            }
+                        },
+                        {
+                            breakpoint: 600,
+                            settings: {
+                                slidesToShow: 2,
+                                slidesToScroll: 1
+                            }
+                        },
+                        {
+                            breakpoint: 480,
+                            settings: {
+                                slidesToShow: 1,
+                                slidesToScroll: 1
+                            }
+                        }
+                    ]
+                });
+
+                $(sliderArrowId).click(function () {
+                    $(respId).slick('slickPrev');
+                });
+
+                $(sliderArrowId2).click(function () {
+                    $(respId).slick('slickNext');
+                });
+
+
+            });
+        }
+    }
     })
 
 </script>
@@ -436,38 +498,8 @@
 
 
 
-<script>
-    var myIndex = 0;
-    document.getElementsByClassName("bgimg-1")[1].style.display = "block";
-    carousel();
 
-    function carousel() {
-        var i;
-        var x = document.getElementsByClassName("bgimg-1");
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-        }
-        myIndex++;
-        // if (myIndex > x.length) {myIndex = 1}
-        x[myIndex-1].style.display = "block";
-        if (myIndex < x.length) {setTimeout(carousel, 2000);}
 
-    }
-</script>
-
-<script>
-    function myAccFunc() {
-        var x = document.getElementById("demoAcc");
-        if (x.className.indexOf("w3-show") == -1) {
-            x.className += " w3-show";
-            x.previousElementSibling.className += " w3-green";
-        } else {
-            x.className = x.className.replace(" w3-show", "");
-            x.previousElementSibling.className =
-                x.previousElementSibling.className.replace(" w3-green", "");
-        }
-    }
-</script>
 
 
 

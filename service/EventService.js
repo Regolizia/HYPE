@@ -60,8 +60,15 @@ exports.eventIdGET = function(id) {
  * returns List
  **/
 exports.eventsGET = function() {
-    return sqlDb('Event')
+    return sqlDb
+        .from("Event")
+        .orderBy('Event.date')
+        .then(data => {
+            return data
+        });
 };
+
+
 //   return new Promise(function(resolve, reject) {
 //     var examples = {};
 //     examples['application/json'] = [ {
