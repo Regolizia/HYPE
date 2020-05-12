@@ -131,14 +131,9 @@
 
 
             var eText = document.createElement("div");
-            var eTextP = document.createElement("p");
-            var eDiv = document.createElement("div");
-
-            var eDiv2 = document.createElement("div");
             eText.setAttribute('class', 'col-lg-3 month-text-col d-flex align-items-center justify-content-center');
-            eDiv.setAttribute('class', 'col-lg-9 slider-container');
+            var eTextP = document.createElement("p");
 
-            eDiv2.setAttribute('class', 'slider slider-nav responsive');
 
 
             eDiv3.setAttribute('class', 'card text-white mb-3');
@@ -178,6 +173,10 @@
                     eArrowRI.setAttribute('aria-hidden', 'true');
 
 
+                    var eDiv = document.createElement("div");
+                    var eDiv2 = document.createElement("div");
+                    eDiv.setAttribute('class', 'col-lg-9 slider-container');
+                    eDiv2.setAttribute('class', 'slider slider-nav responsive');
 
                     eArrowLP.appendChild(eArrowLI);
                     eArrowL.appendChild(eArrowLP);
