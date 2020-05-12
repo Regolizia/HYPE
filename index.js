@@ -102,7 +102,6 @@ swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
   // Serve the Swagger documents and Swagger UI
   app.use(middleware.swaggerUi());
 
-  app.use(serveStatic(__dirname + "/public/pages"));
   app.use(serveStatic(__dirname + "/public"));
 
 // first setup the datalayer then start the server RESTORE LATER

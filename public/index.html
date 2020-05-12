@@ -1,0 +1,489 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
+    <title>Youth Speaks Hawai‘i</title>
+    <link rel="icon" href="/img/icon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.css"/>
+
+</head>
+
+<body>
+
+<!--///////////////////////////   NAVBAR   ///////////////////////////////////-->
+<header role="banner" class="navbar">
+    <a href=/index.html class="logo">YOUTH SPEAKS HAWAI'I</a>
+    <!-- Right-sided navbar links -->
+    <div class="navbar-right">
+        <a href=/pages/about.html class="menu-item">About Us</a>
+        <a href=/pages/activities.html class="menu-item"><i class="fa fa-calendar"></i> Activities</a>
+        <a href=# class="menu-item active-button"><i class="fa fa-user"></i> Events</a>
+        <a href=/pages/volunteers.html class="menu-item"><i class="fa fa-envelope "></i> Volunteers</a>
+
+        <!--            <button aria-label="MENU button" class="w3-bar2 w3-button  h100" type="button" id="menubutton"><i class="fa fa-bars fa-lg" aria-hidden="true" style="color: black; font-weight: 100;"></i></button>-->
+        <!--                <i class="fa fa-bars fa-2x" aria-hidden="true"></i>-->
+
+    </div>
+    <!--        <a href="javascript:void(0)" class="w3-bar2 w3-button w3-right w3-hide-large" onclick="w3_open()">-->
+    <!--            <i class="fa fa-bars"></i>-->
+    <!--        </a>-->
+</header>
+<!--///////////////////////////   NAVBAR   ///////////////////////////////////-->
+<main role="main">
+    <div>
+        <div class="row events-text-area">
+            <div class="col-lg-4 my-auto">
+                <h5>Events</h5>
+            </div>
+            <div class="col-lg-8 my-auto">
+                <p>We organize throughout the year several events, thanks to the support given by our volunteers.
+                    Here you can find the complete list of scheduled events.<br>
+                    <strong>Events of the year</strong> lists the most important recurring events that we’ll organize.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="months-container">
+
+    </div>
+
+</main>
+
+
+
+<!--///////////////////////////   FOOTER   ///////////////////////////////////-->
+<footer role="contentinfo" class="footer-wrapper">
+    <div class="footer">
+        <div class="footerFloat">
+            <div class="logo">YOUTH SPEAKS HAWAI'I</div>
+            <p>Youth Speaks Hawai’i is a voluntary association that organizes events on slam poetry.</p>
+        </div>
+
+        <div class="footerFloat row">
+            <div class="col-lg-6">
+                <a class="contact-title" href="/pages/contact-us.html">
+                    <p>Contact Us<br/>Fill the form</p>
+                </a>
+            </div>
+            <div class="col-lg-6">
+                <p> 567 S King St</p>
+                <p>  Honolulu, HI 96813</p>
+            </div>
+        </div>
+        <div class="footerFloat terms-social">
+            <div>
+                <a ><i class="fa fa-facebook-official social1"></i></a>
+                <a ><i class="fa fa-twitter-square social2"></i></a>
+                <a ><i class="fa fa-instagram social3"></i></a>
+            </div>
+            <a class="contact-title" href="/pages/terms.html">
+                <p>Terms and Conditions</p>
+            </a>
+        </div>
+    </div>
+</footer>
+<!--///////////////////////////   FOOTER   ///////////////////////////////////-->
+
+<!--<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>-->
+<!--<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>-->
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js"></script>
+
+<!-- DB DATA -->
+<script>
+    var events = document.querySelector(".months-container");
+
+    fetch("v2/events").then(function (response) {
+        return response.json();
+    }).then(function (json) {
+
+        var monthVal= "00";
+
+        for(var i=0; i<json.length; i++){
+            // if(i%4===0){
+            //     var vRow = document.createElement("div");
+            //     vRow.setAttribute('class', 'row vol-row');
+            // }
+
+
+
+            var eDiv3 = document.createElement("div");
+            var eLink = document.createElement("a");
+            var eDiv4 = document.createElement("div");
+            var eDiv5 = document.createElement("div");
+            var eP = document.createElement("p");
+
+
+            var eText = document.createElement("div");
+            var eTextP = document.createElement("p");
+            var eDiv = document.createElement("div");
+
+            var eDiv2 = document.createElement("div");
+            eText.setAttribute('class', 'col-lg-3 month-text-col d-flex align-items-center justify-content-center');
+            eDiv.setAttribute('class', 'col-lg-9 slider-container');
+
+            eDiv2.setAttribute('class', 'slider slider-nav responsive');
+
+
+            eDiv3.setAttribute('class', 'card text-white mb-3');
+            eLink.setAttribute('href', '#');
+            eDiv4.setAttribute('class', 'card-header event-card-title');
+            eDiv5.setAttribute('class', 'card-body event-card-body');
+            eP.setAttribute('class', 'card-text');
+
+
+
+            let{title, date, start_time, end_time, location}  = json[i];
+
+
+            if(date!=null){
+                var r =date.substring(5,7).valueOf() !== monthVal.valueOf();
+                eTextP.innerHTML = date.substring(5,7) +" - "+ monthVal + " res: "+ r;
+                if(date.substring(5,7).valueOf() !== monthVal.valueOf()) {
+
+                    var eRow = document.createElement("div");
+                    eRow.setAttribute('class', 'row month-row');
+
+                    monthVal=date.substring(5,7);
+
+                    var eArrowL = document.createElement("div");
+                    var eArrowLP = document.createElement("p");
+                    var eArrowLI = document.createElement("i");
+                    var eArrowR = document.createElement("div");
+                    var eArrowRP = document.createElement("p");
+                    var eArrowRI = document.createElement("i");
+                    eArrowL.setAttribute('class', 'd-flex align-items-center arrow-slider justify-content-center');
+                    eArrowLP.setAttribute('class', 'left');
+                    eArrowLI.setAttribute('class', 'fa fa-chevron-left fa-lg');
+                    eArrowLI.setAttribute('aria-hidden', 'true');
+                    eArrowR.setAttribute('class', 'd-flex align-items-center arrow-slider justify-content-center');
+                    eArrowRP.setAttribute('class', 'right');
+                    eArrowRI.setAttribute('class', 'fa fa-chevron-right fa-lg');
+                    eArrowRI.setAttribute('aria-hidden', 'true');
+
+
+
+                    eArrowLP.appendChild(eArrowLI);
+                    eArrowL.appendChild(eArrowLP);
+                    eArrowRP.appendChild(eArrowRI);
+                    eArrowR.appendChild(eArrowRP);
+                    eDiv.appendChild(eArrowL);
+                    eDiv.appendChild(eDiv2);
+                    eDiv.appendChild(eArrowR);
+                    eText.appendChild(eTextP);
+                    eRow.appendChild(eText);
+                    eRow.appendChild(eDiv);
+                    events.appendChild(eRow);
+                }
+
+            // eTextP.innerHTML = date.substring(5,7) +" - "+ monthVal + " res: "+ r;
+            }
+
+            eDiv4.innerHTML = title;
+            if(start_time!=null && end_time!=null){
+                eP.innerHTML = start_time.substr(0,5) + " - " + end_time.substr(0,5);
+            }
+            if(location!=null){
+                eP.innerHTML += "<br />"+ location;
+            }
+
+            eDiv5.appendChild(eP);
+            eLink.appendChild(eDiv4);
+            eLink.appendChild(eDiv5);
+            eDiv2.appendChild(eLink);
+            eDiv2.appendChild(eDiv3);
+
+
+
+            if(i===json.length-1){
+                $('.slider-nav').each(function(key, item) {
+
+                    var sliderIdName = 'slider' + key;
+                    var sliderNavIdName = 'sliderNav' + key;
+                    var sliderArrowIdName = 'sliderArrow' + key;
+                    var sliderArrowIdName2 = 'sliderArrow2' + key;
+                    var respName = 'resp' + key;
+
+                    this.id = sliderIdName;
+                    $('.slider-nav')[key].id = sliderNavIdName;
+                    $('.left')[key].id = sliderArrowIdName;
+                    $('.right')[key].id = sliderArrowIdName2;
+                    $('.responsive')[key].id = respName;
+
+                    var sliderId = '#' + sliderIdName;
+                    var sliderNavId = '#' + sliderNavIdName;
+                    var sliderArrowId = '#' + sliderArrowIdName;
+                    var sliderArrowId2 = '#' + sliderArrowIdName2;
+                    var respId = '#' + respName;
+
+                    $(sliderId).slick({
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        arrows: false,
+                        fade: true,
+                        asNavFor: sliderNavId
+                    });
+
+                    $(respId).slick({
+                        slidesToShow: 4,
+                        slidesToScroll: 1,
+                        //     asNavFor: '.slider-for',
+                        //     dots: false,
+                        focusOnSelect: true,
+                        arrows: false,
+                        // });
+                        responsive: [
+                            {
+                                breakpoint: 1224,
+                                settings: {
+                                    slidesToShow: 3,
+                                    slidesToScroll: 2,
+                                    // dots: true
+                                }
+                            },
+                            {
+                                breakpoint: 600,
+                                settings: {
+                                    slidesToShow: 2,
+                                    slidesToScroll: 1
+                                }
+                            },
+                            {
+                                breakpoint: 480,
+                                settings: {
+                                    slidesToShow: 1,
+                                    slidesToScroll: 1
+                                }
+                            }
+                        ]
+                    });
+
+                    $(sliderArrowId).click(function(){
+                        $(respId).slick('slickPrev');
+                    });
+
+                    $(sliderArrowId2).click(function(){
+                        $(respId).slick('slickNext');
+                    });
+
+
+
+
+
+                });
+            }
+        }
+    })
+
+</script>
+
+<!--<div class="row month-row">-->
+<!--    <TEXTdiv class="col-lg-3 month-text-col d-flex align-items-center justify-content-center"><p>April</p></div>-->
+<!--    <DIV div class="col-lg-9 slider-container">-->
+<!--        <arL div  class="d-flex align-items-center arrow-slider justify-content-center"> <p class="left"><i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i></p></div>-->
+<!--        <2div class="slider slider-nav responsive">-->
+
+<!--            <3div class="card text-white mb-3">-->
+
+<!--                <a href=/pages/event.html>-->
+
+<!--                    <4div class="card-header event-card-title">First tutoring session</div>-->
+<!--                    <5div class="card-body event-card-body">-->
+<!--                        <p class="card-text">26th, 15:00 - 17:00<br>-->
+<!--                            Kawaiahaʻo Plaza, Honolulu-->
+<!--                        </p>-->
+<!--                    </div>-->
+<!--                 a  -->
+<!--            </div>-->
+
+<!--        </div>-->
+
+<!--        <div class="d-flex align-items-center arrow-slider justify-content-center"><p class="right"><i class="fa fa-chevron-right fa-lg" aria-hidden="true"></i></p></div>-->
+<!--    oooooooooooooooooooooooooooooo-->
+<!--<hr class="new-line">-->
+<!--    oooooooooooooooooooooooooooooo-->
+
+
+<!-- SLIDER-->
+<!--<script>-->
+<!--    $('.slider-nav').each(function(key, item) {-->
+
+<!--        var sliderIdName = 'slider' + key;-->
+<!--        var sliderNavIdName = 'sliderNav' + key;-->
+<!--        var sliderArrowIdName = 'sliderArrow' + key;-->
+<!--        var sliderArrowIdName2 = 'sliderArrow2' + key;-->
+<!--        var respName = 'resp' + key;-->
+
+<!--        this.id = sliderIdName;-->
+<!--        $('.slider-nav')[key].id = sliderNavIdName;-->
+<!--        $('.left')[key].id = sliderArrowIdName;-->
+<!--        $('.right')[key].id = sliderArrowIdName2;-->
+<!--        $('.responsive')[key].id = respName;-->
+
+<!--        var sliderId = '#' + sliderIdName;-->
+<!--        var sliderNavId = '#' + sliderNavIdName;-->
+<!--        var sliderArrowId = '#' + sliderArrowIdName;-->
+<!--        var sliderArrowId2 = '#' + sliderArrowIdName2;-->
+<!--        var respId = '#' + respName;-->
+
+<!--        $(sliderId).slick({-->
+<!--            slidesToShow: 1,-->
+<!--            slidesToScroll: 1,-->
+<!--            arrows: false,-->
+<!--            fade: true,-->
+<!--            asNavFor: sliderNavId-->
+<!--        });-->
+
+<!--        $(respId).slick({-->
+<!--            slidesToShow: 4,-->
+<!--            slidesToScroll: 1,-->
+<!--            //     asNavFor: '.slider-for',-->
+<!--            //     dots: false,-->
+<!--            focusOnSelect: true,-->
+<!--            arrows: false,-->
+<!--            // });-->
+<!--            responsive: [-->
+<!--                {-->
+<!--                    breakpoint: 1224,-->
+<!--                    settings: {-->
+<!--                        slidesToShow: 3,-->
+<!--                        slidesToScroll: 2,-->
+<!--                        // dots: true-->
+<!--                    }-->
+<!--                },-->
+<!--                {-->
+<!--                    breakpoint: 600,-->
+<!--                    settings: {-->
+<!--                        slidesToShow: 2,-->
+<!--                        slidesToScroll: 1-->
+<!--                    }-->
+<!--                },-->
+<!--                {-->
+<!--                    breakpoint: 480,-->
+<!--                    settings: {-->
+<!--                        slidesToShow: 1,-->
+<!--                        slidesToScroll: 1-->
+<!--                    }-->
+<!--                }-->
+<!--            ]-->
+<!--        });-->
+
+<!--        $(sliderArrowId).click(function(){-->
+<!--            $(respId).slick('slickPrev');-->
+<!--        });-->
+
+<!--        $(sliderArrowId2).click(function(){-->
+<!--            $(respId).slick('slickNext');-->
+<!--        });-->
+
+
+
+
+
+<!--    });-->
+<!--</script>-->
+
+
+
+<!-- ANIMATION ZOOM-->
+<script type="text/javascript">
+    $('.event-click').on('click',function() {
+
+        $('#ev').toggleClass('cercle w3-black');
+
+        setTimeout(() => {
+            location.assign("/pages/singleEvent.html");
+        }, 1000);
+    });
+</script>
+
+
+
+
+
+<script>
+    // Modal Image Gallery
+    function onClick(element) {
+        document.getElementById("img01").src = element.src;
+        document.getElementById("modal01").style.display = "block";
+        var captionText = document.getElementById("caption");
+        captionText.innerHTML = element.alt;
+    }
+
+
+    // Toggle between showing and hiding the sidebar when clicking the menu icon
+    var mySidebar = document.getElementById("mySidebar");
+
+    function w3_open() {
+        if (mySidebar.style.display === 'block') {
+            mySidebar.style.display = 'none';
+        } else {
+            mySidebar.style.display = 'block';
+        }
+    }
+
+    // Close the sidebar with the close button
+    function w3_close() {
+        mySidebar.style.display = "none";
+    }
+</script>
+
+
+
+
+
+<script>
+    var myIndex = 0;
+    document.getElementsByClassName("bgimg-1")[1].style.display = "block";
+    carousel();
+
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("bgimg-1");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        myIndex++;
+        // if (myIndex > x.length) {myIndex = 1}
+        x[myIndex-1].style.display = "block";
+        if (myIndex < x.length) {setTimeout(carousel, 2000);}
+
+    }
+</script>
+
+<script>
+    function myAccFunc() {
+        var x = document.getElementById("demoAcc");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+            x.previousElementSibling.className += " w3-green";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+            x.previousElementSibling.className =
+                x.previousElementSibling.className.replace(" w3-green", "");
+        }
+    }
+</script>
+
+
+
+</body>
+
+
+</html>
