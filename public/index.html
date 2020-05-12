@@ -212,7 +212,7 @@
                 eDiv3Y.setAttribute('class', 'card text-white mb-3');
                 eLinkY.setAttribute('href', '#');
                 eDiv4Y.setAttribute('class', 'card-header event-card-title');
-                eDiv5Y.setAttribute('class', 'card-body event-card-body');
+                eDiv5Y.setAttribute('class', 'card-body event-card-body-special');
                 ePY.setAttribute('class', 'card-text');
 
                 if (eYearVal === 0) {
@@ -242,6 +242,9 @@
                     eDiv2Y.setAttribute('class', 'slider slider-nav responsive');
                     eTextPY.innerHTML = "Events of the year";
 
+                    var eLine = document.createElement("hr");
+                    eLine.setAttribute('class','new-line');
+
                     eArrowLPY.appendChild(eArrowLIY);
                     eArrowLY.appendChild(eArrowLPY);
                     eArrowRPY.appendChild(eArrowRIY);
@@ -256,6 +259,11 @@
                     eYearVal = 1;
                 }
                 eDiv4Y.innerHTML = title;
+                if (location != null) {
+                    ePY.innerHTML += "<br />" + location;
+                }else {
+                    ePY.innerHTML += "<br /><br />";
+                }
 
                 eDiv5Y.appendChild(ePY);
                 eLinkY.appendChild(eDiv4Y);
@@ -265,6 +273,7 @@
             }
         // }
         if (eRowY != null) {
+            events.appendChild(eLine);
             events.appendChild(eRowY);
         }
 
