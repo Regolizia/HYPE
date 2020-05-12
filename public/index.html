@@ -107,6 +107,8 @@
 
 <!-- DB DATA -->
 <script>
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"];
     var events = document.querySelector(".months-container");
 
     fetch("v2/events").then(function (response) {
@@ -139,7 +141,9 @@
 
 
                 var r = date.substring(5, 7).valueOf() !== monthVal.valueOf();
-                eTextP.innerHTML = date.substring(5, 7) + " - " + monthVal + " res: " + r;
+                eTextP.innerHTML = date.substring(5, 7);
+                eTextP.innerHTML = monthNames[parseInt(date.substring(5, 7), 10)];
+                // eTextP.innerHTML = date.substring(5, 7) + " - " + monthVal + " res: " + r;
                 if (date.substring(5, 7).valueOf() !== monthVal.valueOf()) {
 
                     var eRow = document.createElement("div");
