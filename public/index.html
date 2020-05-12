@@ -55,6 +55,9 @@
 
     </div>
 
+    <div class="eMonths">
+
+    </div>
 
     <div class="comments-container">
         <div class="comments">
@@ -134,7 +137,7 @@
 
 <!-- DB DATA -->
 <script>
-    var events = document.querySelector("main");
+    var events = document.querySelector(".eMonths");
 
     fetch("v2/events").then(function (response) {
         return response.json();
@@ -171,7 +174,7 @@
                     eDiv4.setAttribute('class', 'card-header event-card-title');
                     eDiv5.setAttribute('class', 'card-body event-card-body');
                     eP.setAttribute('class', 'card-text');
-                    
+
                     eTextP.innerHTML = "Events this month";
 
 
