@@ -100,7 +100,6 @@ exports.eventsGET = function() {
  * returns Contact
  **/
 exports.eventsIdContactGET = function(id) {
-
     return sqlDb
         .from("Event")
         .join('Person', 'Event.IDperson', 'Person.IDperson')

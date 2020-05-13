@@ -100,7 +100,7 @@ paths:
           description: "successful operation"
           schema:
             $ref: '#/definitions/Contact'
-      x-swagger-router-controller: "Contact"
+      x-swagger-router-controller: "Event"
 
   /events/{id}/activity:
     get:
