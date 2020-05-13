@@ -171,7 +171,7 @@
 
         Etitle.innerHTML += title;
         var shortDate = date.substr(0,10);
-        when.innerHTML += shortDate + ", " + start_time + " - " + end_time;
+        when.innerHTML += shortDate + ", " + start_time.substr(0, 5) + " - " + end_time.substr(0, 5);
         where.innerHTML += location;
         Edescription.innerHTML += description;
         var pic = document.createElement("img");
@@ -184,11 +184,13 @@
 
         var contactLink = document.createElement("a");
 
-        fetch("v2/contacts").then(function (response) {
+        fetch("https://youthspeakshawaii.herokuapp.com/v2/events/"+id+"/contact").then(function (response) {
+        // fetch("http://localhost:3000/v2/events/"+id+"/contact").then(function (response) {
             return response.json();
         }).then(function (data) {
-            let{full_name}  = data[0];
+            let{full_name, IDperson}  = data[0];
             contactLink.innerHTML = full_name;
+            contactLink.setAttribute('href', '/pages/volunteer.html?id='+`${IDperson}`);
             contact.appendChild(contactLink);
         })
 
