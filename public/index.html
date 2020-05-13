@@ -154,10 +154,10 @@
 
 
             if (date!=null) {
-                console.log("date: "+ date);
+                // console.log("date: "+ date);
                 var r = parseInt(date.substring(5, 7).valueOf());
-                console.log("r: "+ r);
-                console.log("month: "+ monthVal);
+                // console.log("r: "+ r);
+                // console.log("month: "+ monthVal);
                 if (r === monthVal) {
 
 
@@ -256,6 +256,14 @@
                     var sliderArrowId2 = '#' + sliderArrowIdName2;
                     var respId = '#' + respName;
 
+                    // console.log(($(this).find('.card')).length);
+                    var cardNumber = ($(this).find('.card')).length;
+
+                    var cardShown=4;
+                    if (window.matchMedia('screen and (max-width: 1224px)').matches) {cardShown=3;}
+                    if (window.matchMedia('screen and (max-width: 600px)').matches) {cardShown=2;}
+                    if (window.matchMedia('screen and (max-width: 480px)').matches) {cardShown=1;}
+
                     $(sliderId).slick({
                         slidesToShow: 1,
                         slidesToScroll: 1,
@@ -307,6 +315,12 @@
                     $(sliderArrowId2).click(function(){
                         $(respId).slick('slickNext');
                     });
+
+                    if(cardNumber<=cardShown){
+                        $(sliderArrowId).hide();
+                        $(sliderArrowId2).hide();
+                    }
+
                 });
             }
         }
