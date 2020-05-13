@@ -19,8 +19,8 @@ schemes:
 tags:
   - name: "event"
     description: "Events scheduled"
-  - name: "service"
-    description: "Services offered"
+  - name: "activity"
+    description: "Activities offered"
   - name: "contact"
     description: "Volunteers"
 
@@ -490,37 +490,44 @@ definitions:
   Event:
     type: "object"
     required:
-      - "id"
-      - "name"
-      - "activityId"
-      - "date"
-      - "location"
+      - "IDevent"
     properties:
-      id:
+      IDevent:
         type: "integer"
         format: "int64"
-      name:
+      title:
         type: "string"
-      activityId:
-        type: "integer"
-        format: "int64"
+      location:
+        type: "string"
       date:
         type: "string"
         format: "date"
-      location:
+      description:
         type: "string"
-      descritpion:
+      start_time:
+        type: "string"
+        format: "time"
+      end_time:
+        type: "string"
+        format: "time"
+      img:
+        type: "string"
+      practical_info:
         type: "string"
     xml:
       name: "Event"
     title: "Event"
     description: "An event related to an activity"
     example:
-      id: 0
-      name: "How to create a poem"
-      date: "2020-07-21"
+      IDevent: 0
+      title: "How to create a poem"
       location: "Honolulu"
+      date: "2020-07-21"
       description: "Expressing your thoughts"
+      start_time: "16:00"
+      end_time: "18:00"
+      img: "EV01.jpg"
+      practical info: "In the first part of this event we'll explain the theory behind poetry composition while the second part is hands-on."
 
 
   # Book:
@@ -579,53 +586,57 @@ definitions:
   Activity:
     type: "object"
     required:
-      - "id"
-      - "name"
-      - "eventId"
+      - "IDactivity"
+      - "title"
     properties:
-      id:
+      IDactivity:
         type: "integer"
         format: "int64"
-      name:
+      title:
         type: "string"
-      eventId:
-        type: "integer"
-        format: "int64"
-      descritpion:
+      description:
+        type: "string"
+      practical_info:
         type: "string"
     xml:
       name: "Activity"
     title: "Activity"
     description: "An activity related to an event"
     example:
-      id: 0
-      name: "Poetry 101"
+      IDactivity: 0
+      title: "Poetry 101"
       description: "Helping children to create short poems"
+      practical_info: "The difficulty level of this activity is low, since it is meant for beginners"
 
 
   Contact:
     type: "object"
     required:
-      - "id"
-      - "name"
+      - "IDperson"
     properties:
-      id:
+    IDperson:
         type: "integer"
         format: "int64"
-      name:
+      full_name:
         type: "string"
-      surname:
+      email:
         type: "string"
-      info:
+      phone:
+        type: "string"
+      bio:
+        type: "string"
+      img:
         type: "string"
     xml:
       name: "Contact"
     description: "Volunteer"
     example:
-      id: 5
-      name: "Jason"
-      surname: "Momoa"
-      info: "Actor and activist"
+      IDperson: 5
+      full_name: "Jason Momoa"
+      email: "j_momoa@gmail.com"
+      phone: "8014562357"
+      bio: "Actor and activist"
+      img: "J01.jpg"
 
   # User:
   #   type: "object"
