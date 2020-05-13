@@ -160,11 +160,11 @@
         picContainer.appendChild(pic);
 
         fetch("https://youthspeakshawaii.herokuapp.com/v2/contacts/"+id+"/event").then(function (response) {
-        // fetch("http://localhost:3000/v2/contacts/"+id+"/event").then(function (response) {
+        // fetch("http://localhost:3000/v2/contacts/"+id+"/events").then(function (response) {
             return response.json();
         }).then(function (data) {
             var flag=0;
-            for (var i = 0; i < json.length; i++) {
+            for (var i = 0; i < data.length; i++) {
                 if (flag === 0) {
 
                     var vP1 = document.createElement("p");
@@ -177,11 +177,11 @@
 
                     flag = 1;
                 }
-                let {title, IDevent} = data[0];
+                let {title, IDevent} = data[i];
 
                 var vLink = document.createElement("a");
                 vLink.setAttribute('href','/pages/event.html?id='+`${IDevent}`);
-                vLink.innerHTML=title;
+                vLink.innerHTML=title + "<br />";
                 vP2.appendChild(vLink);
 
             }
