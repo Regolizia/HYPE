@@ -614,7 +614,7 @@ definitions:
     required:
       - "IDperson"
     properties:
-    IDperson:
+      IDperson:
         type: "integer"
         format: "int64"
       full_name:
