@@ -36,7 +36,7 @@ exports.activityIdGET = function(id) {
     return sqlDb
         .from('Activity')
         .select()
-        .where({ id: id })
+        .where({ IDactivity: id })
         .then(data => {
             return data
         });

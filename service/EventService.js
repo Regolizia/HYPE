@@ -41,9 +41,9 @@ exports.eventsDbSetup = function(database) {
  **/
 exports.eventIdGET = function(id) {
     return sqlDb
-        .from('events')
+        .from('Event')
         .select()
-        .where({ id: id })
+        .where({ IDevent: id })
         .then(data => {
             return data
         });
@@ -103,7 +103,7 @@ exports.eventsIdContactGET = function(id) {
 
     //needed for multiple authors
     return sqlDb
-        .from("events")
+        .from("Event")
         .orderBy('contacts.id')
         .join('writes', 'events.id', 'writes.bookId')
         .join('events', 'events.id', 'writes.authorId')
@@ -125,11 +125,11 @@ exports.eventsIdContactGET = function(id) {
  **/
 exports.eventsIdActivityGET = function(id) {
     return sqlDb
-        .from("events")
-        .join('presents', 'events.id', 'presents.eventId')
-        .join('activities', 'activities.id', 'presents.activityId')
-        .select("activities.id", "name", "activities.bookId", "activities.date", "location", "activities.description")
-        .where("events.id", id)
+        .from("Event")
+        .join('Event_activity', 'Event.IDevent', 'Event_activity.IDevent')
+        .join('Activity', 'Activity.IDactivity', 'Event_activity.IDactivity')
+        .select("Activity.title","Activity.IDactivity",)
+        .where("Event.IDevent", id)
         .then(data => {
             return data
         });

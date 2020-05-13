@@ -46,9 +46,9 @@ exports.contactsGET = function() {
  **/
 exports.contactIdGET = function(id) {
     return sqlDb
-        .from('contacts')
+        .from('Person')
         .select()
-        .where({ id: id })
+        .where({ IDperson: id })
         .then(data => {
             return data
         });
@@ -64,11 +64,10 @@ exports.contactIdGET = function(id) {
 exports.contactsIdEventsGET = function(id) {
 
     return sqlDb
-        .from("contacts")
-        .join('writes', 'contacts.id', 'writes.contactId')
-        .join('events', 'events.id', 'writes.eventId')
-        .select("events.id", "name", "location", "description", "date")
-        .where("contacts.id", id)
+        .from("Person")
+        .join('Event', 'Person.IDperson', 'Event.IDperson')
+        .select("Event.IDevent", "Event.title")
+        .where("Person.IDperson", id)
         .then(data => {
             return data
         });
