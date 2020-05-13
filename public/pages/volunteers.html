@@ -111,7 +111,8 @@
 <script>
     var volunteers = document.querySelector(".volunteers");
 
-    fetch("https://youthspeakshawaii.herokuapp.com/v2/contacts").then(function (response) {
+    fetch("https://youthspeakshawaii.herokuapp.com/v2/volunteers").then(function (response) {
+    // fetch("http://localhost:3000/v2/volunteers").then(function (response) {
         return response.json();
     }).then(function (json) {
         for(var i=0; i<json.length; i++){
@@ -129,10 +130,11 @@
             var vDiv3 = document.createElement("div");
             var vP = document.createElement("p");
 
+            let{full_name, img, IDperson}  = json[i];
 
             vDiv.setAttribute('class', 'column d-flex justify-content-center');
             vDiv2.setAttribute('class', 'card');
-            vLink.setAttribute('href', '#');
+            vLink.setAttribute('href', '/pages/volunteer.html?id='+`${IDperson}`);
 
             vImg.setAttribute('class', 'card-img-top' );
             vImg.setAttribute('alt', 'Volunteer image' );
@@ -140,7 +142,7 @@
             vDiv3.setAttribute('class', 'card-body');
             vP.setAttribute('class', 'card-text');
 
-            let{full_name, img}  = json[i];
+
 
             vP.innerHTML = full_name;
             var path = "/img/";

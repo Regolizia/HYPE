@@ -137,7 +137,12 @@
     var picContainer = document.querySelector(".vol-pic-container");
     var Vtitle = document.querySelector(".title");
 
-    fetch("v2/contacts").then(function (response) {
+    //Gets the id of the element
+    let splits = (location.search).split("=");
+    let id = splits[1];
+
+    fetch("https://youthspeakshawaii.herokuapp.com/v2/contacts/"+id).then(function (response) {
+    // fetch("http://localhost:3000/v2/contacts/"+id).then(function (response) {
         return response.json();
     }).then(function (json) {
         let{full_name, bio, phone, email,  img}  = json[0];

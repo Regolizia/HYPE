@@ -159,7 +159,12 @@
     var Edescription = document.querySelector(".about-right");
     var picContainer = document.querySelector(".vol-pic-container");
 
-    fetch("v2/events").then(function (response) {
+    //Gets the id of the element
+    let splits = (location.search).split("=");
+    let id = splits[1];
+
+    fetch("https://youthspeakshawaii.herokuapp.com/v2/events/"+id).then(function (response) {
+    // fetch("http://localhost:3000/v2/events/"+id).then(function (response) {
         return response.json();
     }).then(function (json) {
         let{title, date, start_time, end_time, location, IDperson, description, img}  = json[0];
