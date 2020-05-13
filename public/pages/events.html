@@ -111,7 +111,8 @@
         "July", "August", "September", "October", "November", "December"];
     var events = document.querySelector(".months-container");
 
-    fetch("https://youthspeakshawaii.herokuapp.com/v2/events").then(function (response) {
+    // fetch("https://youthspeakshawaii.herokuapp.com/v2/events").then(function (response) {
+    fetch("http://localhost:3000/v2/events").then(function (response) {
         return response.json();
     }).then(function (json) {
 
@@ -141,8 +142,8 @@
 
 
                 var r = date.substring(5, 7).valueOf() !== monthVal.valueOf();
-                eTextP.innerHTML = date.substring(5, 7);
-                eTextP.innerHTML = monthNames[parseInt(date.substring(5, 7), 10)];
+                // eTextP.innerHTML = date.substring(5, 7);
+                eTextP.innerHTML = monthNames[parseInt(date.substring(5, 7), 10)-1];
                 // eTextP.innerHTML = date.substring(5, 7) + " - " + monthVal + " res: " + r;
                 if (date.substring(5, 7).valueOf() !== monthVal.valueOf()) {
 
@@ -298,6 +299,10 @@
                     var sliderArrowId2 = '#' + sliderArrowIdName2;
                     var respId = '#' + respName;
 
+
+                    console.log(($(this).find('.card')).length);
+                    var cardNumber = ($(this).find('.card')).length;
+
                     $(sliderId).slick({
                         slidesToShow: 1,
                         slidesToScroll: 1,
@@ -305,6 +310,11 @@
                         fade: true,
                         asNavFor: sliderNavId
                     });
+
+                    var cardShown=4;
+                    if (window.matchMedia('screen and (max-width: 1224px)').matches) {cardShown=3;}
+                    if (window.matchMedia('screen and (max-width: 600px)').matches) {cardShown=2;}
+                    if (window.matchMedia('screen and (max-width: 480px)').matches) {cardShown=1;}
 
                     $(respId).slick({
                         slidesToShow: 4,
@@ -347,6 +357,11 @@
                     $(sliderArrowId2).click(function () {
                         $(respId).slick('slickNext');
                     });
+
+                    if(cardNumber<=cardShown){
+                        $(sliderArrowId).hide();
+                        $(sliderArrowId2).hide();
+                    }
 
 
                 });
