@@ -62,9 +62,9 @@ exports.activitiesGET = function() {
  **/
 exports.activitiesIdEventGET = function(id) {
     return sqlDb
-        .from("Event")
-        .join('Event_activity', 'Event.IDevent', 'Event_activity.IDevent')
-        .join('Activity', 'Activity.IDactivity', 'Event_activity.IDactivity')
+        .from("Activity")
+        .join('Event_activity', 'Activity.IDactivity', 'Event_activity.IDactivity')
+        .join('Event', 'Event.IDevent', 'Event_activity.IDevent')
         .select("Event.title","Event.IDactivity",)
         .where("Activity.IDactivity", id)
         .then(data => {
