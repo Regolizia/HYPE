@@ -111,8 +111,8 @@
         "July", "August", "September", "October", "November", "December"];
     var events = document.querySelector(".months-container");
 
-    // fetch("https://youthspeakshawaii.herokuapp.com/v2/events").then(function (response) {
-    fetch("http://localhost:3000/v2/events").then(function (response) {
+    fetch("https://youthspeakshawaii.herokuapp.com/v2/events").then(function (response) {
+    // fetch("http://localhost:3000/v2/events").then(function (response) {
         return response.json();
     }).then(function (json) {
 
