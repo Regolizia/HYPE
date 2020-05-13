@@ -111,7 +111,7 @@
 <script>
     var volunteers = document.querySelector(".volunteers");
 
-    fetch("v2/contacts").then(function (response) {
+    fetch("https://youthspeakshawaii.herokuapp.com/v2/contacts").then(function (response) {
         return response.json();
     }).then(function (json) {
         for(var i=0; i<json.length; i++){
