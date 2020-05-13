@@ -65,13 +65,7 @@
 
                         </div>
                         <div class="vol-events-container">
-                            <p> <strong>Currently organizes</strong></p>
-                            <p><a href=# >First spring tutoring</a>
-                                <br>
-                                <a href=# >Come what May</a>
-                                <br>
-                                <a href=# >Poetry Slam</a>
-                            </p>
+
                         </div>
                     </div>
                 </div>
@@ -137,6 +131,8 @@
     var picContainer = document.querySelector(".vol-pic-container");
     var Vtitle = document.querySelector(".title");
 
+    var eventsContainer = document.querySelector(".vol-events-container");
+
     //Gets the id of the element
     let splits = (location.search).split("=");
     let id = splits[1];
@@ -162,8 +158,44 @@
         pic.setAttribute('src', path);
         pic.setAttribute('alt', 'volunteer picture');
         picContainer.appendChild(pic);
+
+        fetch("https://youthspeakshawaii.herokuapp.com/v2/contacts/"+id+"/event").then(function (response) {
+        // fetch("http://localhost:3000/v2/contacts/"+id+"/event").then(function (response) {
+            return response.json();
+        }).then(function (data) {
+            var flag=0;
+            for (var i = 0; i < json.length; i++) {
+                if (flag === 0) {
+
+                    var vP1 = document.createElement("p");
+                    var vP2 = document.createElement("p");
+
+                    vP1.innerHTML= "<strong>Currently organizes</strong>";
+
+                    eventsContainer.appendChild(vP1);
+                    eventsContainer.appendChild(vP2);
+
+                    flag = 1;
+                }
+                let {title, IDevent} = data[0];
+
+                var vLink = document.createElement("a");
+                vLink.setAttribute('href','/pages/event.html?id='+`${IDevent}`);
+                vLink.innerHTML=title;
+                vP2.appendChild(vLink);
+
+            }
+        })
     })
 </script>
+
+<!--<p> <strong>Currently organizes</strong></p>-->
+<!--<p><a href=# >First spring tutoring</a>-->
+<!--    <br>-->
+<!--    <a href=# >Come what May</a>-->
+<!--    <br>-->
+<!--    <a href=# >Poetry Slam</a>-->
+<!--</p>-->
 
 <script>
     function openDA(DAname) {
