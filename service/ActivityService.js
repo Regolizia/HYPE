@@ -50,7 +50,12 @@ exports.activityIdGET = function(id) {
  * returns List
  **/
 exports.activitiesGET = function() {
-    return sqlDb('Activity')
+    return sqlDb
+        .from("Activity")
+        .orderBy('Activity.IDactivity')
+        .then(data => {
+            return data
+        });
 };
 
 

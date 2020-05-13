@@ -140,7 +140,9 @@
 
                 <div class="e-act-container lower">
                     <div class="e-act">
-                        <div class="active-button e-act-button"><a href="#">Events where you can find this activity</a></div>
+                        <div class="active-button e-act-button">
+<!--                            -->
+                        </div>
                     </div>
                 </div>
 
@@ -265,7 +267,15 @@
     var activities = document.querySelector(".sidebar-inner");
     var activitiesSmall = document.querySelector(".mainMenu-inner");
 
-    fetch("v2/activities").then(function (response) {
+    var eventsContainer = document.querySelector(".e-act-button");
+
+    //Gets the id of the element
+    let splits = (location.search).split("=");
+    let id = splits[1];
+    var actID =id;
+
+    fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/"+id).then(function (response) {
+    // fetch("http://localhost:3000/v2/activities/"+id).then(function (response) {
         return response.json();
     }).then(function (json) {
         let{title, description, practical_info}  = json[0];
@@ -286,19 +296,34 @@
         // pic.setAttribute('alt', 'volunteer picture');
         // picContainer.appendChild(pic);
 
-        fetch("v2/activities").then(function (response) {
+        // LINK to events
+        var eLink = document.createElement("a");
+        eLink.innerHTML= "Events where you can find this activity";
+        eLink.setAttribute('href', '/pages/events.html?id='+ actID);
+        eventsContainer.appendChild(eLink);
+        //
+
+        fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/").then(function (response) {
+        // fetch("http://localhost:3000/v2/activities/").then(function (response) {
             return response.json();
-        }).then(function (json) {
-            for(var i=0; i<json.length; i++){
+        }).then(function (data) {
+            for(var i=0; i<data.length; i++){
                 var actLink = document.createElement("a");
                 var actLinkSmall = document.createElement("a");
                 var actDiv = document.createElement("div");
                 var actDivSmall = document.createElement("div");
 
-                let{title}  = json[i];
+                let{title, IDactivity}  = data[i];
                 actDiv.innerHTML = title;
                 actDiv.setAttribute('class', 'd-item2');
-                actLink.setAttribute('href', '#');
+                actLink.setAttribute('href', '/pages/activity.html?id='+`${IDactivity}`);
+
+                if(parseInt(IDactivity) === parseInt(actID)){
+                    actDiv.setAttribute('class', 'd-item2 active-button');
+                    actLink.setAttribute('href', '#');
+                    actLink.setAttribute('class', 'active-a');
+                }
+
                 actLink.appendChild(actDiv);
                 activities.appendChild(actLink);
 

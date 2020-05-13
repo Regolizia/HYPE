@@ -106,6 +106,7 @@
     var activities = document.querySelector(".activities");
 
     fetch("https://youthspeakshawaii.herokuapp.com/v2/activities").then(function (response) {
+        // fetch("http://localhost:3000/v2/activities").then(function (response) {
         return response.json();
     }).then(function (json) {
         for(var i=0; i<json.length; i++){
@@ -117,15 +118,15 @@
             var actTitle = document.createElement("h3");
             var actImg = document.createElement("img");
 
+            let{title, IDactivity}  = json[i];
+
             actDiv.setAttribute('class', 'activity');
-            actLink.setAttribute('href', '#');
+            actLink.setAttribute('href', '/pages/activity.html?id='+`${IDactivity}`);
             actDiv2.setAttribute('class', 'row');
             actDiv3.setAttribute('class', 'col-lg-5 img-col d-flex justify-content-center align-items-center');
             actDiv4.setAttribute('class', 'col-lg-7 d-flex justify-content-center align-items-center');
             actImg.setAttribute('class', 'activity-img' );
             actImg.setAttribute('alt', 'Activity image' );
-
-            let{title}  = json[i];
 
             actTitle.innerHTML = title;
 
