@@ -94,21 +94,18 @@ exports.eventsGET = function() {
 
 
 /**
- * Get the author of a book
+ * Get the contact of an event
  *
- * id Long id of the book you want the author of
- * returns Author
+ * id Long id of the event you want the contact of
+ * returns Contact
  **/
 exports.eventsIdContactGET = function(id) {
 
-    //needed for multiple authors
     return sqlDb
         .from("Event")
-        .orderBy('contacts.id')
-        .join('writes', 'events.id', 'writes.bookId')
-        .join('events', 'events.id', 'writes.authorId')
-        .select("events.id", "name", "surname", "biography")
-        .where("events.id", id)
+        .join('Person', 'Event.IDperson', 'Person.IDperson')
+        .select("Person.full_name", "Person.IDperson")
+        .where("Event.IDevent", id)
         .then(data => {
             return data
         });
