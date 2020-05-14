@@ -35,3 +35,14 @@ module.exports.activitiesIdEventGET = function activitiesIdEventGET (req, res, n
             utils.writeJson(res, response);
         });
 };
+
+module.exports.activitiesIdPersonGET = function activitiesIdPersonGET (req, res, next) {
+    var id = req.swagger.params['id'].value;
+    Activity.activitiesIdPersonGET(id)
+        .then(function (response) {
+            utils.writeJson(res, response);
+        })
+        .catch(function (response) {
+            utils.writeJson(res, response);
+        });
+};

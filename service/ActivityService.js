@@ -70,7 +70,19 @@ exports.activitiesIdEventGET = function(id) {
         .from("Event")
         .join('Event_activity', 'Event.IDevent', 'Event_activity.IDevent')
         .join('Activity', 'Activity.IDactivity', 'Event_activity.IDactivity')
-        .select("Event.title","Event.IDevent",)
+        .select("Event.title","Event.IDevent")
+        .where("Activity.IDactivity", id)
+        .then(data => {
+            return data
+        });
+};
+
+exports.activitiesIdContactGET = function(id) {
+    return sqlDb
+        .from("Person")
+        .join('Person_activity', 'Person.IDperson', 'Person_activity.IDperson')
+        .join('Activity', 'Activity.IDactivity', 'Person_activity.IDactivity')
+        .select("Person.full_name","Person.IDperson","Person.img")
         .where("Activity.IDactivity", id)
         .then(data => {
             return data
