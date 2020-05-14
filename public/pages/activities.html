@@ -105,8 +105,8 @@
 <script>
     var activities = document.querySelector(".activities");
 
-    fetch("https://youthspeakshawaii.herokuapp.com/v2/activities").then(function (response) {
-        // fetch("http://localhost:3000/v2/activities").then(function (response) {
+    // fetch("https://youthspeakshawaii.herokuapp.com/v2/activities").then(function (response) {
+        fetch("http://localhost:3000/v2/activities").then(function (response) {
         return response.json();
     }).then(function (json) {
         for(var i=0; i<json.length; i++){
@@ -118,7 +118,7 @@
             var actTitle = document.createElement("h3");
             var actImg = document.createElement("img");
 
-            let{title, IDactivity}  = json[i];
+            let{title, IDactivity, img}  = json[i];
 
             actDiv.setAttribute('class', 'activity');
             actLink.setAttribute('href', '/pages/activity.html?id='+`${IDactivity}`);
@@ -130,10 +130,11 @@
 
             actTitle.innerHTML = title;
 
-            // DB ACT-IMAGE PRENDI LA PRIMA IMMAGINE PER OGNI IDactivity
-            // var path = "/img/";
-            // path += img;
-            // actImg.setAttribute('src', path);
+            // only first and second element
+            var x = [];
+            x.push(img[0]);
+            x.push(img[1]);
+            actImg.setAttribute('src', x);
 
             actDiv4.appendChild(actTitle);
             actDiv3.appendChild(actImg);
