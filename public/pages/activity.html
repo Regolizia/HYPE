@@ -139,49 +139,7 @@
                 <div class="col-lg-9 event-activities-right">
 
                     <div class="e-act-container">
-                        <div class="e-act">
-                            <div class="act-card">
-                                <a href=/pages/volunteer.html>
-                                    <img class="act-card-img-top" src="/img/about-2.jpg" alt="Volunteer image">
-                                    <div class="act-card-body">
-                                        <p class="card-text">Stefania Dratz</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="act-card">
-                                <a href=/pages/volunteer.html>
-                                    <img class="act-card-img-top" src="/img/about-2.jpg" alt="Volunteer image">
-                                    <div class="act-card-body">
-                                        <p class="card-text">Stefania Dratz</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="act-card">
-                                <a href=/pages/volunteer.html>
-                                    <img class="act-card-img-top" src="/img/about-2.jpg" alt="Volunteer image">
-                                    <div class="act-card-body">
-                                        <p class="card-text">Stefania Dratz</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="act-card">
-                                <a href=/pages/volunteer.html>
-                                    <img class="act-card-img-top" src="/img/about-2.jpg" alt="Volunteer image">
-                                    <div class="act-card-body">
-                                        <p class="card-text">Stefania Dratz</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="act-card">
-                                <a href=/pages/volunteer.html>
-                                    <img class="act-card-img-top" src="/img/about-2.jpg" alt="Volunteer image">
-                                    <div class="act-card-body">
-                                        <p class="card-text">Stefania Dratz</p>
-                                    </div>
-                                </a>
-                            </div>
-
-
+                        <div class="e-act organizers">
 
                         </div>
                     </div>
@@ -254,6 +212,7 @@
     var eventsContainer = document.querySelector(".e-act-button");
     var picTop = document.querySelector(".act-pic-container");
     var picBottom = document.querySelector(".pics-track");
+    var vol = document.querySelector(".organizers");
 
     //Gets the id of the element
     let splits = (location.search).split("=");
@@ -415,10 +374,30 @@
                         // fetch("http://localhost:3000/v2/activities/"+id+"/contact").then(function (response) {
                         return response.json();
                     }).then(function (json) {
-                        let {full_name, img} = json[0];
+                            for(var k=0; k<json.length; k++) {
+                                let {full_name, img, IDperson} = json[k];
+                                var vDiv =document.createElement("div");
+                                var vLink =document.createElement("a");
+                                var vImg =document.createElement("img");
+                                var vDiv2 =document.createElement("div");
+                                var vP =document.createElement("p");
 
+                                vDiv.setAttribute('class', 'act-card' );
+                                vLink.setAttribute('href', '/pages/volunteer.html?id='+`${IDperson}`);
+                                vImg.setAttribute('class', 'act-card-img-top' );
+                                vImg.setAttribute('src', img );
+                                vImg.setAttribute('alt', 'Picture of '+full_name);
+                                vDiv2.setAttribute('class', 'act-card-body' );
+                                vP.setAttribute('class', 'card-text' );
+                                vP.innerHTML = full_name;
 
+                                vDiv2.appendChild(vP);
+                                vLink.appendChild(vImg);
+                                vLink.appendChild(vDiv2);
+                                vDiv.appendChild(vLink);
+                                vol.appendChild(vDiv);
 
+                            }
                     })
 
 
@@ -429,15 +408,14 @@
 
 </script>
 
-<!--     SELECTED ACTIVITY HAS OTHER CLASSES!    -->
-<!--<a class="active-a" href="#"><div class="active-button d-item2">Writing poetry</div></a>-->
-
-<!--    SMALL SIDEBAR VERISON   -->
-<!--        <a href="#" class="active-a">-->
-<!--            <div class="active-button">-->
-<!--                Writing poetry-->
-<!--            </div>-->
-<!--        </a>-->
+<!--<div class="act-card">-->
+<!--    <a href=/pages/volunteer.html>-->
+<!--        <img class="act-card-img-top" src="/img/about-2.jpg" alt="Volunteer image">-->
+<!--        <div class="act-card-body">-->
+<!--            <p class="card-text">Stefania Dratz</p>-->
+<!--        </div>-->
+<!--    </a>-->
+<!--</div>-->
 
 
 <!-- MENU-->
