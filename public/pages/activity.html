@@ -260,14 +260,9 @@
     let id = splits[1];
     var actID =id;
 
-    // // fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/"+id).then(function (response) {
-    // fetch("http://localhost:3000/v2/activities/"+id).then(function (response) {
-    //     return response.json();
-    // }).then(function (json) {
 
-
-        // fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/").then(function (response) {
-        fetch("http://localhost:3000/v2/activities/").then(function (response) {
+        fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/").then(function (response) {
+        // fetch("http://localhost:3000/v2/activities/").then(function (response) {
             return response.json();
         }).then(function (data) {
             for(var i=0; i<data.length; i++) {
