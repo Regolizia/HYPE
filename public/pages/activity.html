@@ -142,7 +142,7 @@
                         <div class="e-act">
                             <div class="act-card">
                                 <a href=/pages/volunteer.html>
-                                    <img class="act-card-img-top" src="/img/P01.jpg" alt="Volunteer image">
+                                    <img class="act-card-img-top" src="/img/about-2.jpg" alt="Volunteer image">
                                     <div class="act-card-body">
                                         <p class="card-text">Stefania Dratz</p>
                                     </div>
@@ -150,7 +150,7 @@
                             </div>
                             <div class="act-card">
                                 <a href=/pages/volunteer.html>
-                                    <img class="act-card-img-top" src="/img/P01.jpg" alt="Volunteer image">
+                                    <img class="act-card-img-top" src="/img/about-2.jpg" alt="Volunteer image">
                                     <div class="act-card-body">
                                         <p class="card-text">Stefania Dratz</p>
                                     </div>
@@ -158,7 +158,7 @@
                             </div>
                             <div class="act-card">
                                 <a href=/pages/volunteer.html>
-                                    <img class="act-card-img-top" src="/img/P01.jpg" alt="Volunteer image">
+                                    <img class="act-card-img-top" src="/img/about-2.jpg" alt="Volunteer image">
                                     <div class="act-card-body">
                                         <p class="card-text">Stefania Dratz</p>
                                     </div>
@@ -166,7 +166,7 @@
                             </div>
                             <div class="act-card">
                                 <a href=/pages/volunteer.html>
-                                    <img class="act-card-img-top" src="/img/P01.jpg" alt="Volunteer image">
+                                    <img class="act-card-img-top" src="/img/about-2.jpg" alt="Volunteer image">
                                     <div class="act-card-body">
                                         <p class="card-text">Stefania Dratz</p>
                                     </div>
@@ -174,7 +174,7 @@
                             </div>
                             <div class="act-card">
                                 <a href=/pages/volunteer.html>
-                                    <img class="act-card-img-top" src="/img/P01.jpg" alt="Volunteer image">
+                                    <img class="act-card-img-top" src="/img/about-2.jpg" alt="Volunteer image">
                                     <div class="act-card-body">
                                         <p class="card-text">Stefania Dratz</p>
                                     </div>
@@ -260,58 +260,26 @@
     let id = splits[1];
     var actID =id;
 
-    // fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/"+id).then(function (response) {
-    fetch("http://localhost:3000/v2/activities/"+id).then(function (response) {
-        return response.json();
-    }).then(function (json) {
-        let{title, description, practical_info, img}  = json[0];
+    // // fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/"+id).then(function (response) {
+    // fetch("http://localhost:3000/v2/activities/"+id).then(function (response) {
+    //     return response.json();
+    // }).then(function (json) {
 
-        Adescription.innerHTML += description;
-        Atitle.innerHTML += title;
-
-        for(var i=0;i<img.length-1;i++){
-            var iDiv = document.createElement("div");
-            var iDiv2 = document.createElement("div");
-            var iImg = document.createElement("img");
-            var iImg2 = document.createElement("img");
-            iImg.setAttribute('class', 'act-pic-large' );
-            iImg2.setAttribute('class', 'act-pic-large' );
-            iImg.setAttribute('alt', 'Activity image' );
-            iImg2.setAttribute('alt', 'Activity image' );
-            var x = [];
-            x.push(img[0]);
-            x.push(img[i+1]);
-            iImg.setAttribute('src', x);
-            iImg2.setAttribute('src', x);
-            iDiv.appendChild(iImg);
-            iDiv2.appendChild(iImg2);
-            picTop.appendChild(iDiv);
-            picBottom.appendChild(iDiv2);
-
-        //    <div><img src="/img/about-2.jpg" class="act-pic-large" alt="Alt text"></div>
-
-        }
-
-
-
-        // LINK to events
-        var eLink = document.createElement("a");
-        eLink.innerHTML= "Events where you can find this activity";
-        eLink.setAttribute('href', '/pages/events.html?id='+ actID);
-        eventsContainer.appendChild(eLink);
-        //
 
         // fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/").then(function (response) {
         fetch("http://localhost:3000/v2/activities/").then(function (response) {
             return response.json();
         }).then(function (data) {
             for(var i=0; i<data.length; i++) {
+
+                let {title, IDactivity, description, practical_info, img} = data[i];
+
+                //////////////////////////////////////
                 var actLink = document.createElement("a");
                 var actLinkSmall = document.createElement("a");
                 var actDiv = document.createElement("div");
                 var actDivSmall = document.createElement("div");
 
-                let {title, IDactivity} = data[i];
                 actDiv.innerHTML = title;
                 actDiv.setAttribute('class', 'd-item2');
                 actLink.setAttribute('href', '/pages/activity.html?id=' + `${IDactivity}`);
@@ -329,7 +297,47 @@
                 actLinkSmall.appendChild(actDivSmall);
                 activitiesSmall.appendChild(actLinkSmall);
 
+
+                ///////////////////////////////////////
+                console.log(IDactivity+"  "+id);
+                if(parseInt(IDactivity)===parseInt(id)){
+                    Adescription.innerHTML += description;
+                    Atitle.innerHTML += title;
+
+                    for(var y=0;y<img.length-1;y++){
+                        var iDiv = document.createElement("div");
+                        var iDiv2 = document.createElement("div");
+                        var iImg = document.createElement("img");
+                        var iImg2 = document.createElement("img");
+                        iImg.setAttribute('class', 'act-pic-large' );
+                        iImg2.setAttribute('class', 'act-pic-large' );
+                        iImg.setAttribute('alt', 'Activity image' );
+                        iImg2.setAttribute('alt', 'Activity image' );
+                        var x = [];
+                        x.push(img[0]);
+                        x.push(img[y+1]);
+                        iImg.setAttribute('src', x);
+                        iImg2.setAttribute('src', x);
+                        iDiv.appendChild(iImg);
+                        iDiv2.appendChild(iImg2);
+                        picTop.appendChild(iDiv);
+                        picBottom.appendChild(iDiv2);
+
+                        //    <div><img src="/img/about-2.jpg" class="act-pic-large" alt="Alt text"></div>
+
+                    }
+
+
+
+                    // LINK to events
+                    var eLink = document.createElement("a");
+                    eLink.innerHTML= "Events where you can find this activity";
+                    eLink.setAttribute('href', '/pages/events.html?id='+ actID);
+                    eventsContainer.appendChild(eLink);
+                    //
+                }
                 //////////////////////////////////////////////////////
+                console.log(i);
                 if (i === data.length - 1) {
                     $('.slider-nav').each(function (key, item) {
 
@@ -409,7 +417,7 @@
                 }
             }
         })
-    })
+    // })
 
 </script>
 
@@ -423,10 +431,6 @@
 <!--            </div>-->
 <!--        </a>-->
 
-
-<script>
-
-</script>
 
 <!-- MENU-->
 <script>$(document).ready(function(){
