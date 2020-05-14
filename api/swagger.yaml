@@ -274,7 +274,7 @@ paths:
       tags:
         - "activity"
       summary: "Get the contact of an activity"
-      operationId: "activitiesIdPersonGET"
+      operationId: "activitiesIdContactGET"
       parameters:
         - name: "id"
           in: "path"

@@ -36,9 +36,9 @@ module.exports.activitiesIdEventGET = function activitiesIdEventGET (req, res, n
         });
 };
 
-module.exports.activitiesIdPersonGET = function activitiesIdPersonGET (req, res, next) {
+module.exports.activitiesIdContactGET = function activitiesIdContactGET (req, res, next) {
     var id = req.swagger.params['id'].value;
-    Activity.activitiesIdPersonGET(id)
+    Activity.activitiesIdContactGET(id)
         .then(function (response) {
             utils.writeJson(res, response);
         })
