@@ -195,7 +195,7 @@
                 let {title, IDevent} = data[i];
 
                 var vLink = document.createElement("a");
-                vLink.setAttribute('href','/pages/event.html?id='+`${IDevent}`);
+                vLink.setAttribute('href','/pages/event.html?id='+`${IDevent}`+'&orig=V'+'&num='+id);
                 vLink.innerHTML=title + "<br />";
                 vP2.appendChild(vLink);
 

@@ -39,9 +39,6 @@
 </header>
 
 <nav role="navigation-back" class="small-navbar">
-    <a class="small-navbar-text-link" href=/pages/events.html>Events</a>
-    <a class="small-navbar-text" href=#> <i class="fa fa-angle-double-right" ></i></a>
-    <a class="small-navbar-text" href=#>First spring tutoring</a>
 </nav>
 
 
@@ -143,9 +140,27 @@
     var Edescription = document.querySelector(".about-right");
     var picContainer = document.querySelector(".vol-pic-container");
 
+    var navbar = document.querySelector(".small-navbar");
+
     //Gets the id of the element
-    let splits = (location.search).split("=");
-    let id = splits[1];
+    // let splits = (location.search).split("=");
+    // let id = splits[1];
+
+    const queryString = window.location.search;
+    console.log(queryString);
+    const urlParams = new URLSearchParams(queryString);
+    const id = urlParams.get('id');
+    var orig;
+    var num;
+    if(urlParams.has('orig')){
+        orig = urlParams.get('orig');
+        console.log(orig);
+        if(urlParams.has('num')){
+            num = urlParams.get('num');
+            console.log(num);
+        }
+    }
+
 
     // fetch("https://youthspeakshawaii.herokuapp.com/v2/events/"+id).then(function (response) {
     fetch("http://localhost:3000/v2/events/"+id).then(function (response) {
@@ -176,6 +191,51 @@
             contactLink.innerHTML = full_name;
             contactLink.setAttribute('href', '/pages/volunteer.html?id='+`${IDperson}`+'&orig=E'+'&num='+id);
             contact.appendChild(contactLink);
+
+
+
+            //
+            var navLink1 = document.createElement("a");
+            var navLink2 = document.createElement("a");
+            var navI = document.createElement("i");
+            var navLink3 = document.createElement("a");
+            navLink1.setAttribute('class', 'small-navbar-text-link');
+
+            if(orig==="E") {
+                navLink1.setAttribute('href', '/pages/events.html');
+                navLink1.innerHTML="Events";
+            }
+            if(orig==="V") {
+                    navLink1.setAttribute('href', '/pages/volunteer.html?id='+`${IDperson}`+'&orig=E'+'&num='+id);
+                    navLink1.innerHTML="Volunteer: "+full_name;
+            }
+            // if(orig==="A") {
+            //     fetch("http://localhost:3000/v2/activities/"+num).then(function (response) {
+            //         return response.json();
+            //     }).then(function (origData) {
+            //         let {IDactivity, title} = origData[0];
+            //         navLink1.setAttribute('href', '/pages/event.html?id='+`${IDactivity}`);
+            //         navLink1.innerHTML="Activity: "+title;
+            //     })
+            //
+            // }
+
+            navLink2.setAttribute('href', '#');
+            navLink3.setAttribute('href', '#');
+            navLink2.setAttribute('class', 'small-navbar-text');
+            navI.setAttribute('class', 'fa fa-angle-double-right');
+            navLink3.setAttribute('class', 'small-navbar-text');
+            navLink3.innerHTML=title;
+
+            navLink2.appendChild(navI);
+            navbar.appendChild(navLink1);
+            navbar.appendChild(navLink2);
+            navbar.appendChild(navLink3);
+
+            //
+
+
+
 
             // fetch("https://youthspeakshawaii.herokuapp.com/v2/events/"+id+"/activity").then(function (response) {
             fetch("http://localhost:3000/v2/events/"+id+"/activity").then(function (response) {
@@ -222,7 +282,12 @@
                     eLink.appendChild(eActDiv);
                     eDiv3.appendChild(eLink);
 
+
                 }
+
+
+
+
             })
 
         })
