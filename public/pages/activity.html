@@ -108,27 +108,11 @@
                         <h1 class="title"></h1>
                         <div class="slider slider-for act-pic-container">
 
-                            <div><img src="/img/E01.jpg" class="act-pic-large" alt="Alt text"></div>
-                            <div><img src="/img/E02.jpg" class="act-pic-large" alt="Alt text"></div>
-                            <div><img src="/img/E01.jpg" class="act-pic-large" alt="Alt text"></div>
-                            <div><img src="/img/E02.jpg" class="act-pic-large" alt="Alt text"></div>
-                            <div><img src="/img/E01.jpg" class="act-pic-large" alt="Alt text"></div>
-
                         </div>
 
                         <div class="slider slider-nav responsive pics-track">
 
-                            <div><img src="/img/E01.jpg" class="act-pic" alt="Alt text"></div>
-                            <div><img src="/img/E02.jpg" class="act-pic" alt="Alt text"></div>
-                            <div><img src="/img/E01.jpg" class="act-pic" alt="Alt text"></div>
-                            <div><img src="/img/E02.jpg" class="act-pic" alt="Alt text"></div>
-                            <div><img src="/img/E01.jpg" class="act-pic" alt="Alt text"></div>
                         </div>
-
-
-
-
-
 
                     </div>
                 </div>
@@ -268,6 +252,8 @@
     var activitiesSmall = document.querySelector(".mainMenu-inner");
 
     var eventsContainer = document.querySelector(".e-act-button");
+    var picTop = document.querySelector(".act-pic-container");
+    var picBottom = document.querySelector(".pics-track");
 
     //Gets the id of the element
     let splits = (location.search).split("=");
@@ -278,23 +264,35 @@
     fetch("http://localhost:3000/v2/activities/"+id).then(function (response) {
         return response.json();
     }).then(function (json) {
-        let{title, description, practical_info}  = json[0];
+        let{title, description, practical_info, img}  = json[0];
 
-        // var shortDate = date.substr(0,10);
-        // when.innerHTML += shortDate + ", " + start_time + " - " + end_time;
-        // where.innerHTML += location;
-        // var contactLink = document.createElement("a");
-        // contactLink.innerHTML = IDperson;
-        // contact.appendChild(contactLink);
         Adescription.innerHTML += description;
         Atitle.innerHTML += title;
-        // var pic = document.createElement("img");
-        // pic.setAttribute('class', 'vol-pic');
-        // var path = "/img/";
-        // path += img;
-        // pic.setAttribute('src', path);
-        // pic.setAttribute('alt', 'volunteer picture');
-        // picContainer.appendChild(pic);
+
+        for(var i=0;i<img.length-1;i++){
+            var iDiv = document.createElement("div");
+            var iDiv2 = document.createElement("div");
+            var iImg = document.createElement("img");
+            var iImg2 = document.createElement("img");
+            iImg.setAttribute('class', 'act-pic-large' );
+            iImg2.setAttribute('class', 'act-pic-large' );
+            iImg.setAttribute('alt', 'Activity image' );
+            iImg2.setAttribute('alt', 'Activity image' );
+            var x = [];
+            x.push(img[0]);
+            x.push(img[i+1]);
+            iImg.setAttribute('src', x);
+            iImg2.setAttribute('src', x);
+            iDiv.appendChild(iImg);
+            iDiv2.appendChild(iImg2);
+            picTop.appendChild(iDiv);
+            picBottom.appendChild(iDiv2);
+
+        //    <div><img src="/img/about-2.jpg" class="act-pic-large" alt="Alt text"></div>
+
+        }
+
+
 
         // LINK to events
         var eLink = document.createElement("a");
@@ -307,18 +305,18 @@
         fetch("http://localhost:3000/v2/activities/").then(function (response) {
             return response.json();
         }).then(function (data) {
-            for(var i=0; i<data.length; i++){
+            for(var i=0; i<data.length; i++) {
                 var actLink = document.createElement("a");
                 var actLinkSmall = document.createElement("a");
                 var actDiv = document.createElement("div");
                 var actDivSmall = document.createElement("div");
 
-                let{title, IDactivity}  = data[i];
+                let {title, IDactivity} = data[i];
                 actDiv.innerHTML = title;
                 actDiv.setAttribute('class', 'd-item2');
-                actLink.setAttribute('href', '/pages/activity.html?id='+`${IDactivity}`);
+                actLink.setAttribute('href', '/pages/activity.html?id=' + `${IDactivity}`);
 
-                if(parseInt(IDactivity) === parseInt(actID)){
+                if (parseInt(IDactivity) === parseInt(actID)) {
                     actDiv.setAttribute('class', 'd-item2 active-button');
                     actLink.setAttribute('href', '#');
                     actLink.setAttribute('class', 'active-a');
@@ -331,6 +329,84 @@
                 actLinkSmall.appendChild(actDivSmall);
                 activitiesSmall.appendChild(actLinkSmall);
 
+                //////////////////////////////////////////////////////
+                if (i === data.length - 1) {
+                    $('.slider-nav').each(function (key, item) {
+
+                        var sliderIdName = 'slider' + key;
+                        var sliderNavIdName = 'sliderNav' + key;
+                        var sliderArrowIdName = 'sliderArrow' + key;
+                        var sliderArrowIdName2 = 'sliderArrow2' + key;
+                        var respName = 'resp' + key;
+
+                        $('.slider-for')[key].id = sliderIdName;
+                        $('.slider-nav')[key].id = sliderNavIdName;
+                        // $('.left')[key].id = sliderArrowIdName;
+                        // $('.right')[key].id = sliderArrowIdName2;
+                        $('.responsive')[key].id = respName;
+
+                        var sliderId = '#' + sliderIdName;
+                        var sliderNavId = '#' + sliderNavIdName;
+                        var sliderArrowId = '#' + sliderArrowIdName;
+                        var sliderArrowId2 = '#' + sliderArrowIdName2;
+                        var respId = '#' + respName;
+
+                        $(sliderId).slick({
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            arrows: false,
+                            fade: true,
+                            asNavFor: respId
+
+                        });
+
+                        $(respId).slick({
+                            slidesToShow: 3,
+                            slidesToScroll: 1,
+                            asNavFor: sliderId,
+                            dots: true,
+                            // centerMode: true,
+                            focusOnSelect: true,
+                            arrows: false,
+                            // });
+                            autoplay: true,
+                            autoplaySpeed: 2000,
+                            // responsive: [
+                            //     {
+                            //         breakpoint: 1224,
+                            //         settings: {
+                            //             slidesToShow: 5,
+                            //             slidesToScroll: 2,
+                            //             // dots: true
+                            //         }
+                            //     },
+                            //     {
+                            //         breakpoint: 600,
+                            //         settings: {
+                            //             slidesToShow: 3,
+                            //             slidesToScroll: 1
+                            //         }
+                            //     },
+                            //     {
+                            //         breakpoint: 480,
+                            //         settings: {
+                            //             slidesToShow: 3,
+                            //             slidesToScroll: 1
+                            //         }
+                            //     }
+                            // ]
+                        });
+
+                        $(sliderArrowId).click(function () {
+                            $(respId).slick('slickPrev');
+                        });
+
+                        $(sliderArrowId2).click(function () {
+                            $(respId).slick('slickNext');
+                        });
+
+                    });
+                }
             }
         })
     })
@@ -349,81 +425,7 @@
 
 
 <script>
-    $('.slider-nav').each(function(key, item) {
 
-        var sliderIdName = 'slider' + key;
-        var sliderNavIdName = 'sliderNav' + key;
-        var sliderArrowIdName = 'sliderArrow' + key;
-        var sliderArrowIdName2 = 'sliderArrow2' + key;
-        var respName = 'resp' + key;
-
-        $('.slider-for')[key].id = sliderIdName;
-        $('.slider-nav')[key].id = sliderNavIdName;
-        // $('.left')[key].id = sliderArrowIdName;
-        // $('.right')[key].id = sliderArrowIdName2;
-        $('.responsive')[key].id = respName;
-
-        var sliderId = '#' + sliderIdName;
-        var sliderNavId = '#' + sliderNavIdName;
-        var sliderArrowId = '#' + sliderArrowIdName;
-        var sliderArrowId2 = '#' + sliderArrowIdName2;
-        var respId = '#' + respName;
-
-        $(sliderId).slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows: false,
-            fade: true,
-            asNavFor: respId
-
-        });
-
-        $(respId).slick({
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            asNavFor: sliderId,
-            dots: true,
-            // centerMode: true,
-            focusOnSelect: true,
-            arrows: false,
-            // });
-            autoplay: true,
-            autoplaySpeed: 2000,
-            // responsive: [
-            //     {
-            //         breakpoint: 1224,
-            //         settings: {
-            //             slidesToShow: 5,
-            //             slidesToScroll: 2,
-            //             // dots: true
-            //         }
-            //     },
-            //     {
-            //         breakpoint: 600,
-            //         settings: {
-            //             slidesToShow: 3,
-            //             slidesToScroll: 1
-            //         }
-            //     },
-            //     {
-            //         breakpoint: 480,
-            //         settings: {
-            //             slidesToShow: 3,
-            //             slidesToScroll: 1
-            //         }
-            //     }
-            // ]
-        });
-
-        $(sliderArrowId).click(function(){
-            $(respId).slick('slickPrev');
-        });
-
-        $(sliderArrowId2).click(function(){
-            $(respId).slick('slickNext');
-        });
-
-    });
 </script>
 
 <!-- MENU-->
