@@ -147,8 +147,8 @@
     let splits = (location.search).split("=");
     let id = splits[1];
 
-    fetch("https://youthspeakshawaii.herokuapp.com/v2/events/"+id).then(function (response) {
-    // fetch("http://localhost:3000/v2/events/"+id).then(function (response) {
+    // fetch("https://youthspeakshawaii.herokuapp.com/v2/events/"+id).then(function (response) {
+    fetch("http://localhost:3000/v2/events/"+id).then(function (response) {
         return response.json();
     }).then(function (json) {
         let{title, date, start_time, end_time, location, description, img}  = json[0];
@@ -168,17 +168,17 @@
 
         var contactLink = document.createElement("a");
 
-        fetch("https://youthspeakshawaii.herokuapp.com/v2/events/"+id+"/contact").then(function (response) {
-        // fetch("http://localhost:3000/v2/events/"+id+"/contact").then(function (response) {
+        // fetch("https://youthspeakshawaii.herokuapp.com/v2/events/"+id+"/contact").then(function (response) {
+        fetch("http://localhost:3000/v2/events/"+id+"/contact").then(function (response) {
             return response.json();
         }).then(function (data) {
             let{full_name, IDperson}  = data[0];
             contactLink.innerHTML = full_name;
-            contactLink.setAttribute('href', '/pages/volunteer.html?id='+`${IDperson}`);
+            contactLink.setAttribute('href', '/pages/volunteer.html?id='+`${IDperson}`+'&orig=E'+'&num='+id);
             contact.appendChild(contactLink);
 
-            fetch("https://youthspeakshawaii.herokuapp.com/v2/events/"+id+"/activity").then(function (response) {
-            // fetch("http://localhost:3000/v2/events/"+id+"/activity").then(function (response) {
+            // fetch("https://youthspeakshawaii.herokuapp.com/v2/events/"+id+"/activity").then(function (response) {
+            fetch("http://localhost:3000/v2/events/"+id+"/activity").then(function (response) {
                 return response.json();
             }).then(function (actData) {
                 flag=0;
@@ -230,23 +230,6 @@
     })
 </script>
 
-<!--<div class="event-activities">-->
-<!--    <div class="row">-->
-<!--        <div class="col-lg-5 d-flex align-items-center justify-content-center">Activities of this event</div>-->
-<!--        <DIVdiv class="col-lg-7 event-activities-right">-->
-
-<!--            <2 div class="e-act-container">-->
-<!--                < 3div class="e-act">-->
-<!--                    <a href="#"><div class="active-button e-act-button">Writing poetry</div></a>-->
-<!--                    <a href="#"><div class="active-button e-act-button">Express yourself</div></a>-->
-<!--                    <a href="#"><div class="active-button e-act-button">Public speaking</div></a>-->
-<!--                </div>-->
-<!--            </div>-->
-
-<!--        </div>-->
-<!--    </div>-->
-
-<!--</div>-->
 
 <script>
     function openDA(DAname) {

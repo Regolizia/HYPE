@@ -220,8 +220,8 @@
     var actID =id;
 
 
-        fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/").then(function (response) {
-        // fetch("http://localhost:3000/v2/activities/").then(function (response) {
+        // fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/").then(function (response) {
+        fetch("http://localhost:3000/v2/activities/").then(function (response) {
             return response.json();
         }).then(function (data) {
             for(var i=0; i<data.length; i++) {
@@ -237,6 +237,7 @@
                 actDiv.innerHTML = title;
                 actDiv.setAttribute('class', 'd-item2');
                 actLink.setAttribute('href', '/pages/activity.html?id=' + `${IDactivity}`);
+                actLinkSmall.setAttribute('href', '/pages/activity.html?id=' + `${IDactivity}`);
 
                 if (parseInt(IDactivity) === parseInt(actID)) {
                     actDiv.setAttribute('class', 'd-item2 active-button');
@@ -370,8 +371,8 @@
 
                     });
 
-                    fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/"+id+"/contact").then(function (response) {
-                        // fetch("http://localhost:3000/v2/activities/"+id+"/contact").then(function (response) {
+                    // fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/"+id+"/contact").then(function (response) {
+                        fetch("http://localhost:3000/v2/activities/"+id+"/contact").then(function (response) {
                         return response.json();
                     }).then(function (json) {
                             for(var k=0; k<json.length; k++) {
@@ -383,7 +384,7 @@
                                 var vP =document.createElement("p");
 
                                 vDiv.setAttribute('class', 'act-card' );
-                                vLink.setAttribute('href', '/pages/volunteer.html?id='+`${IDperson}`);
+                                vLink.setAttribute('href', '/pages/volunteer.html?id='+`${IDperson}`+'&orig=A'+'&num='+id);
                                 vImg.setAttribute('class', 'act-card-img-top' );
                                 vImg.setAttribute('src', img );
                                 vImg.setAttribute('alt', 'Picture of '+full_name);
