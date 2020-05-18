@@ -242,47 +242,48 @@
                 return response.json();
             }).then(function (actData) {
                 flag=0;
+                if(actData !==undefined) {
+                    for (var i = 0; i < actData.length; i++) {
+                        if (flag === 0) {
+                            var eAct = document.createElement("div");
+                            var eRow = document.createElement("div");
+                            var eActTitle = document.createElement("div");
+                            var eDiv = document.createElement("div");
+                            var eDiv2 = document.createElement("div");
+                            var eDiv3 = document.createElement("div");
 
-                for (var i = 0; i < json.length; i++) {
-                    if(flag===0){
-                        var eAct = document.createElement("div");
-                        var eRow = document.createElement("div");
-                        var eActTitle = document.createElement("div");
-                        var eDiv = document.createElement("div");
-                        var eDiv2 = document.createElement("div");
-                        var eDiv3 = document.createElement("div");
+                            eAct.setAttribute('class', 'event-activities');
+                            eRow.setAttribute('class', 'row');
+                            eActTitle.setAttribute('class', 'col-lg-5 d-flex align-items-center justify-content-center');
+                            eDiv.setAttribute('class', 'col-lg-7 event-activities-right');
+                            eDiv2.setAttribute('class', 'e-act-container');
+                            eDiv3.setAttribute('class', 'e-act');
 
-                        eAct.setAttribute('class', 'event-activities');
-                        eRow.setAttribute('class', 'row');
-                        eActTitle.setAttribute('class', 'col-lg-5 d-flex align-items-center justify-content-center');
-                        eDiv.setAttribute('class', 'col-lg-7 event-activities-right');
-                        eDiv2.setAttribute('class', 'e-act-container');
-                        eDiv3.setAttribute('class', 'e-act');
+                            eActTitle.innerHTML = "Activities of this event";
 
-                        eActTitle.innerHTML= "Activities of this event";
+                            var contentAbove = document.querySelector(".row");
 
-                        var contentAbove = document.querySelector(".row");
+                            eDiv2.appendChild(eDiv3);
+                            eDiv.appendChild(eDiv2);
+                            eRow.appendChild(eActTitle);
+                            eRow.appendChild(eDiv);
+                            eAct.appendChild(eRow);
+                            contentAbove.appendChild(eAct);
+                            flag = 1;
+                        }
+                        let {title, IDactivity} = actData[i];
 
-                        eDiv2.appendChild(eDiv3);
-                        eDiv.appendChild(eDiv2);
-                        eRow.appendChild(eActTitle);
-                        eRow.appendChild(eDiv);
-                        eAct.appendChild(eRow);
-                        contentAbove.appendChild(eAct);
-                        flag=1;
+                        var eLink = document.createElement("a");
+                        var eActDiv = document.createElement("div");
+                        eLink.setAttribute('href', '/pages/activity.html?id=' + `${IDactivity}` + '&orig=E' + '&num=' + id);
+                        eActDiv.setAttribute('class', 'active-button e-act-button');
+                        eActDiv.innerHTML = title;
+
+                        eLink.appendChild(eActDiv);
+                        eDiv3.appendChild(eLink);
+
+
                     }
-                    let {title, IDactivity} = actData[i];
-
-                    var eLink = document.createElement("a");
-                    var eActDiv = document.createElement("div");
-                    eLink.setAttribute('href', '/pages/activity.html?id='+`${IDactivity}`+'&orig=E'+'&num='+id);
-                    eActDiv.setAttribute('class', 'active-button e-act-button');
-                    eActDiv.innerHTML = title;
-
-                    eLink.appendChild(eActDiv);
-                    eDiv3.appendChild(eLink);
-
-
                 }
 
 
