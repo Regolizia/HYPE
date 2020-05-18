@@ -162,14 +162,15 @@
     if(urlParams.has('msg')){
         msg = urlParams.get('msg');
         document.getElementById('id01').classList.toggle("showModal");
-        document.getElementById('html').classList.toggle("htmlModal");
     }
 </script>
 
 <script>
     function sendMail() {
+        console.log(document.getElementById("name").value);
+
         var form = document.getElementsByClassName('needs-validation');
-        if (form.checkValidity() === true) {
+        // if (form.checkValidity() === true) {
             fetch('/send-email', {
                 method: 'POST',
                 headers: {
@@ -185,14 +186,12 @@
                     message: document.getElementById("message").value
                 })
             });
-        }
+        // }
     }
 </script>
 <script>
     function toggleModal() {
-
         document.getElementById('id01').classList.toggle("showModal");
-        document.getElementById('id01').classList.toggle("htmlModal");
     }
 </script>
 

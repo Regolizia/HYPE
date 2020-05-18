@@ -111,7 +111,7 @@ app.post('/send-email', function (req, res) {
             console.log('mail ' + mailOptions.subject + " - " + mailOptions.text);
           }
         });
-        res.writeHead(301, {Location: '/pages/contact-us.html?msg=thanks'});
+        res.writeHead(301, {Location: '/pages/contact-us.html'});
         res.end();
       }
     // }
