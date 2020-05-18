@@ -67,11 +67,59 @@ var fs = require('fs'),
     path = require('path'),
     http = require('http');
 
-var app = require('connect')();
+var app = require('express')();
 var swaggerTools = require('swagger-tools');
 var jsyaml = require('js-yaml');
 var serverPort =  process.env.PORT || 3000;
 
+////// MAIL ///////////////////////////////////////
+
+// var connect = require('connect')();
+// var app = connect();
+var bodyParser = require("body-parser");
+
+app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
+
+// app.use(function(req, res) {
+//   res.end('viewing user ' + req.body.subject);
+// });
+
+var nodemailer = require('nodemailer');
+
+app.post('/send-email', function (req, res) {
+      const transporter = nodemailer.createTransport({
+        host: 'smtp.ethereal.email',
+        port: 587,
+        auth: {
+          user: 'leta.barrows@ethereal.email',
+          pass: 'wN31h5Bv31kJeg64xj'
+        }
+      });
+      var mailOptions = {
+        from: req.body.email,
+        to: 'leta.barrows@ethereal.email',
+        subject: req.body.subject,
+        text: req.body.message
+      };
+      // if (mailOptions.subject !== undefined && mailOptions.text !== undefined) {
+        transporter.sendMail(mailOptions, function (error, info) {
+          if (error) {
+            console.log(error);
+          } else {
+            console.log('Email sent: ' + info.response);
+            console.log('mail ' + mailOptions.subject + " - " + mailOptions.text);
+          }
+        });
+        res.writeHead(301, {Location: '/pages/contact-us.html?msg=thanks'});
+        res.end();
+      }
+    // }
+);
+
+
+
+/////////////////////////////////////////////////////////
 let serveStatic = require("serve-static");
 
 let { setupDataLayer } = require("./service/DataLayer");

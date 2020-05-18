@@ -39,7 +39,7 @@ a{color: #FF8A00}
 @media all and (min-width: 1020px) {
     .footer {
 
-        width: 1010px;
+        /*width: 1010px;*/
         margin: auto;
     }
     .footerFloat {
@@ -357,7 +357,26 @@ i.fa-angle-double-right{
 }
 .bubble{
     background-color: white;
-    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media screen and (max-width: 992px) {
+    .contact-right {
+        margin-bottom: 40px;
+
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+.contact-left {
+    width: 100%;
+    }
+    .contact-right {
+        width: 100%;
+        margin-top: 10px;
+    }
+
 }
 /*///////////////////// DROPDOWN ///////////////////////////////////*/
 .dropdown{
@@ -1249,7 +1268,18 @@ a.menu-button{
         padding-top: 80px;
     }
 }
-/*////////////////////////////////////////////////////////*/
+/*//////////////// MODAL ////////////////////////////////////////*/
+.showModal{
+    display: block;
+    opacity: 100!important;
+}
+.modal-content{
+    background: linear-gradient(235.82deg, #FFC000 1.55%, #FF8A00 95.8%);
+    color: black;
+}
+.modal{
+    background: #00000099;
+}
 
 /*////////////////////////////////////////////////////////*/
 

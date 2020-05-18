@@ -233,8 +233,8 @@
     var actID =id;
 
 
-        // fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/").then(function (response) {
-        fetch("http://localhost:3000/v2/activities/").then(function (response) {
+        fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/").then(function (response) {
+        // fetch("http://localhost:3000/v2/activities/").then(function (response) {
             return response.json();
         }).then(function (data) {
             for(var i=0; i<data.length; i++) {
@@ -384,8 +384,8 @@
 
                     });
 
-                    // fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/"+id+"/contact").then(function (response) {
-                        fetch("http://localhost:3000/v2/activities/"+id+"/contact").then(function (response) {
+                    fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/"+id+"/contact").then(function (response) {
+                        // fetch("http://localhost:3000/v2/activities/"+id+"/contact").then(function (response) {
                         return response.json();
                     }).then(function (json) {
                             for(var k=0; k<json.length; k++) {
@@ -429,7 +429,8 @@
                                 navLink1.innerHTML="Activities";
                             }
                             if(orig==="E") {
-                                fetch("http://localhost:3000/v2/events/"+num).then(function (response) {
+                                fetch("https://youthspeakshawaii.herokuapp.com/v2/events/"+num).then(function (response) {
+                                // fetch("http://localhost:3000/v2/events/"+num).then(function (response) {
                                     return response.json();
                                 }).then(function (origData) {
                                     let {IDevent, title} = origData[0];
@@ -439,7 +440,8 @@
 
                             }
                             if(orig==="V") {
-                                fetch("http://localhost:3000/v2/contacts/"+num).then(function (response) {
+                                fetch("https://youthspeakshawaii.herokuapp.com/v2/contacts/"+num).then(function (response) {
+                                // fetch("http://localhost:3000/v2/contacts/"+num).then(function (response) {
                                     return response.json();
                                 }).then(function (origData) {
                                     let {IDperson, full_name} = origData[0];
