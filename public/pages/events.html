@@ -207,7 +207,11 @@
                 var eTextP = document.createElement("p");
                 eDiv3.setAttribute('class', 'card text-white mb-3');
                 // eLink.setAttribute('href', '#');
-                eLink.setAttribute('href', '/pages/event.html?id='+`${IDevent}`+'&orig=E');
+                if(urlParams.has('id')){
+                    eLink.setAttribute('href', '/pages/event.html?id=' + `${IDevent}` + '&orig=EE'+'&num='+id);
+                }else {
+                    eLink.setAttribute('href', '/pages/event.html?id=' + `${IDevent}` + '&orig=E');
+                }
                 eDiv4.setAttribute('class', 'card-header event-card-title');
                 eDiv5.setAttribute('class', 'card-body event-card-body');
                 eP.setAttribute('class', 'card-text');
