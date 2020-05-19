@@ -172,7 +172,16 @@
         var shortDate = date.substr(0,10);
         when.innerHTML += shortDate + ", " + start_time.substr(0, 5) + " - " + end_time.substr(0, 5);
         where.innerHTML += location.substring(1,location.length-1);
-        Edescription.innerHTML += description.substring(1,description.length-1);
+
+        if(description!==null) {
+            Edescription.innerHTML += description.substring(1,description.length-1);
+        }
+        else {
+            Edescription.innerHTML = "No description is present yet for this event";
+        }
+
+
+
         var pic = document.createElement("img");
         pic.setAttribute('class', 'vol-pic');
         // var path = "/img/";
