@@ -70,7 +70,7 @@ exports.activitiesIdEventGET = function(id) {
         .from("Event")
         .join('Event_activity', 'Event.IDevent', 'Event_activity.IDevent')
         .join('Activity', 'Activity.IDactivity', 'Event_activity.IDactivity')
-        .select("Event.title","Event.IDevent")
+        .select("Event.title","Event.IDevent","Event.location","Event.start_time","Event.end_time","Event.date")
         .where("Activity.IDactivity", id)
         .then(data => {
             return data

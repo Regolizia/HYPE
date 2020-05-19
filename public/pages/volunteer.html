@@ -164,8 +164,15 @@
         // var contactLink = document.createElement("a");
         // contactLink.innerHTML = IDperson;
         // contact.appendChild(contactLink);
-        Vtitle.innerHTML += full_name;
-        Vbio.innerHTML += bio;
+        Vtitle.innerHTML += full_name.substring(1,full_name.length-1);
+
+        if(bio!==null) {
+            Vbio.innerHTML += bio.substring(1,bio.length-1);
+        }
+        else {
+            Vbio.innerHTML = "No description is present yet for this person";
+        }
+
         var pic = document.createElement("img");
         pic.setAttribute('class', 'vol-pic');
         pic.setAttribute('src', img);
@@ -196,7 +203,7 @@
 
                 var vLink = document.createElement("a");
                 vLink.setAttribute('href','/pages/event.html?id='+`${IDevent}`+'&orig=V'+'&num='+id);
-                vLink.innerHTML=title + "<br />";
+                vLink.innerHTML=title.substring(1,title.length-1) + "<br />";
                 vP2.appendChild(vLink);
 
             }
@@ -219,7 +226,7 @@
                 }).then(function (origData) {
                     let {IDevent, title} = origData[0];
                     navLink1.setAttribute('href', '/pages/event.html?id='+`${IDevent}`);
-                    navLink1.innerHTML="Event: "+title;
+                    navLink1.innerHTML="Event: "+title.substring(1,title.length-1);
                 })
 
             }
@@ -230,7 +237,7 @@
                 }).then(function (origData) {
                     let {IDactivity, title} = origData[0];
                     navLink1.setAttribute('href', '/pages/event.html?id='+`${IDactivity}`);
-                    navLink1.innerHTML="Activity: "+title;
+                    navLink1.innerHTML="Activity: "+title.substring(1,title.length-1);
                 })
 
             }
@@ -240,7 +247,7 @@
             navLink2.setAttribute('class', 'small-navbar-text');
             navI.setAttribute('class', 'fa fa-angle-double-right');
             navLink3.setAttribute('class', 'small-navbar-text');
-            navLink3.innerHTML=full_name;
+            navLink3.innerHTML=full_name.substring(1,full_name.length-1);
 
             navLink2.appendChild(navI);
             navbar.appendChild(navLink1);

@@ -107,12 +107,25 @@
 
 <!-- DB DATA -->
 <script>
+
+    const queryString = window.location.search;
+    console.log(queryString);
+    const urlParams = new URLSearchParams(queryString);
+    var id;
+    var eventsType = "http://localhost:3000/v2/events";
+    if(urlParams.has('id')){
+        id = urlParams.get('id');
+        console.log(id);
+
+       eventsType  = "http://localhost:3000/v2/activities/"+id+"/event";
+    }
+
     const monthNames = ["January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"];
     var events = document.querySelector(".months-container");
 
-    fetch("https://youthspeakshawaii.herokuapp.com/v2/events").then(function (response) {
-    // fetch("http://localhost:3000/v2/events").then(function (response) {
+    // fetch("https://youthspeakshawaii.herokuapp.com/v2/events").then(function (response) {
+    fetch(eventsType).then(function (response) {
         return response.json();
     }).then(function (json) {
 
@@ -188,12 +201,12 @@
                 }
 
 
-                eDiv4.innerHTML = title;
+                eDiv4.innerHTML = title.substring(1,title.length-1);
                 if (start_time != null && end_time != null) {
                     eP.innerHTML = start_time.substr(0, 5) + " - " + end_time.substr(0, 5);
                 }
                 if (location != null) {
-                    eP.innerHTML += "<br />" + location;
+                    eP.innerHTML += "<br />" + location.substring(1,location.length-1);
                 }
 
                 eDiv5.appendChild(eP);
@@ -261,9 +274,9 @@
 
                     eYearVal = 1;
                 }
-                eDiv4Y.innerHTML = title;
+                eDiv4Y.innerHTML = title.substring(1,title.length-1);
                 if (location != null) {
-                    ePY.innerHTML += "<br />" + location;
+                    ePY.innerHTML += "<br />" + location.substring(1,location.length-1);
                 }else {
                     ePY.innerHTML += "<br /><br />";
                 }
@@ -491,42 +504,6 @@
         }, 1000);
     });
 </script>
-
-
-
-
-
-<script>
-    // Modal Image Gallery
-    function onClick(element) {
-        document.getElementById("img01").src = element.src;
-        document.getElementById("modal01").style.display = "block";
-        var captionText = document.getElementById("caption");
-        captionText.innerHTML = element.alt;
-    }
-
-
-    // Toggle between showing and hiding the sidebar when clicking the menu icon
-    var mySidebar = document.getElementById("mySidebar");
-
-    function w3_open() {
-        if (mySidebar.style.display === 'block') {
-            mySidebar.style.display = 'none';
-        } else {
-            mySidebar.style.display = 'block';
-        }
-    }
-
-    // Close the sidebar with the close button
-    function w3_close() {
-        mySidebar.style.display = "none";
-    }
-</script>
-
-
-
-
-
 
 
 

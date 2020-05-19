@@ -233,8 +233,8 @@
     var actID =id;
 
 
-        fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/").then(function (response) {
-        // fetch("http://localhost:3000/v2/activities/").then(function (response) {
+        // fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/").then(function (response) {
+        fetch("http://localhost:3000/v2/activities/").then(function (response) {
             return response.json();
         }).then(function (data) {
             for(var i=0; i<data.length; i++) {
@@ -247,7 +247,7 @@
                 var actDiv = document.createElement("div");
                 var actDivSmall = document.createElement("div");
 
-                actDiv.innerHTML = title;
+                actDiv.innerHTML = title.substring(1,title.length-1);
                 actDiv.setAttribute('class', 'd-item2');
                 actLink.setAttribute('href', '/pages/activity.html?id=' + `${IDactivity}`);
                 actLinkSmall.setAttribute('href', '/pages/activity.html?id=' + `${IDactivity}`);
@@ -261,15 +261,20 @@
                 actLink.appendChild(actDiv);
                 activities.appendChild(actLink);
 
-                actDivSmall.innerHTML = title;
+                actDivSmall.innerHTML = title.substring(1,title.length-1);
                 actLinkSmall.appendChild(actDivSmall);
                 activitiesSmall.appendChild(actLinkSmall);
 
 
                 ///////////////////////////////////////
                 if(parseInt(IDactivity)===parseInt(id)){
-                    Adescription.innerHTML += description;
-                    Atitle.innerHTML += title;
+                    if(description!==null) {
+                        Adescription.innerHTML += description.substring(1, description.length - 1);
+                    }
+                    else {
+                        Adescription.innerHTML = "No description is present yet for this activity";
+                    }
+                    Atitle.innerHTML += title.substring(1,title.length-1);
 
                     for(var y=0;y<img.length-1;y++){
                         var iDiv = document.createElement("div");
@@ -384,8 +389,8 @@
 
                     });
 
-                    fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/"+id+"/contact").then(function (response) {
-                        // fetch("http://localhost:3000/v2/activities/"+id+"/contact").then(function (response) {
+                    // fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/"+id+"/contact").then(function (response) {
+                        fetch("http://localhost:3000/v2/activities/"+id+"/contact").then(function (response) {
                         return response.json();
                     }).then(function (json) {
                             for(var k=0; k<json.length; k++) {
@@ -403,7 +408,7 @@
                                 vImg.setAttribute('alt', 'Picture of '+full_name);
                                 vDiv2.setAttribute('class', 'act-card-body' );
                                 vP.setAttribute('class', 'card-text' );
-                                vP.innerHTML = full_name;
+                                vP.innerHTML = full_name.substring(1,full_name.length-1);
 
                                 vDiv2.appendChild(vP);
                                 vLink.appendChild(vImg);
@@ -429,24 +434,24 @@
                                 navLink1.innerHTML="Activities";
                             }
                             if(orig==="E") {
-                                fetch("https://youthspeakshawaii.herokuapp.com/v2/events/"+num).then(function (response) {
-                                // fetch("http://localhost:3000/v2/events/"+num).then(function (response) {
+                                // fetch("https://youthspeakshawaii.herokuapp.com/v2/events/"+num).then(function (response) {
+                                fetch("http://localhost:3000/v2/events/"+num).then(function (response) {
                                     return response.json();
                                 }).then(function (origData) {
                                     let {IDevent, title} = origData[0];
                                     navLink1.setAttribute('href', '/pages/event.html?id='+`${IDevent}`+'&orig=A'+'&num='+id);
-                                    navLink1.innerHTML="Event: "+title;
+                                    navLink1.innerHTML="Event: "+title.substring(1,title.length-1);
                                 })
 
                             }
                             if(orig==="V") {
-                                fetch("https://youthspeakshawaii.herokuapp.com/v2/contacts/"+num).then(function (response) {
-                                // fetch("http://localhost:3000/v2/contacts/"+num).then(function (response) {
+                                // fetch("https://youthspeakshawaii.herokuapp.com/v2/contacts/"+num).then(function (response) {
+                                fetch("http://localhost:3000/v2/contacts/"+num).then(function (response) {
                                     return response.json();
                                 }).then(function (origData) {
                                     let {IDperson, full_name} = origData[0];
                                     navLink1.setAttribute('href', '/pages/volunteer.html?id='+`${IDperson}`+'&orig=A'+'&num='+id);
-                                    navLink1.innerHTML="Volunteer: "+full_name;
+                                    navLink1.innerHTML="Volunteer: "+full_name.substring(1,full_name.length-1);
                                 })
 
                             }
@@ -459,7 +464,7 @@
                             navLink4.setAttribute('class', 'small-navbar-text menu-button');
                             navI2.setAttribute('class', 'fa fa-bars');
                             navI2.setAttribute('aria-hidden', 'true');
-                            navLink3.innerHTML=title;
+                            navLink3.innerHTML=title.substring(1,title.length-1);
 
                             navLink2.appendChild(navI);
                             navLink4.appendChild(navI2);

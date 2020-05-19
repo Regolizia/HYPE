@@ -168,11 +168,11 @@
     }).then(function (json) {
         let{title, date, start_time, end_time, location, description, img}  = json[0];
 
-        Etitle.innerHTML += title;
+        Etitle.innerHTML += title.substring(1,title.length-1);
         var shortDate = date.substr(0,10);
         when.innerHTML += shortDate + ", " + start_time.substr(0, 5) + " - " + end_time.substr(0, 5);
-        where.innerHTML += location;
-        Edescription.innerHTML += description;
+        where.innerHTML += location.substring(1,location.length-1);
+        Edescription.innerHTML += description.substring(1,description.length-1);
         var pic = document.createElement("img");
         pic.setAttribute('class', 'vol-pic');
         // var path = "/img/";
@@ -188,7 +188,7 @@
             return response.json();
         }).then(function (data) {
             let{full_name, IDperson}  = data[0];
-            contactLink.innerHTML = full_name;
+            contactLink.innerHTML = full_name.substring(1,full_name.length-1);
             contactLink.setAttribute('href', '/pages/volunteer.html?id='+`${IDperson}`+'&orig=E'+'&num='+id);
             contact.appendChild(contactLink);
 
@@ -225,7 +225,7 @@
             navLink2.setAttribute('class', 'small-navbar-text');
             navI.setAttribute('class', 'fa fa-angle-double-right');
             navLink3.setAttribute('class', 'small-navbar-text');
-            navLink3.innerHTML=title;
+            navLink3.innerHTML=title.substring(1,title.length-1);
 
             navLink2.appendChild(navI);
             navbar.appendChild(navLink1);
@@ -277,7 +277,7 @@
                         var eActDiv = document.createElement("div");
                         eLink.setAttribute('href', '/pages/activity.html?id=' + `${IDactivity}` + '&orig=E' + '&num=' + id);
                         eActDiv.setAttribute('class', 'active-button e-act-button');
-                        eActDiv.innerHTML = title;
+                        eActDiv.innerHTML = title.substring(1,title.length-1);
 
                         eLink.appendChild(eActDiv);
                         eDiv3.appendChild(eLink);
