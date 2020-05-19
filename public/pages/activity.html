@@ -88,6 +88,7 @@
         <!--                Poetry Slam-->
         <!--            </div>-->
         <!--        </a>-->
+    </div>
 </nav>
 <!--///////////////////////////   NAVBAR   ///////////////////////////////////-->
 
@@ -224,7 +225,7 @@
     var num;
     if(urlParams.has('orig')){
         orig = urlParams.get('orig');
-        console.log(orig);
+        console.log("orig "+orig);
         if(urlParams.has('num')){
             num = urlParams.get('num');
             console.log(num);
@@ -233,8 +234,8 @@
     var actID =id;
 
 
-        // fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/").then(function (response) {
-        fetch("http://localhost:3000/v2/activities/").then(function (response) {
+        fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/").then(function (response) {
+        // fetch("http://localhost:3000/v2/activities/").then(function (response) {
             return response.json();
         }).then(function (data) {
             for(var i=0; i<data.length; i++) {
@@ -389,8 +390,8 @@
 
                     });
 
-                    // fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/"+id+"/contact").then(function (response) {
-                        fetch("http://localhost:3000/v2/activities/"+id+"/contact").then(function (response) {
+                    fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/"+id+"/contact").then(function (response) {
+                        // fetch("http://localhost:3000/v2/activities/"+id+"/contact").then(function (response) {
                         return response.json();
                     }).then(function (json) {
                             for(var k=0; k<json.length; k++) {
@@ -433,9 +434,13 @@
                                 navLink1.setAttribute('href', '/pages/activities.html');
                                 navLink1.innerHTML="Activities";
                             }
+                            if(orig==="EE") {
+                                navLink1.setAttribute('href', '/pages/events.html?id='+id);
+                                navLink1.innerHTML="Events of this activity";
+                            }
                             if(orig==="E") {
-                                // fetch("https://youthspeakshawaii.herokuapp.com/v2/events/"+num).then(function (response) {
-                                fetch("http://localhost:3000/v2/events/"+num).then(function (response) {
+                                fetch("https://youthspeakshawaii.herokuapp.com/v2/events/"+num).then(function (response) {
+                                // fetch("http://localhost:3000/v2/events/"+num).then(function (response) {
                                     return response.json();
                                 }).then(function (origData) {
                                     let {IDevent, title} = origData[0];
@@ -445,8 +450,8 @@
 
                             }
                             if(orig==="V") {
-                                // fetch("https://youthspeakshawaii.herokuapp.com/v2/contacts/"+num).then(function (response) {
-                                fetch("http://localhost:3000/v2/contacts/"+num).then(function (response) {
+                                fetch("https://youthspeakshawaii.herokuapp.com/v2/contacts/"+num).then(function (response) {
+                                // fetch("http://localhost:3000/v2/contacts/"+num).then(function (response) {
                                     return response.json();
                                 }).then(function (origData) {
                                     let {IDperson, full_name} = origData[0];
