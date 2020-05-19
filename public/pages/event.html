@@ -216,7 +216,7 @@
             }
             if(orig==="V") {
                     navLink1.setAttribute('href', '/pages/volunteer.html?id='+`${IDperson}`+'&orig=E'+'&num='+id);
-                    navLink1.innerHTML="Volunteer: "+full_name;
+                    navLink1.innerHTML="Volunteer: "+full_name.substring(1,full_name.length-1);
             }
             if(orig==="EE") {
                 fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/"+num).then(function (response) {
@@ -225,7 +225,7 @@
                 }).then(function (origData) {
                     let {title} = origData[0];
                     navLink1.setAttribute('href', '/pages/events.html?id='+num);
-                    navLink1.innerHTML="Events with activity : "+title;
+                    navLink1.innerHTML="Events with activity : "+title.substring(1,title.length-1);
                 })
 
             }

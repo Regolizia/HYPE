@@ -65,29 +65,6 @@
         <a class="menu-button"><div><i class="fa fa-close" aria-hidden="true"></i></div></a>
 
         <p>Activities</p>
-        <!--        <a href="#">-->
-        <!--            <div>-->
-        <!--                Public speaking-->
-        <!--            </div>-->
-        <!--        </a>-->
-
-        <!--        <a href="#">-->
-        <!--            <div>-->
-        <!--                Express yourself-->
-        <!--            </div>-->
-        <!--        </a>-->
-
-        <!--        <a href="#" class="active-a">-->
-        <!--            <div class="active-button">-->
-        <!--                Writing poetry-->
-        <!--            </div>-->
-        <!--        </a>-->
-
-        <!--        <a href="#">-->
-        <!--            <div>-->
-        <!--                Poetry Slam-->
-        <!--            </div>-->
-        <!--        </a>-->
     </div>
 </nav>
 <!--///////////////////////////   NAVBAR   ///////////////////////////////////-->
@@ -234,8 +211,8 @@
     var actID =id;
 
 
-        fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/").then(function (response) {
-        // fetch("http://localhost:3000/v2/activities/").then(function (response) {
+        // fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/").then(function (response) {
+        fetch("http://localhost:3000/v2/activities/").then(function (response) {
             return response.json();
         }).then(function (data) {
             for(var i=0; i<data.length; i++) {
@@ -390,8 +367,8 @@
 
                     });
 
-                    fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/"+id+"/contact").then(function (response) {
-                        // fetch("http://localhost:3000/v2/activities/"+id+"/contact").then(function (response) {
+                    // fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/"+id+"/contact").then(function (response) {
+                        fetch("http://localhost:3000/v2/activities/"+id+"/contact").then(function (response) {
                         return response.json();
                     }).then(function (json) {
                             for(var k=0; k<json.length; k++) {
@@ -439,8 +416,8 @@
                                 navLink1.innerHTML="Events of this activity";
                             }
                             if(orig==="E") {
-                                fetch("https://youthspeakshawaii.herokuapp.com/v2/events/"+num).then(function (response) {
-                                // fetch("http://localhost:3000/v2/events/"+num).then(function (response) {
+                                // fetch("https://youthspeakshawaii.herokuapp.com/v2/events/"+num).then(function (response) {
+                                fetch("http://localhost:3000/v2/events/"+num).then(function (response) {
                                     return response.json();
                                 }).then(function (origData) {
                                     let {IDevent, title} = origData[0];
@@ -450,8 +427,8 @@
 
                             }
                             if(orig==="V") {
-                                fetch("https://youthspeakshawaii.herokuapp.com/v2/contacts/"+num).then(function (response) {
-                                // fetch("http://localhost:3000/v2/contacts/"+num).then(function (response) {
+                                // fetch("https://youthspeakshawaii.herokuapp.com/v2/contacts/"+num).then(function (response) {
+                                fetch("http://localhost:3000/v2/contacts/"+num).then(function (response) {
                                     return response.json();
                                 }).then(function (origData) {
                                     let {IDperson, full_name} = origData[0];
@@ -467,6 +444,8 @@
                             navI.setAttribute('class', 'fa fa-angle-double-right');
                             navLink3.setAttribute('class', 'small-navbar-text');
                             navLink4.setAttribute('class', 'small-navbar-text menu-button');
+                            navLink4.setAttribute('onclick', 'menu()');
+                            navLink4.setAttribute('href', '#');
                             navI2.setAttribute('class', 'fa fa-bars');
                             navI2.setAttribute('aria-hidden', 'true');
                             navLink3.innerHTML=title.substring(1,title.length-1);
@@ -501,12 +480,32 @@
 
 
 <!-- MENU-->
-<script>$(document).ready(function(){
-    // menu click event
-    $('.menu-button').click(function() {
-        $('.mainMenu').toggleClass('act');
-    });
-});</script>
+<script>
+    function menu() {
+        $(document).ready(function () {
+                $('.mainMenu').addClass('act');
+        });
+    }
+</script>
+<!--<script>-->
+<!--    function openMenu(menu) {-->
+<!--        var i;-->
+<!--        var x = document.getElementsByClassName("DA");-->
+<!--        for (i = 0; i < x.length; i++) {-->
+<!--            x[i].style.display = "none";-->
+<!--        }-->
+<!--        $('.mainMenu').toggleClass('act');-->
+
+<!--        var y = document.getElementsByClassName('dr-a');-->
+<!--        for (i = 0; i < y.length; i++) {-->
+<!--            if(y[i].className === 'active-a'){-->
+<!--                y[i].remon-->
+<!--            }-->
+<!--        }-->
+<!--        $('.dr-a').removeClass('active-a');-->
+<!--        $('.dr-it').removeClass('active-button');-->
+<!--    }-->
+<!--</script>-->
 
 <script>
     function openDA(DAname) {
