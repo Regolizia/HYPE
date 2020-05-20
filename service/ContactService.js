@@ -34,7 +34,12 @@ exports.contactsDbSetup = function(database) {
  * returns List
  **/
 exports.contactsGET = function() {
-    return sqlDb('Person');
+    return sqlDb
+        .from('Person')
+        .orderBy('Person.full_name')
+        .then(data => {
+            return data
+        });
 };
 
 
