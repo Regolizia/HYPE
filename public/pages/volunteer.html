@@ -152,8 +152,8 @@
     }
 
 
-    // fetch("https://youthspeakshawaii.herokuapp.com/v2/contacts/"+id).then(function (response) {
-    fetch("http://localhost:3000/v2/contacts/"+id).then(function (response) {
+    fetch("https://youthspeakshawaii.herokuapp.com/v2/contacts/"+id).then(function (response) {
+    // fetch("http://localhost:3000/v2/contacts/"+id).then(function (response) {
         return response.json();
     }).then(function (json) {
         let{full_name, bio, phone, email,  img}  = json[0];
@@ -181,8 +181,8 @@
 
 
 
-        // fetch("https://youthspeakshawaii.herokuapp.com/v2/contacts/"+id+"/events").then(function (response) {
-        fetch("http://localhost:3000/v2/contacts/"+id+"/events").then(function (response) {
+        fetch("https://youthspeakshawaii.herokuapp.com/v2/contacts/"+id+"/events").then(function (response) {
+        // fetch("http://localhost:3000/v2/contacts/"+id+"/events").then(function (response) {
             return response.json();
         }).then(function (data) {
             var flag=0;
@@ -220,8 +220,8 @@
                 navLink1.innerHTML="Volunteers";
             }
             if(orig==="E") {
-                // fetch("https://youthspeakshawaii.herokuapp.com/v2/events/"+num).then(function (response) {
-                fetch("http://localhost:3000/v2/events/"+num).then(function (response) {
+                fetch("https://youthspeakshawaii.herokuapp.com/v2/events/"+num).then(function (response) {
+                // fetch("http://localhost:3000/v2/events/"+num).then(function (response) {
                     return response.json();
                 }).then(function (origData) {
                     let {IDevent, title} = origData[0];
@@ -231,8 +231,8 @@
 
             }
             if(orig==="A") {
-                // fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/"+num).then(function (response) {
-                fetch("http://localhost:3000/v2/activities/"+num).then(function (response) {
+                fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/"+num).then(function (response) {
+                // fetch("http://localhost:3000/v2/activities/"+num).then(function (response) {
                     return response.json();
                 }).then(function (origData) {
                     let {IDactivity, title} = origData[0];

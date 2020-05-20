@@ -39,9 +39,9 @@
 </header>
 
 <nav role="navigation" class="dropdown">
-    <a class="active-a dr-a" href="#" onclick="openDA('first')"><div class="active-button d-item dr-it">Welcome</div></a>
-    <a class="dr-a" href="#" onclick="openDA('second')"><div  class="d-item dr-it">History</div></a>
-    <a class="dr-a" href="#" onclick="openDA('third')"><div  class="d-item dr-it">Thanks</div></a>
+    <a class="active-a dr-a" id="first-a" href="#" onclick="openDA('first')"><div   id="first-it"class="active-button d-item dr-it">Welcome</div></a>
+    <a class="dr-a"  id="second-a" href="#" onclick="openDA('second')"><div     id="second-it"   class="d-item dr-it">History</div></a>
+    <a class="dr-a"  id="third-a"    href="#" onclick="openDA('third')"><div  id="third-it"  class="d-item dr-it">Thanks</div></a>
 </nav>
 <!--///////////////////////////   NAVBAR   ///////////////////////////////////-->
 
@@ -142,21 +142,27 @@
 
 <script>
     function openDA(DAname) {
-        var i;
-        var x = document.getElementsByClassName("DA");
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-        }
-        document.getElementById(DAname).style.display = "block";
+        console.log(! (document.getElementById(DAname + "-it").classList.contains('active-button')));
 
-        var y = document.getElementsByClassName('dr-a');
-        for (i = 0; i < y.length; i++) {
-            if(y[i].className === 'active-a'){
-                y[i].remon
+        if (! (document.getElementById(DAname + "-it").classList.contains('active-button')) ) {
+            var i;
+            var x = document.getElementsByClassName("DA");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
             }
+            var y = document.getElementsByClassName("active-button");
+            for (i = 0; i < y.length; i++) {
+                y[i].classList.remove("active-button");
+            }
+            var z = document.getElementsByClassName("active-a");
+            for (i = 0; i < z.length; i++) {
+                z[i].classList.remove("active-a");
+            }
+
+            document.getElementById(DAname).style.display = "block";
+            document.getElementById(DAname + "-it").classList.add('active-button');
+            document.getElementById(DAname + "-a").classList.add('active-a');
         }
-        $('.dr-a').removeClass('active-a');
-        $('.dr-it').removeClass('active-button');
     }
 </script>
 <script>
