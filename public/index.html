@@ -218,12 +218,12 @@
                         flag = 1;
                     }
 
-                    eDiv4.innerHTML = title;
+                    eDiv4.innerHTML = title.substring(1,title.length-1);
                     if (start_time != null && end_time != null) {
                         eP.innerHTML = start_time.substr(0, 5) + " - " + end_time.substr(0, 5);
                     }
                     if (location != null) {
-                        eP.innerHTML += "<br />" + location;
+                        eP.innerHTML += "<br />" + location.substring(1,location.length-1);
                     }
 
                     eDiv5.appendChild(eP);

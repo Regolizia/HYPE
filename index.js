@@ -152,7 +152,7 @@ swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
 
   app.use(serveStatic(__dirname + "/public"));
 
-// first setup the datalayer then start the server RESTORE LATER
+// first setup the datalayer then start the server
   setupDataLayer().then(() => {
     console.log("Set up data layer");
     // Start the server

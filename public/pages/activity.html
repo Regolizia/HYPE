@@ -371,6 +371,18 @@
                         // fetch("http://localhost:3000/v2/activities/"+id+"/contact").then(function (response) {
                         return response.json();
                     }).then(function (json) {
+
+                        var navLink1 = document.createElement("a");
+                        var navLink2 = document.createElement("a");
+                        var navI = document.createElement("i");
+                        var navLink3 = document.createElement("a");
+                        var navLink4 = document.createElement("a");
+                        var navI2 = document.createElement("i");
+
+                        navLink1.setAttribute('class', 'small-navbar-text-link');
+
+
+
                             for(var k=0; k<json.length; k++) {
                                 let {full_name, img, IDperson} = json[k];
                                 var vDiv =document.createElement("div");
@@ -393,19 +405,19 @@
                                 vLink.appendChild(vDiv2);
                                 vDiv.appendChild(vLink);
                                 vol.appendChild(vDiv);
+                                
+                                if(orig==="V") {
+                                    if(num.valueOf()===IDperson.valueOf()){
+                                        navLink1.setAttribute('href', '/pages/volunteer.html?id='+`${IDperson}`+'&orig=A'+'&num='+id);
+                                        navLink1.innerHTML="Volunteer: "+full_name.substring(1,full_name.length-1);
+                                    }
+
+                                }
+
 
                             }
-
-
 //
-                            var navLink1 = document.createElement("a");
-                            var navLink2 = document.createElement("a");
-                            var navI = document.createElement("i");
-                            var navLink3 = document.createElement("a");
-                            var navLink4 = document.createElement("a");
-                            var navI2 = document.createElement("i");
 
-                            navLink1.setAttribute('class', 'small-navbar-text-link');
 
                             if(orig==="A") {
                                 navLink1.setAttribute('href', '/pages/activities.html');
@@ -426,17 +438,7 @@
                                 })
 
                             }
-                            if(orig==="V") {
-                                fetch("https://youthspeakshawaii.herokuapp.com/v2/contacts/"+num).then(function (response) {
-                                // fetch("http://localhost:3000/v2/contacts/"+num).then(function (response) {
-                                    return response.json();
-                                }).then(function (origData) {
-                                    let {IDperson, full_name} = origData[0];
-                                    navLink1.setAttribute('href', '/pages/volunteer.html?id='+`${IDperson}`+'&orig=A'+'&num='+id);
-                                    navLink1.innerHTML="Volunteer: "+full_name.substring(1,full_name.length-1);
-                                })
 
-                            }
 
                             navLink2.setAttribute('href', '#');
                             navLink3.setAttribute('href', '#');
