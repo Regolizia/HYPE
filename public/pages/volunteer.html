@@ -44,8 +44,8 @@
 
 <nav role="navigation" class="dropdown2">
     <div class="d-vol">
-        <a class="active-a dr-a" href="#" onclick="openDA('first')"><div class="active-button d-item2 dr-it">Profile</div></a>
-        <a class="dr-a" href="#" onclick="openDA('second')"><div  class="d-item2 dr-it">Activities & Contacts</div></a>
+        <a class="active-a dr-a" id="first-a" href="#" onclick="openDA('first')"><div id="first-it"class="active-button d-item2 dr-it">Profile</div></a>
+        <a class="dr-a" href="#" id="second-a" onclick="openDA('second')"><div id="second-it" class="d-item2 dr-it">Activities & Contacts</div></a>
     </div>
 </nav>
 <!--///////////////////////////   NAVBAR   ///////////////////////////////////-->
@@ -152,8 +152,8 @@
     }
 
 
-    fetch("https://youthspeakshawaii.herokuapp.com/v2/contacts/"+id).then(function (response) {
-    // fetch("http://localhost:3000/v2/contacts/"+id).then(function (response) {
+    // fetch("https://youthspeakshawaii.herokuapp.com/v2/contacts/"+id).then(function (response) {
+    fetch("http://localhost:3000/v2/contacts/"+id).then(function (response) {
         return response.json();
     }).then(function (json) {
         let{full_name, bio, phone, email,  img}  = json[0];
@@ -181,8 +181,8 @@
 
 
 
-        fetch("https://youthspeakshawaii.herokuapp.com/v2/contacts/"+id+"/events").then(function (response) {
-        // fetch("http://localhost:3000/v2/contacts/"+id+"/events").then(function (response) {
+        // fetch("https://youthspeakshawaii.herokuapp.com/v2/contacts/"+id+"/events").then(function (response) {
+        fetch("http://localhost:3000/v2/contacts/"+id+"/events").then(function (response) {
             return response.json();
         }).then(function (data) {
             var flag=0;
@@ -220,8 +220,8 @@
                 navLink1.innerHTML="Volunteers";
             }
             if(orig==="E") {
-                fetch("https://youthspeakshawaii.herokuapp.com/v2/events/"+num).then(function (response) {
-                // fetch("http://localhost:3000/v2/events/"+num).then(function (response) {
+                // fetch("https://youthspeakshawaii.herokuapp.com/v2/events/"+num).then(function (response) {
+                fetch("http://localhost:3000/v2/events/"+num).then(function (response) {
                     return response.json();
                 }).then(function (origData) {
                     let {IDevent, title} = origData[0];
@@ -231,8 +231,8 @@
 
             }
             if(orig==="A") {
-                fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/"+num).then(function (response) {
-                // fetch("http://localhost:3000/v2/activities/"+num).then(function (response) {
+                // fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/"+num).then(function (response) {
+                fetch("http://localhost:3000/v2/activities/"+num).then(function (response) {
                     return response.json();
                 }).then(function (origData) {
                     let {IDactivity, title} = origData[0];
@@ -270,15 +270,27 @@
 
 <script>
     function openDA(DAname) {
-        var i;
-        var x = document.getElementsByClassName("DA");
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-        }
-        document.getElementById(DAname).style.display = "block";
+        console.log(! (document.getElementById(DAname + "-it").classList.contains('active-button')));
 
-        $('.dr-it').toggleClass('active-button');
-        $('.dr-a').toggleClass('active-a');
+        if (! (document.getElementById(DAname + "-it").classList.contains('active-button')) ) {
+            var i;
+            var x = document.getElementsByClassName("DA");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            var y = document.getElementsByClassName("active-button");
+            for (i = 0; i < y.length; i++) {
+                y[i].classList.remove("active-button");
+            }
+            var z = document.getElementsByClassName("active-a");
+            for (i = 0; i < z.length; i++) {
+                z[i].classList.remove("active-a");
+            }
+
+            document.getElementById(DAname).style.display = "block";
+            document.getElementById(DAname + "-it").classList.add('active-button');
+            document.getElementById(DAname + "-a").classList.add('active-a');
+        }
     }
 </script>
 
