@@ -215,6 +215,15 @@
         // fetch("http://localhost:3000/v2/activities/").then(function (response) {
             return response.json();
         }).then(function (data) {
+
+            if(urlParams.has('orig') && orig.valueOf()!=="A"){
+                var actDiv = document.createElement("div");
+                actDiv.innerHTML = "<strong>Activities</strong>";
+                actDiv.setAttribute('class', 'd-item2');
+                activities.appendChild(actDiv);
+            }
+
+
             for(var i=0; i<data.length; i++) {
 
                 let {title, IDactivity, description, practical_info, img} = data[i];
@@ -405,9 +414,9 @@
                                 vLink.appendChild(vDiv2);
                                 vDiv.appendChild(vLink);
                                 vol.appendChild(vDiv);
-                                
+
                                 if(orig==="V") {
-                                    if(num.valueOf()===IDperson.valueOf()){
+                                    if(parseInt(num)===parseInt(IDperson)){
                                         navLink1.setAttribute('href', '/pages/volunteer.html?id='+`${IDperson}`+'&orig=A'+'&num='+id);
                                         navLink1.innerHTML="Volunteer: "+full_name.substring(1,full_name.length-1);
                                     }
