@@ -62,15 +62,7 @@
 
                         </div>
                         <div class="vol-events-container">
-                            <p class="when"> <strong>When</strong>
-                                <br>
-                            </p>
-                            <p class="where"> <strong>Where</strong>
-                                <br>
-                            </p>
-                            <p class="contact"> <strong>Main organizer</strong>
-                                <br>
-                            </p>
+
                         </div>
                     </div>
                 </div>
@@ -139,6 +131,7 @@
     var contact = document.querySelector("p.contact");
     var Edescription = document.querySelector(".about-right");
     var picContainer = document.querySelector(".vol-pic-container");
+    var evContainer = document.querySelector(".vol-events-container");
 
     var navbar = document.querySelector(".small-navbar");
 
@@ -168,10 +161,33 @@
     }).then(function (json) {
         let{title, date, start_time, end_time, location, description, img}  = json[0];
 
+        var contact=document.createElement("p");
+        contact.innerHTML = "<strong>Main organizer</strong><br>";
+
         Etitle.innerHTML += title.substring(1,title.length-1);
-        var shortDate = date.substr(0,10);
-        when.innerHTML += shortDate + ", " + start_time.substr(0, 5) + " - " + end_time.substr(0, 5);
-        where.innerHTML += location.substring(1,location.length-1);
+
+        if(date!==null) {
+            var when = document.createElement("p");
+            when.innerHTML = "<strong>When</strong><br>";
+
+            var shortDate = date.substr(0, 10);
+            when.innerHTML += shortDate;
+            if (start_time !== null) {
+                when.innerHTML += ", " + start_time.substr(0, 5) + " - " + end_time.substr(0, 5);
+            }
+
+            evContainer.appendChild(when);
+        }
+
+        if(location!==null){
+            var where=document.createElement("p");
+            where.innerHTML = "<strong>Where</strong><br>";
+            where.innerHTML += location.substring(1,location.length-1);
+
+            evContainer.appendChild(where);
+        }
+
+        evContainer.appendChild(contact);
 
         if(description!==null) {
             Edescription.innerHTML += description.substring(1,description.length-1);
@@ -179,8 +195,6 @@
         else {
             Edescription.innerHTML = "No description is present yet for this event";
         }
-
-
 
         var pic = document.createElement("img");
         pic.setAttribute('class', 'vol-pic');
