@@ -117,7 +117,14 @@ app.post('/send-email', function (req, res) {
     // }
 );
 
+/////////////////////////////////////////////////////////
 
+let cookieSession = require("cookie-session");
+let cookieParser = require("cookie-parser");
+
+// Add cookies to responses
+app.use(cookieParser());
+app.use(cookieSession({ name: "session", keys: ["abc", "def"] }));
 
 /////////////////////////////////////////////////////////
 let serveStatic = require("serve-static");
