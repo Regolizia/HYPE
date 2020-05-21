@@ -226,7 +226,7 @@
                 }).then(function (origData) {
                     let {IDevent, title} = origData[0];
                     navLink1.setAttribute('href', '/pages/event.html?id='+`${IDevent}`);
-                    navLink1.innerHTML="Event: "+title.substring(1,title.length-1);
+                    navLink1.innerHTML=title.substring(1,title.length-1);
                 })
 
             }
@@ -237,7 +237,7 @@
                 }).then(function (origData) {
                     let {IDactivity, title} = origData[0];
                     navLink1.setAttribute('href', '/pages/event.html?id='+`${IDactivity}`);
-                    navLink1.innerHTML="Activity: "+title.substring(1,title.length-1);
+                    navLink1.innerHTML=title.substring(1,title.length-1);
                 })
 
             }

@@ -209,7 +209,7 @@
         }
     }
     var actID =id;
-
+    var activityName;
 
     ///////////////////////////////////////
     fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/"+id).then(function (response) {
@@ -226,6 +226,7 @@
                 Adescription.innerHTML = "No description is present yet for this activity";
             }
             Atitle.innerHTML += title.substring(1, title.length - 1);
+            activityName =title.substring(1, title.length - 1);
 
             for (var y = 0; y < img.length - 1; y++) {
                 var iDiv = document.createElement("div");
@@ -291,8 +292,8 @@
 
                 actDiv.innerHTML = title.substring(1,title.length-1);
                 actDiv.setAttribute('class', 'd-item2');
-                actLink.setAttribute('href', '/pages/activity.html?id=' + `${IDactivity}`);
-                actLinkSmall.setAttribute('href', '/pages/activity.html?id=' + `${IDactivity}`);
+                actLink.setAttribute('href', '/pages/activity.html?id=' + `${IDactivity}`+'&orig=A');
+                actLinkSmall.setAttribute('href', '/pages/activity.html?id=' + `${IDactivity}`+'&orig=A');
 
                 if (parseInt(IDactivity) === parseInt(actID)) {
                     actDiv.setAttribute('class', 'd-item2 active-button');
@@ -431,7 +432,7 @@
                                 if(orig==="V") {
                                     if(parseInt(num)===parseInt(IDperson)){
                                         navLink1.setAttribute('href', '/pages/volunteer.html?id='+`${IDperson}`+'&orig=A'+'&num='+id);
-                                        navLink1.innerHTML="Volunteer: "+full_name.substring(1,full_name.length-1);
+                                        navLink1.innerHTML=full_name.substring(1,full_name.length-1);
                                     }
 
                                 }
@@ -456,7 +457,7 @@
                                 }).then(function (origData) {
                                     let {IDevent, title} = origData[0];
                                     navLink1.setAttribute('href', '/pages/event.html?id='+`${IDevent}`+'&orig=A'+'&num='+id);
-                                    navLink1.innerHTML="Event: "+title.substring(1,title.length-1);
+                                    navLink1.innerHTML=title.substring(1,title.length-1);
                                 })
 
                             }
@@ -472,7 +473,7 @@
                             navLink4.setAttribute('href', '#');
                             navI2.setAttribute('class', 'fa fa-bars');
                             navI2.setAttribute('aria-hidden', 'true');
-                            navLink3.innerHTML=title.substring(1,title.length-1);
+                            navLink3.innerHTML=activityName;
 
                             navLink2.appendChild(navI);
                             navLink4.appendChild(navI2);
