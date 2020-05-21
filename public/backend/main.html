@@ -39,71 +39,72 @@ I hereby declare that this is a private repository and, upon request, I will giv
 <h3><a id="Web_Architecture_16"></a>Web Architecture</h3>
 <p><em>Describe here, with a diagram, the components of your web application and how they interact. Highlight which parts belong to the application layer, data layer or presentation layer. How did you ensure that HTML is not rendered server side?</em><br>
 The HTML is not rendered server side. As a matter of fact in the front end the HTML pages make use of the provided APIs and with appropriate JavaScript code we retrieve only the necessary information to populate the HTML page.</p>
-<!--<p><img src="web%20architecture.svg" alt="Alt text"></p>-->
+<p><img src="web-architecture.svg" alt="Alt text"></p>
 <h3><a id="API_21"></a>API</h3>
 <h4><a id="REST_compliance_22"></a>REST compliance</h4>
 <p><em>Describe here to what extent did you follow REST principles and what are the reasons for which you might have decided to diverge. Note, you must not describe the whole API here, just the design decisions.</em></p>
-<ul>
-<li><strong>Client-server</strong>: Client and Server can work independently. This means that the server stores and manipulates the data, whereas the Client retrieves these data.</li>
-<li><strong>Stateless</strong>: this principle is not fully respected as we store the user’s session on the server. Doing so allows to keep track of the logged-in state and can give to the user his own information, such us the books he added to his personal cart.</li>
-<li><strong>Cacheable</strong>: we opted not to cache any information.</li>
-<li><strong>Layered system</strong>: there was no need to consider this, so there is no intermediate layer between the server and the client</li>
-<li><strong>Code on demand</strong>: clearly this has not been taken into consideration as the website does not render server side.</li>
-<li><strong>Uniform interface</strong>: this made the collaboration between all the components, so this principle has been followed</li>
-</ul>
+<!--<ul>-->
+<!--<li><strong>Client-server</strong>: Client and Server can work independently. This means that the server stores and manipulates the data, whereas the Client retrieves these data.</li>-->
+<!--<li><strong>Stateless</strong>: this principle is not fully respected as we store the user’s session on the server. Doing so allows to keep track of the logged-in state and can give to the user his own information, such us the books he added to his personal cart.</li>-->
+<!--<li><strong>Cacheable</strong>: we opted not to cache any information.</li>-->
+<!--<li><strong>Layered system</strong>: there was no need to consider this, so there is no intermediate layer between the server and the client</li>-->
+<!--<li><strong>Code on demand</strong>: clearly this has not been taken into consideration as the website does not render server side.</li>-->
+<!--<li><strong>Uniform interface</strong>: this made the collaboration between all the components, so this principle has been followed</li>-->
+<!--</ul>-->
 <h4><a id="OpenAPI_Resource_models_30"></a>OpenAPI Resource models</h4>
 <p><em>Describe here synthetically, which models you have introduced for resources.</em><br>
-All the resources that arrive using the API are Json files. This allows to easily read required data. For the requests, in case additional parameters are required, they can be added either in the path (e.g. <a href="http://hypermedia-app.herokuapp.com/v2/books/1">GET /books/1</a>) or as a formData like we did in the users’ POST and PUT request.<br>
-In case a wrong request is made, for example a specific book request with an ID that does not exist, the request will answer with an empty json (<a href="http://hypermedia-app.herokuapp.com/v2/books/100">GET /books/100</a>).<br>
-Another scenario can be that the user’s books are requested but the user is not logged in. In that case the GET request will response with <strong>{“loggedIn”: false}</strong>.<br>
-Similarly when a user tries to log in with wrong credentials the response will be the same as before, whereas if the credentials are correct the response will be <strong>{“loggedIn”: true}</strong>. The same, but with a slightly different response happens when the user tries to register with an already existing email.</p>
+<!--All the resources that arrive using the API are Json files. This allows to easily read required data. For the requests, in case additional parameters are required, they can be added either in the path (e.g. <a href="http://hypermedia-app.herokuapp.com/v2/books/1">GET /books/1</a>) or as a formData like we did in the users’ POST and PUT request.<br>-->
+<!--In case a wrong request is made, for example a specific book request with an ID that does not exist, the request will answer with an empty json (<a href="http://hypermedia-app.herokuapp.com/v2/books/100">GET /books/100</a>).<br>-->
+<!--Another scenario can be that the user’s books are requested but the user is not logged in. In that case the GET request will response with <strong>{“loggedIn”: false}</strong>.<br>-->
+<!--Similarly when a user tries to log in with wrong credentials the response will be the same as before, whereas if the/ credentials are correct the response will be <strong>{“loggedIn”: true}</strong>. The same, but with a slightly different response happens when the user tries to register with an already existing email.-->
+</p>
 <h3><a id="Data_model_36"></a>Data model</h3>
 <p><em>Describe with an ER diagram the model used in the data layer of your web application. How these map to the OpenAPI data model?</em><br>
-All the information can be retrieved through the provided API. The requests correspond to queries made server side, for example the request for the authors given a specific book uses this API <a href="https://hypermedia-app.herokuapp.com/v2/books/1/author">GET /books/1/author</a> and in the backend the query is made in such a way that it is going to find the book with the given id and then finds all the authors who have written that book.<br>
-Users can add books only after a registration or a login (the data password of the user is encrypted). In the same way it is possible to see the users’ own books only after a login.</p>
-<!--<p><img src="er_diagram.svg" alt="Alt text"></p>-->
+All the information can be retrieved through the provided API. The requests correspond to queries made server side, for example the request for the activities of a given event uses this API <a href="https://youthspeakshawaii.herokuapp.com/v2/events/1/activity">GET /events/id/activity</a> and in the backend the query is made in such a way that it is going to find the event with the given ID and then finds all the activities relative to that event.<br></p>
+<p><img src="ER.svg" alt="Alt text"></p>
 <h2><a id="Implementation_42"></a>Implementation</h2>
 <h3><a id="Tools_used_43"></a>Tools used</h3>
 <p><em>Describe here which tools, languages and frameworks did you use for the backend of the application.</em><br>
-The whole backend part is made in NodeJS. In addition we have used the following libraries:</p>
+The whole backend part is made in NodeJS. In addition the following libraries have been used:</p>
 <ul>
 <li><strong>js-yaml</strong>: for parsing the YAML</li>
 <li><strong>swagger-tools</strong>: useful to use the Swagger easily</li>
 <li><strong>knex</strong>: to managing Postgres queries</li>
 <li><strong>pg</strong>: to use PostgreSQL on NodeJS</li>
-<li><strong>bcrypt</strong>: to hash the passwords in the database</li>
-<li><strong>cookie-parser</strong> and <strong>cookie-session</strong>: to manage cookies and session of the user</li>
+<!--<li><strong>bcrypt</strong>: to hash the passwords in the database</li>-->
+<!--<li><strong>cookie-parser</strong> and <strong>cookie-session</strong>: to manage cookies and session of the user</li>-->
 </ul>
 <h3><a id="Discussion_52"></a>Discussion</h3>
 <p>Describe here:</p>
 <ul>
 <li><em>How did you make sure your web application adheres to the provided OpenAPI specification?</em><br>
-With the <a href="https://editor.swagger.io/">Swagger editor</a> it was possible to write OpenAPI specification and later to download the nodejs-server code from the <a href="https://hypermedia-app.herokuapp.com/backend/spec.yaml">YAML file</a></li>
-<li><em>Why do you think your web application adheres to common practices to partition the web application (static assets vs. application data)</em><br>
-Because we dynamically fill the HTML pages with the data taken from the database. The other parts of the page like pictures or the layout are static.</li>
-<li><em>Describe synthetically why and how did you manage session state, what are the state change triggering actions (e.g., POST to login etc…).</em><br>
-To get a personal session state it is necessary to register or to login through the given POST requests (/user/login and /user/register) giving an email as identifier and a password for authentication. Now it is possible to get the current logged in user with this <a href="https://hypermedia-app.herokuapp.com/v2/users/logged">GET /users/logged</a>. To logout the user it is necessary to use the following <a href="https://hypermedia-app.herokuapp.com/v2/users/logout">GET /users/logout</a>.<br>
-This is possible because we set the <em>req.session.userid</em> with the identification email which sets the user to a logged state, otherwhise the <em>req.session.userid</em> is set to <em>false</em> and therefor not logged.</li>
-<li><em>Which technology did you use (relational or a no-SQL database) for managing the data model?</em><br>
-We used PostgreSQL as a relational database, because it is free and open source.</li>
-</ul>
+With the <a href="https://editor.swagger.io/">Swagger editor</a> it was possible to write OpenAPI specification and later to download the nodejs-server code from the <a href="https://youthspeakshawaii.herokuapp.com/backend/spec.yaml">YAML file</a></li>
+<!--<li><em>Why do you think your web application adheres to common practices to partition the web application (static assets vs. application data)</em><br>-->
+<!--Because we dynamically fill the HTML pages with the data taken from the database. The other parts of the page like pictures or the layout are static.</li>-->
+<!--<li><em>Describe synthetically why and how did you manage session state, what are the state change triggering actions (e.g., POST to login etc…).</em><br>-->
+<!--To get a personal session state it is necessary to register or to login through the given POST requests (/user/login and /user/register) giving an email as identifier and a password for authentication. Now it is possible to get the current logged in user with this <a href="https://hypermedia-app.herokuapp.com/v2/users/logged">GET /users/logged</a>. To logout the user it is necessary to use the following <a href="https://hypermedia-app.herokuapp.com/v2/users/logout">GET /users/logout</a>.<br>-->
+<!--This is possible because we set the <em>req.session.userid</em> with the identification email which sets the user to a logged state, otherwhise the <em>req.session.userid</em> is set to <em>false</em> and therefor not logged.</li>-->
+<!--<li><em>Which technology did you use (relational or a no-SQL database) for managing the data model?</em><br>-->
+<!--We used PostgreSQL as a relational database, because it is free and open source.</li>-->
+<!--</ul>-->
 <h2><a id="Other_information_64"></a>Other information</h2>
 <h3><a id="Task_assignment_65"></a>Task assignment</h3>
 <p><em>Describe here how development tasks have been subdivided among members of the group:</em></p>
-<ul>
-<li>Xin worked on design document (100%) and usability report (90%）and the original version of design on website (100%) provide pictures to front end (5%)</li>
-<li>Roland worked completely on the backend part (100%), helped to join the front end with the backend (20%), fixed in overall some bugs in front end and helped for the usability report (5%)</li>
-<li>Alessandro worked the most on the front end (100%), on the IDM documents (100%) and gave consulting for design realization.</li>
-</ul>
+<!--<ul>-->
+<!--<li>Xin worked on design document (100%) and usability report (90%）and the original version of design on website (100%) provide pictures to front end (5%)</li>-->
+<!--<li>Roland worked completely on the backend part (100%), helped to join the front end with the backend (20%), fixed in overall some bugs in front end and helped for the usability report (5%)</li>-->
+<!--<li>Alessandro worked the most on the front end (100%), on the IDM documents (100%) and gave consulting for design realization.</li>-->
+<!--</ul>-->
 <h3><a id="Analysis_of_existing_API_70"></a>Analysis of existing API</h3>
 <p><em>Describe here if you have found relevant APIs that have inspired the OpenAPI specification and why (at least two).</em><br>
-Professor Zaccaria’s class examples have helped to understand how API work. After that we have taken a closer look to the <a href="https://petstore.swagger.io">swagger petstore example</a> to get write more complex APIs and finally we got also some inspiration from some important e-commerce websites’ APIs such as <a href="https://any-api.com/zalando_com/zalando_com/docs/API_Description">Zalando</a> and <a href="https://any-api.com/je_apis_com/je_apis_com/docs/application">Just Eat</a></p>
+<!--Professor Zaccaria’s class examples have helped to understand how API work. After that we have taken a closer look to the <a href="https://petstore.swagger.io">swagger petstore example</a> to get write more complex APIs and finally we got also some inspiration from some important e-commerce websites’ APIs such as <a href="https://any-api.com/zalando_com/zalando_com/docs/API_Description">Zalando</a> and <a href="https://any-api.com/je_apis_com/je_apis_com/docs/application">Just Eat</a>-->
+</p>
 <h3><a id="Learning_outcome_73"></a>Learning outcome</h3>
 <p><em>What was the most important thing all the members have learned while developing this part of the project, what questions remained unanswered, how you will use what you’ve learned in your everyday life?</em></p>
-<ul>
-<li>Xin learned how to communicate with engineers as a designer about the format of design outcomes and some limitations and difficulties in website design on front and back end part.</li>
-<li>Roland had the opportunity to learn SQL, JavaScript and some basics about HTML and CSS. Now he has a good base to learn other techniques and programming languages for database management. He is able and motivated to start his own new projects.</li>
-<li>Alessandro could practice his HTML, CSS and JavaScript skills. He learned how to use the developer tools offered on the Chrome browser and also adapt and overcome problems of page formatting through the understanding of how Bootstrap works and implementing manually with CSS. He will use what he learned as a starting point to understand the backend part and in future work on other similar projects.</li>
-</ul>
+<!--<ul>-->
+<!--<li>Xin learned how to communicate with engineers as a designer about the format of design outcomes and some limitations and difficulties in website design on front and back end part.</li>-->
+<!--<li>Roland had the opportunity to learn SQL, JavaScript and some basics about HTML and CSS. Now he has a good base to learn other techniques and programming languages for database management. He is able and motivated to start his own new projects.</li>-->
+<!--<li>Alessandro could practice his HTML, CSS and JavaScript skills. He learned how to use the developer tools offered on the Chrome browser and also adapt and overcome problems of page formatting through the understanding of how Bootstrap works and implementing manually with CSS. He will use what he learned as a starting point to understand the backend part and in future work on other similar projects.</li>-->
+<!--</ul>-->
 
 </body></html>
