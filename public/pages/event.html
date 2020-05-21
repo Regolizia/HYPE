@@ -210,6 +210,10 @@
             var navLink3 = document.createElement("a");
             navLink1.setAttribute('class', 'small-navbar-text-link');
 
+            if(orig==="H") {
+                navLink1.setAttribute('href', '/index.html');
+                navLink1.innerHTML="Home";
+            }
             if(orig==="E") {
                 navLink1.setAttribute('href', '/pages/events.html');
                 navLink1.innerHTML="Events";
