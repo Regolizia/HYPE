@@ -97,10 +97,9 @@
                 </div>
 
                 <div class="e-act-container lower">
-                    <div class="e-act">
-                        <div class="active-button e-act-button">
+                    <div class="e-act event-button">
+
 <!--                            -->
-                        </div>
                     </div>
                 </div>
 
@@ -109,7 +108,7 @@
 
         <div class="event-activities">
             <div class="row">
-                <div class="col-lg-3  "><p>Organizers</p></div>
+                <div class="col-lg-3  "><p class="organizers-text"></p></div>
                 <div class="col-lg-9 event-activities-right">
 
                     <div class="e-act-container">
@@ -183,7 +182,8 @@
     var activities = document.querySelector(".sidebar-inner");
     var activitiesSmall = document.querySelector(".mainMenu-inner");
 
-    var eventsContainer = document.querySelector(".e-act-button");
+    var eventsContainer = document.querySelector(".event-button");
+    var orgText = document.querySelector(".organizers-text");
     var picTop = document.querySelector(".act-pic-container");
     var picBottom = document.querySelector(".pics-track");
     var vol = document.querySelector(".organizers");
@@ -253,9 +253,15 @@
 
             // LINK to events
             var eLink = document.createElement("a");
+            var eDiv =document.createElement("div");
             eLink.innerHTML = "Events where you can find this activity";
+            orgText.innerHTML = "Organizers";
             eLink.setAttribute('href', '/pages/events.html?id=' + actID);
-            eventsContainer.appendChild(eLink);
+            eDiv.setAttribute('class', 'active-button e-act-button');
+            eDiv.appendChild(eLink);
+            eventsContainer.appendChild(eDiv);
+
+            // <div class="active-button e-act-button">
             //
         // }
 
