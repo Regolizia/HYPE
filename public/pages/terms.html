@@ -208,13 +208,13 @@
             for (i = 0; i < x.length; i++) {
                 x[i].style.display = "none";
             }
-            var y = document.getElementsByClassName("active-button");
-            for (i = 0; i < y.length; i++) {
-                y[i].classList.remove("active-button");
+            var y = document.getElementsByClassName("dr-it");
+            for (var io = 0; io < y.length; io++) {
+                y[io].classList.remove("active-button");
             }
-            var z = document.getElementsByClassName("active-a");
-            for (i = 0; i < z.length; i++) {
-                z[i].classList.remove("active-a");
+            var z = document.getElementsByClassName("dr-a");
+            for (var iz = 0; iz < z.length; iz++) {
+                z[iz].classList.remove("active-a");
             }
 
             document.getElementById(DAname).style.display = "block";
