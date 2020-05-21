@@ -52,6 +52,7 @@ exports.activityIdGET = function(id) {
 exports.activitiesGET = function() {
     return sqlDb
         .from("Activity")
+        .select("Activity.title","Activity.IDactivity")
         .orderBy('Activity.IDactivity')
         .then(data => {
             return data

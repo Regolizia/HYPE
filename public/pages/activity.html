@@ -211,6 +211,55 @@
     var actID =id;
 
 
+    ///////////////////////////////////////
+    fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/"+id).then(function (response) {
+    // fetch("http://localhost:3000/v2/activities/"+id).then(function (response) {
+        return response.json();
+    }).then(function (data2) {
+
+        let {title, IDactivity, description, practical_info, img} = data2[0];
+
+        // if (parseInt(IDactivity) === parseInt(id)) {
+            if (description !== null) {
+                Adescription.innerHTML += description.substring(1, description.length - 1);
+            } else {
+                Adescription.innerHTML = "No description is present yet for this activity";
+            }
+            Atitle.innerHTML += title.substring(1, title.length - 1);
+
+            for (var y = 0; y < img.length - 1; y++) {
+                var iDiv = document.createElement("div");
+                var iDiv2 = document.createElement("div");
+                var iImg = document.createElement("img");
+                var iImg2 = document.createElement("img");
+                iImg.setAttribute('class', 'act-pic-large');
+                iImg2.setAttribute('class', 'act-pic-large');
+                iImg.setAttribute('alt', 'Activity image');
+                iImg2.setAttribute('alt', 'Activity image');
+                var x = [];
+                x.push(img[0]);
+                x.push(img[y + 1]);
+                iImg.setAttribute('src', x);
+                iImg2.setAttribute('src', x);
+                iDiv.appendChild(iImg);
+                iDiv2.appendChild(iImg2);
+                picTop.appendChild(iDiv);
+                picBottom.appendChild(iDiv2);
+
+                //    <div><img src="/img/about-2.jpg" class="act-pic-large" alt="Alt text"></div>
+
+            }
+
+
+            // LINK to events
+            var eLink = document.createElement("a");
+            eLink.innerHTML = "Events where you can find this activity";
+            eLink.setAttribute('href', '/pages/events.html?id=' + actID);
+            eventsContainer.appendChild(eLink);
+            //
+        // }
+
+
         fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/").then(function (response) {
         // fetch("http://localhost:3000/v2/activities/").then(function (response) {
             return response.json();
@@ -226,7 +275,7 @@
 
             for(var i=0; i<data.length; i++) {
 
-                let {title, IDactivity, description, practical_info, img} = data[i];
+                let {title, IDactivity} = data[i];
 
                 //////////////////////////////////////
                 var actLink = document.createElement("a");
@@ -253,48 +302,6 @@
                 activitiesSmall.appendChild(actLinkSmall);
 
 
-                ///////////////////////////////////////
-                if(parseInt(IDactivity)===parseInt(id)){
-                    if(description!==null) {
-                        Adescription.innerHTML += description.substring(1, description.length - 1);
-                    }
-                    else {
-                        Adescription.innerHTML = "No description is present yet for this activity";
-                    }
-                    Atitle.innerHTML += title.substring(1,title.length-1);
-
-                    for(var y=0;y<img.length-1;y++){
-                        var iDiv = document.createElement("div");
-                        var iDiv2 = document.createElement("div");
-                        var iImg = document.createElement("img");
-                        var iImg2 = document.createElement("img");
-                        iImg.setAttribute('class', 'act-pic-large' );
-                        iImg2.setAttribute('class', 'act-pic-large' );
-                        iImg.setAttribute('alt', 'Activity image' );
-                        iImg2.setAttribute('alt', 'Activity image' );
-                        var x = [];
-                        x.push(img[0]);
-                        x.push(img[y+1]);
-                        iImg.setAttribute('src', x);
-                        iImg2.setAttribute('src', x);
-                        iDiv.appendChild(iImg);
-                        iDiv2.appendChild(iImg2);
-                        picTop.appendChild(iDiv);
-                        picBottom.appendChild(iDiv2);
-
-                        //    <div><img src="/img/about-2.jpg" class="act-pic-large" alt="Alt text"></div>
-
-                    }
-
-
-
-                    // LINK to events
-                    var eLink = document.createElement("a");
-                    eLink.innerHTML= "Events where you can find this activity";
-                    eLink.setAttribute('href', '/pages/events.html?id='+ actID);
-                    eventsContainer.appendChild(eLink);
-                    //
-                }
 
 
 
@@ -476,6 +483,9 @@
                 }
             }
         })
+
+
+    })
     // })
 
 </script>

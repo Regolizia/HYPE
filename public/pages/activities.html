@@ -118,7 +118,7 @@
             var actTitle = document.createElement("h3");
             var actImg = document.createElement("img");
 
-            let{title, IDactivity, img}  = json[i];
+            let{title, IDactivity}  = json[i];
 
             actDiv.setAttribute('class', 'activity');
             actLink.setAttribute('href', '/pages/activity.html?id='+`${IDactivity}`+'&orig=A');
@@ -131,10 +131,16 @@
             actTitle.innerHTML = title.substring(1,title.length-1);
 
             // only first and second element
-            var x = [];
-            x.push(img[0]);
-            x.push(img[1]);
-            actImg.setAttribute('src', x);
+            // var x = [];
+            // x.push(img[0]);
+            // x.push(img[1]);
+            // actImg.setAttribute('src', x);
+            var path = "/img/";
+            if(parseInt(IDactivity)<10){
+                path += "A0"+IDactivity+".jpg";
+            }else {
+                path += "A"+IDactivity+".jpg";}
+            actImg.setAttribute('src', path);
 
             actDiv4.appendChild(actTitle);
             actDiv3.appendChild(actImg);
