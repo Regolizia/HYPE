@@ -62,6 +62,7 @@ exports.eventIdGET = function(id) {
 exports.eventsGET = function() {
     return sqlDb
         .from("Event")
+        .select("Event.title","Event.IDevent","Event.date","Event.start_time","Event.end_time","Event.location")
         .orderBy('Event.date')
         .then(data => {
             return data
