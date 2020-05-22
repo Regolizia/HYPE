@@ -75,6 +75,27 @@
         </div>
     </div>
     <div id="second" class="DA">
+
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="about-left">
+                        <h1 class="title2"></h1>
+
+                    <div class="cont">
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="vol-actvt">
+                    <div class="title-act-managed"><strong>Activities managed</strong></div>
+
+
+
+                </div>
+            </div>
+        </div>
     </div>
 </main>
 
@@ -127,6 +148,9 @@
     var Vbio = document.querySelector(".about-right");
     var picContainer = document.querySelector(".vol-pic-container");
     var Vtitle = document.querySelector(".title");
+    var Vtitle2 = document.querySelector(".title2");
+    var Vcont = document.querySelector(".cont");
+    var Vact = document.querySelector(".vol-actvt");
 
     var eventsContainer = document.querySelector(".vol-events-container");
 
@@ -165,12 +189,24 @@
         // contactLink.innerHTML = IDperson;
         // contact.appendChild(contactLink);
         Vtitle.innerHTML += full_name.substring(1,full_name.length-1);
+        Vtitle2.innerHTML += full_name.substring(1,full_name.length-1);
 
+        Vbio.innerHTML = "<h2>Profile</h2>";
         if(bio!==null) {
             Vbio.innerHTML += bio.substring(1,bio.length-1);
         }
         else {
             Vbio.innerHTML = "No description is present yet for this person";
+        }
+        if(phone!==null || email!==null) {
+            Vcont.innerHTML = "<strong>Contacts</strong>";
+            if (email !== null) {
+                Vcont.innerHTML += "<br>" + email.substring(1,email.length-1);
+            }
+            if (phone !== null) {
+                Vcont.innerHTML += "<br>" + phone.substring(1,phone.length-1);
+            }
+
         }
 
         var pic = document.createElement("img");
@@ -225,7 +261,7 @@
                     return response.json();
                 }).then(function (origData) {
                     let {IDevent, title} = origData[0];
-                    navLink1.setAttribute('href', '/pages/event.html?id='+`${IDevent}`);
+                    navLink1.setAttribute('href', '/pages/event.html?id='+`${IDevent}`+'&orig=V'+'&num='+id);
                     navLink1.innerHTML=title.substring(1,title.length-1);
                 })
 
@@ -236,7 +272,7 @@
                     return response.json();
                 }).then(function (origData) {
                     let {IDactivity, title} = origData[0];
-                    navLink1.setAttribute('href', '/pages/event.html?id='+`${IDactivity}`);
+                    navLink1.setAttribute('href', '/pages/activity.html?id='+`${IDactivity}`+'&orig=V'+'&num='+id);
                     navLink1.innerHTML=title.substring(1,title.length-1);
                 })
 
@@ -255,6 +291,29 @@
             navbar.appendChild(navLink3);
 
             //
+
+
+            fetch("https://youthspeakshawaii.herokuapp.com/v2/contacts/"+id+"/activity").then(function (response) {
+            // fetch("http://localhost:3000/v2/contacts/"+id+"/activity").then(function (response) {
+                return response.json();
+            }).then(function (actData) {
+                for (var i = 0; i < actData.length; i++) {
+                    let {IDactivity, title} = actData[i];
+
+                    var aDiv = document.createElement("div");
+                    var aLink = document.createElement("a");
+                    var aH = document.createElement("h6");
+
+                    aDiv.setAttribute('class', 'volManagedActivities');
+                    aLink.setAttribute('href', '/pages/activity.html?id=' + `${IDactivity}` + '&orig=V' + '&num=' + id);
+                    aH.innerHTML = title.substring(1, title.length - 1);
+
+                    aLink.appendChild(aH);
+                    aDiv.appendChild(aLink);
+                    Vact.appendChild(aDiv);
+
+                }
+            })
 
         })
     })

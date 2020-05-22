@@ -353,6 +353,30 @@ paths:
               $ref: '#/definitions/Event'
       x-swagger-router-controller: "Contact"
 
+  /contacts/{id}/activity:
+    get:
+      tags:
+        - "contact"
+      summary: "Get the activities of a contact"
+      operationId: "contactsIdActivityGET"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "ID of contact of which to get the activities"
+          required: true
+          type: "integer"
+          format: "int64"
+      responses:
+        '200':
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: '#/definitions/Activity'
+      x-swagger-router-controller: "Contact"
+
   # /user/login:
   #   post:
   #     tags:

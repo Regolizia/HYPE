@@ -78,4 +78,17 @@ exports.contactsIdEventsGET = function(id) {
         });
 };
 
+exports.contactsIdActivityGET = function(id) {
+
+    return sqlDb
+        .from("Person")
+        .join('Person_activity', 'Person.IDperson', 'Person_activity.IDperson')
+        .join('Activity', 'Person_activity.IDactivity', 'Activity.IDactivity')
+        .select("Activity.IDactivity", "Activity.title")
+        .where("Person.IDperson", id)
+        .then(data => {
+            return data
+        });
+};
+
 

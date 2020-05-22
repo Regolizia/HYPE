@@ -35,3 +35,15 @@ module.exports.contactsIdEventsGET = function contactsIdEventsGET (req, res, nex
             utils.writeJson(res, response);
         });
 };
+
+
+module.exports.contactsIdActivityGET = function contactsIdActivityGET (req, res, next) {
+    var id = req.swagger.params['id'].value;
+    Contact.contactsIdActivityGET(id)
+        .then(function (response) {
+            utils.writeJson(res, response);
+        })
+        .catch(function (response) {
+            utils.writeJson(res, response);
+        });
+};
