@@ -182,6 +182,14 @@
         var monthVal = "00";
         var eYearVal = 0;
 
+        if(json.length===0){
+            var noEv = document.createElement("p");
+            noEv.innerHTML = "There are no events for this activity";
+            noEv.setAttribute('class','noEv');
+            events.appendChild(noEv);
+        }
+
+
         for (var i = 0; i < json.length; i++) {
 
             let {title, date, start_time, end_time, location, IDevent} = json[i];

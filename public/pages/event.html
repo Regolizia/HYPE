@@ -182,6 +182,7 @@
 
         evContainer.appendChild(contact);
 
+        Edescription.innerHTML = "<h2>Overview</h2>";
         if(description!==null) {
             Edescription.innerHTML += description.substring(1,description.length-1);
         }
@@ -232,7 +233,7 @@
             if(orig==="EE") {
 
                     navLink1.setAttribute('href', '/pages/events.html?id='+num);
-                    navLink1.innerHTML="Events";
+                    navLink1.innerHTML="Activity events";
 
             }
 

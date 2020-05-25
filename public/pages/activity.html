@@ -213,6 +213,8 @@
         let {title, IDactivity, description, practical_info, img} = data2[0];
 
         // if (parseInt(IDactivity) === parseInt(id)) {
+
+        Adescription.innerHTML = "<h2>Presentation</h2>";
             if (description !== null) {
                 Adescription.innerHTML += description.substring(1, description.length - 1);
             } else {
