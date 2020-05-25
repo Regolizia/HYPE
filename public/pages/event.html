@@ -230,14 +230,9 @@
                     navLink1.innerHTML=full_name.substring(1,full_name.length-1);
             }
             if(orig==="EE") {
-                fetch("https://youthspeakshawaii.herokuapp.com/v2/activities/"+num).then(function (response) {
-                // fetch("http://localhost:3000/v2/activities/"+num).then(function (response) {
-                    return response.json();
-                }).then(function (origData) {
-                    let {title} = origData[0];
+
                     navLink1.setAttribute('href', '/pages/events.html?id='+num);
-                    navLink1.innerHTML=title.substring(1,title.length-1);
-                })
+                    navLink1.innerHTML="Events";
 
             }
 
