@@ -65,7 +65,7 @@
 
 
 <main role="main" class="act-container">
-    <div id="first" class="DA">
+    <div id="first" class="DA moreTopMargin">
         <div class="row">
             <!--        <div class="col-lg-2">-->
             <!--        </div>-->
@@ -116,7 +116,27 @@
         </div>
 
     </div>
-    <div id="second" class="DA">
+    <div id="second" class="DA moreTopMargin">
+
+        <div class="row">
+            <!--        <div class="col-lg-2">-->
+            <!--        </div>-->
+            <div class="col-lg-5">
+                <div>
+                    <div class="vol-left-container">
+                        <h1 class="title2"></h1>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="act-right Ainfo">
+
+                </div>
+
+
+            </div>
+        </div>
     </div>
 
 </main>
@@ -170,7 +190,9 @@
     // var when = document.querySelector("p.when");
     // var where = document.querySelector("p.where");
     var Atitle = document.querySelector(".title");
+    var Atitle2 = document.querySelector(".title2");
     var Adescription = document.querySelector(".act-right");
+    var Ainfo = document.querySelector(".Ainfo");
     var picContainer = document.querySelector(".vol-pic-container");
     var activities = document.querySelector(".sidebar-inner");
     var activitiesSmall = document.querySelector(".mainMenu-inner");
@@ -220,7 +242,16 @@
             } else {
                 Adescription.innerHTML = "No description is present yet for this activity";
             }
+
+            Ainfo.innerHTML = "<h2>Practical info</h2>";
+            if (practical_info !== null) {
+                Ainfo.innerHTML += practical_info.substring(1, practical_info.length - 1);
+            } else {
+                Ainfo.innerHTML = "No practical info is present yet for this activity";
+            }
+
             Atitle.innerHTML += title.substring(1, title.length - 1);
+            Atitle2.innerHTML += title.substring(1, title.length - 1);
             activityName =title.substring(1, title.length - 1);
 
             for (var y = 0; y < img.length - 1; y++) {

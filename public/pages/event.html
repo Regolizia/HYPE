@@ -74,6 +74,21 @@
 
     </div>
     <div id="second" class="DA">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="about-left">
+                    <div class="vol-left-container fullWidth">
+                        <h1 class="title2"></h1>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="about-right Einfo">
+
+                </div>
+            </div>
+        </div>
     </div>
 
 </main>
@@ -122,10 +137,12 @@
 <!-- DB DATA -->
 <script>
     var Etitle = document.querySelector(".title");
+    var Etitle2 = document.querySelector(".title2");
     var when = document.querySelector("p.when");
     var where = document.querySelector("p.where");
     var contact = document.querySelector("p.contact");
     var Edescription = document.querySelector(".about-right");
+    var Einfo = document.querySelector(".Einfo");
     var picContainer = document.querySelector(".vol-pic-container");
     var evContainer = document.querySelector(".vol-events-container");
 
@@ -152,12 +169,13 @@
     // fetch("http://localhost:3000/v2/events/"+id).then(function (response) {
         return response.json();
     }).then(function (json) {
-        let{title, date, start_time, end_time, location, description, img}  = json[0];
+        let{title, date, start_time, end_time, location, description, img, practical_info}  = json[0];
 
         var contact=document.createElement("p");
         contact.innerHTML = "<strong>Main organizer</strong><br>";
 
         Etitle.innerHTML += title.substring(1,title.length-1);
+        Etitle2.innerHTML += title.substring(1,title.length-1);
 
         if(date!==null) {
             var when = document.createElement("p");
@@ -188,6 +206,12 @@
         }
         else {
             Edescription.innerHTML = "No description is present yet for this event";
+        }
+        Einfo.innerHTML = "<h2>Practical info</h2>";
+        if (practical_info !== null) {
+            Einfo.innerHTML += practical_info.substring(1, practical_info.length - 1);
+        } else {
+            Einfo.innerHTML = "No practical info is present yet for this activity";
         }
 
         var pic = document.createElement("img");

@@ -940,6 +940,7 @@ div.card-body{
     position: relative;
     float: right;
     width: 70%;
+    text-align: right;
 }
 .vol-events-container a{
     color: #D37200;
@@ -966,6 +967,7 @@ div.card-body{
         padding-bottom: 0;
     }
     .vol-left-container{
+        text-align: center;
         width: 100%;
         height: 100%;
     }
@@ -1006,6 +1008,9 @@ div.card-body{
 .e-act-container{
     position: relative;
     float: left;
+
+    padding-right: 20px;
+    padding-left: 20px;
 }
 .e-act a{
     color: white;
@@ -1014,7 +1019,7 @@ div.card-body{
     color: black;
 }
 .e-act-button{
-    margin-left: 30px;
+    /*margin-left: 30px;*/
     padding: 15px;
     margin-right: 10px;
     background: linear-gradient(230deg, #FFC000 1.55%, #FF8A00 95.8%);
@@ -1374,4 +1379,16 @@ a.menu-button{
     margin-top: 50px;
     text-align: center;
 }
+/*///////////////////////// ADD TOP MARGIN DA ///////////////////////////////*/
+.moreTopMargin{
+    margin-top: 40px;
+}
+/*///////////////////////// FULL WIDTH FOR ACTIVITY TITLE2 ///////////////////////////////*/
+.fullWidth{
+    width: 100%;
+}
+/*////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////*/
 /*////////////////////////////////////////////////////////*/
