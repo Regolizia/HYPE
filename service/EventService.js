@@ -20,9 +20,6 @@ exports.eventsDbSetup = function(database) {
                 table.string("location");
                 table.text("description");
 
-                // table.foreign("authorId").references("authors.id");
-                // table.foreign("event").references("events.id");
-
             });
         }
         else{
@@ -70,30 +67,6 @@ exports.eventsGET = function() {
 };
 
 
-//   return new Promise(function(resolve, reject) {
-//     var examples = {};
-//     examples['application/json'] = [ {
-//   "id" : 0,
-//   "name" : "How to create a poem",
-//   "date" : "2020-07-21",
-//   "location" : "Honolulu",
-//   "description" : "Expressing your thoughts"
-// }, {
-//   "id" : 0,
-//   "name" : "How to create a poem",
-//   "date" : "2020-07-21",
-//   "location" : "Honolulu",
-//   "description" : "Expressing your thoughts"
-// } ];
-//     if (Object.keys(examples).length > 0) {
-//       resolve(examples[Object.keys(examples)[0]]);
-//     } else {
-//       resolve();
-//     }
-//   });
-// }
-
-
 /**
  * Get the contact of an event
  *
@@ -133,92 +106,3 @@ exports.eventsIdActivityGET = function(id) {
 
 
 };
-
-
-// /**
-//  * Get similar books to the chosen one
-//  *
-//  * id Long id of the book you want the similars of
-//  * returns Book
-//  **/
-// exports.booksIdSimilarGET = function(id) {
-//
-//     return sqlDb
-//         .from("books")
-//         .orderBy('id')
-//         .where({"id" : id})
-//         .select("genre")
-//         .then(data => {
-//             console.log("genre is: " + data[0].genre);
-//             return sqlDb
-//                 .from("books")
-//                 .select()
-//                 .where({"genre" : data[0].genre})
-//                 .whereNot({"id" : id})
-//                 .then(x => {return x})
-//         })
-//
-//
-// };
-
-
-
-// /**
-//  * Get books with a given genre
-//  *
-//  * genre Long genre of the book you want
-//  * returns Book
-//  **/
-// exports.booksByGenreGET = function(genre) {
-//     return sqlDb("books")
-//         .where({"genre" : genre})
-//         .then(data => {
-//             return data
-//         });
-// };
-//
-//
-// /**
-//  * Get books with a given theme
-//  *
-//  * theme Long theme of the book you want
-//  * returns Book
-//  **/
-// exports.booksByThemeGET = function(theme) {
-//     return sqlDb("books")
-//         .where({"theme" : theme})
-//         .then(data => {
-//             return data
-//         });
-// };
-
-
-
-// /**
-//  * Get all the themes that are present
-//  *
-//  * id Long all book themes
-//  * no response value expected for this operation
-//  **/
-// exports.booksThemesGET = function() {
-//     return sqlDb("books")
-//         .distinct("theme")
-//         .then(data => {
-//             return data
-//         });
-// };
-
-
-// /**
-//  * Get all the genres that are present
-//  *
-//  * id Long all book genres
-//  * no response value expected for this operation
-//  **/
-// exports.booksGenresGET = function() {
-//     return sqlDb("books")
-//         .distinct("genre")
-//         .then(data => {
-//             return data;
-//         });
-// };

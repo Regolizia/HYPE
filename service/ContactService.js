@@ -78,6 +78,12 @@ exports.contactsIdEventsGET = function(id) {
         });
 };
 
+/**
+ * Get the activities of a contact
+ *
+ * id Long ID of contact of which to get the activities
+ * returns List
+ **/
 exports.contactsIdActivityGET = function(id) {
 
     return sqlDb

@@ -44,8 +44,9 @@ exports.activityIdGET = function(id) {
 
 
 /**
- * Activities related to a book
+ * Find all the activities
  * List of all the activities
+ * It doesn't get images
  *
  * returns List
  **/
@@ -78,6 +79,12 @@ exports.activitiesIdEventGET = function(id) {
         });
 };
 
+/**
+ * Get the contact of an activity
+ *
+ * id Long id of the activity you want the contact of
+ * returns Contact
+ **/
 exports.activitiesIdContactGET = function(id) {
     return sqlDb
         .from("Person")
