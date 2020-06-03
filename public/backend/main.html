@@ -57,13 +57,20 @@ I hereby declare that this is a private repository and, upon request, I will giv
 All the resources that arrive using the API are Json files. For the requests, in case additional parameters are required, they can be added either in the path (e.g. <a href="https://youthspeakshawaii.herokuapp.com/v2/events/1">GET /events/1</a>).
 In case of a wrong request, an empty json file is retrieved, for example when an event doesn't exist (<a href="https://youthspeakshawaii.herokuapp.com/v2/events/100">GET /events/100</a>).
 <br>
-It is important to say that with the request (<a href="https://youthspeakshawaii.herokuapp.com/v2/activities">GET /activities</a>), the decision has been taken of only providing the title and ID of all the activities, since the activities images were slowing down the website and there was no necessity of retrieving them. The images of each activity are available in the single activity request, as <a href="https://youthspeakshawaii.herokuapp.com/v2/activities/1">GET /activities/1</a>
+It is important to say that with the request (<a href="https://youthspeakshawaii.herokuapp.com/v2/activities">GET /activities</a>), the decision has been taken of only providing the title and ID of all the activities, since the activities images were slowing down the website and there was no necessity of retrieving them. The images of each activity are available in the single activity request, as <a href="https://youthspeakshawaii.herokuapp.com/v2/activities/1">GET /activities/1</a>.
+The Swagger examples provided display all the information related to an entity and not only those retrieved.
+<br>
+As stated in the Design Document the term <em>Service</em> has been substituted by <em>Activity</em>.
 </p>
 <h3><a id="Data_model_36"></a>Data model</h3>
 <p><em>Describe with an ER diagram the model used in the data layer of your web application. How these map to the OpenAPI data model?</em><br>
 <br>
 All the information can be retrieved through the provided API. The requests correspond to queries made server side, for example the request for the activities of a given event uses this API <a href="https://youthspeakshawaii.herokuapp.com/v2/events/1/activity">GET /events/id/activity</a> and in the backend the query is made in such a way that it is going to find the event with the given ID and then all the activities relative to that event.<br></p>
 <p><img src="ER.svg" alt="Alt text"></p>
+
+<p>For what concerns some DB decisions, the images have been saved with the base64 format and some texts, such as titles and phone numbers, have been stored between curly braces, that have been removed after retrieval.
+<br><a href="https://www.heroku.com/postgres">Heroku Postgres</a> has been used to create the SQL database.
+</p>
 <h2>Implementation</h2>
 <h3>Tools used</h3>
 <p><em>Describe here which tools, languages and frameworks did you use for the backend of the application.</em><br>
@@ -75,6 +82,10 @@ The whole backend part is made in NodeJS. In addition the following libraries ha
 <li><strong>pg</strong>: to use PostgreSQL on NodeJS</li>
 <li><strong>nodemailer</strong> and <strong>body-parser</strong>: to send an email to the specified account using the form content</li>
 </ul>
+
+<p>In addition to them, for the frontend part the Slick slider has been used for the Events page and for the images slideshow in all the Activities pages. Also the dynamic home page displays a slideshow. This choice has been taken due to the fact that it implements many different effects. To know more about it visit <a href="https://kenwheeler.github.io/slick/"> Slick Slider by Ken Wheeler</a>.
+</p>
+
 <h3>Discussion</h3>
 <p>Describe here:</p>
 <ul>

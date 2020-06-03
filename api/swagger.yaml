@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   version: '1.0.0'
   title: 'Youth Speak Hawaii'
-  description: 'This is voluntary association'
+  description: 'This is voluntary association. Currently there are 20 Events, 13 Contacts and 4 Activities. The convention used for numbering starts from 1.'
   contact:
     email: "leosmile38@gmail.com"
   license:
@@ -24,9 +24,6 @@ tags:
   - name: "contact"
     description: "Volunteers"
 
-    # book -> event
-    # event -> activity
-    # author -> contact
 
 paths:
   /events:
@@ -38,15 +35,6 @@ paths:
       operationId: "eventsGET"
       produces:
         - "application/json"
-      parameters:
-        - name: "limit"
-          in: "query"
-          description: "max number of events"
-          type: "integer"
-        - name: "offset"
-          in: "query"
-          description: "Pagination offset. Default is 0"
-          type: "integer"
       responses:
         '200':
           description: "Collection of events"
@@ -122,94 +110,6 @@ paths:
             $ref: '#/definitions/Activity'
 
       x-swagger-router-controller: "Event"
-
-      # /events/{id}/similar:
-      #   get:
-      #     tags:
-      #       - "book"
-      #     summary: "Get similar books to the chosen one"
-      #     operationId: "booksIdSimilarGET"
-      #     parameters:
-      #       - name: "id"
-      #         in: "path"
-      #         description: "id of the book you want the similars of"
-      #         required: true
-      #         type: "integer"
-      #         format: "int64"
-      #     responses:
-      #       '200':
-      #         description: "successful operation"
-      #         schema:
-      #           $ref: '#/definitions/Book'
-      #     x-swagger-router-controller: "Book"
-
-  # /books/themes:
-  #   get:
-  #     tags:
-  #       - "book"
-  #     summary: "Get all the themes that are present"
-  #     operationId: "booksThemesGET"
-  #     produces:
-  #       - "application/json"
-  #     responses:
-  #       '200':
-  #         description: "All themes"
-  #     x-swagger-router-controller: "Book"
-
-  # /books/themes/{theme}:
-  #   get:
-  #     tags:
-  #       - "book"
-  #     summary: "Get books with a given theme"
-  #     operationId: "booksByThemeGET"
-  #     parameters:
-  #       - name: "theme"
-  #         in: "path"
-  #         description: "theme of the book you want"
-  #         required: true
-  #         type: "string"
-  #     produces:
-  #       - "application/json"
-  #     responses:
-  #       '200':
-  #         description: "successful operation"
-  #     x-swagger-router-controller: "Book"
-
-  # /books/genres:
-  #   get:
-  #     tags:
-  #       - "book"
-  #     summary: "Get all the genres that are present"
-  #     operationId: "booksGenresGET"
-  #     produces:
-  #       - "application/json"
-  #     responses:
-  #       '200':
-  #         description: "successful operation"
-  #     x-swagger-router-controller: "Book"
-
-  # /books/genres/{genre}:
-  #   get:
-  #     tags:
-  #       - "book"
-  #     summary: "Get books with a given genre"
-  #     operationId: "booksByGenreGET"
-  #     parameters:
-  #       - name: "genre"
-  #         in: "path"
-  #         description: "genre of the book you want"
-  #         required: true
-  #         type: "string"
-  #     produces:
-  #       - "application/json"
-  #     responses:
-  #       '200':
-  #         description: "successful operation"
-  #         schema:
-  #           type: "array"
-  #           items:
-  #             $ref: "#/definitions/Book"
-  #     x-swagger-router-controller: "Book"
 
   /activities:
     get:
@@ -377,156 +277,6 @@ paths:
               $ref: '#/definitions/Activity'
       x-swagger-router-controller: "Contact"
 
-  # /user/login:
-  #   post:
-  #     tags:
-  #       - "user"
-  #     summary: "Login"
-  #     description: "Login with a form"
-  #     operationId: "userLoginPOST"
-  #     consumes:
-  #       - "application/x-www-form-urlencoded"
-  #     produces:
-  #       - "application/json"
-  #     parameters:
-  #       - name: "email"
-  #         in: "formData"
-  #         required: true
-  #         type: "string"
-  #       - name: "password"
-  #         in: "formData"
-  #         required: true
-  #         type: "string"
-  #     responses:
-  #       200:
-  #         description: "login status"
-  #     x-swagger-router-controller: "User"
-
-  # /user/register:
-  #   post:
-  #     tags:
-  #       - "user"
-  #     summary: "Register"
-  #     description: "Register into the store"
-  #     operationId: "userRegisterPOST"
-  #     consumes:
-  #       - "application/x-www-form-urlencoded"
-  #     produces:
-  #       - "application/json"
-  #     parameters:
-  #       - name: "email"
-  #         in: "formData"
-  #         required: true
-  #         type: "string"
-  #       - name: "password"
-  #         in: "formData"
-  #         required: true
-  #         type: "string"
-  #     responses:
-  #       200:
-  #         description: "registration status"
-  #     x-swagger-router-controller: "User"
-
-  # /users/books:
-  #   get:
-  #     tags:
-  #       - "user"
-  #     summary: "Get the cart of the currently logged user"
-  #     operationId: "usersIdCartGET"
-  #     produces:
-  #       - "application/json"
-  #     responses:
-  #       '200':
-  #         description: "successful operation"
-  #         schema:
-  #           $ref: '#/definitions/Book'
-  #     x-swagger-router-controller: "User"
-
-  #   delete:
-  #     tags:
-  #       - "user"
-  #     summary: "Delete the cart of the current logged in user"
-  #     operationId: "usersIdCartDELETE"
-  #     produces:
-  #       - "application/json"
-  #     responses:
-  #       '200':
-  #         description: "operation status"
-  #     x-swagger-router-controller: "User"
-
-  # /users/books/{id}:
-  #   delete:
-  #     tags:
-  #       - "user"
-  #     summary: "Decrease the quantity of the given"
-  #     operationId: "usersIdCartBookDELETE"
-  #     produces:
-  #       - "application/json"
-  #     parameters:
-  #       - name: "id"
-  #         in: "path"
-  #         description: "id of the book to decrease the qunatity"
-  #         required: true
-  #         type: "integer"
-  #         format: "int64"
-  #     responses:
-  #       '200':
-  #         description: "operation status"
-  #     x-swagger-router-controller: "User"
-
-
-  # /users/logout:
-  #   get:
-  #     tags:
-  #       - "user"
-  #     summary: "Logs out current logged in user session"
-  #     description: ""
-  #     operationId: "userLogoutGET"
-  #     produces:
-  #       - "application/json"
-  #     parameters: []
-  #     responses:
-  #       default:
-  #         description: "logout status"
-  #     x-swagger-router-controller: "User"
-
-  # /users/logged:
-  #   get:
-  #     tags:
-  #       - "user"
-  #     summary: "Logged user"
-  #     description: "Gives the currently logged user"
-  #     operationId: "userIsLoggedGET"
-  #     produces:
-  #       - "application/json"
-  #     parameters: []
-  #     responses:
-  #       default:
-  #         description: "logged"
-  #     x-swagger-router-controller: "User"
-
-  # /user/addBook:
-  #   put:
-  #     tags:
-  #       - "user"
-  #     summary: "Adds a book to the user's cart"
-  #     operationId: "userBookPUT"
-  #     consumes:
-  #       - "application/x-www-form-urlencoded"
-  #     produces:
-  #       - "application/json"
-  #     parameters:
-  #       - name: "books"
-  #         in: "formData"
-  #         description: "id of the book that the user wants"
-  #         required: true
-  #         type: "integer"
-  #         format: "int64"
-  #     responses:
-  #       200:
-  #         description: "operation status"
-  #     x-swagger-router-controller: "User"
-
 
 definitions:
 
@@ -569,62 +319,8 @@ definitions:
       description: "Expressing your thoughts"
       start_time: "16:00"
       end_time: "18:00"
-      img: "EV01.jpg"
+      img: "img base64"
       practical info: "In the first part of this event we'll explain the theory behind poetry composition while the second part is hands-on."
-
-
-  # Book:
-  #   type: "object"
-  #   required:
-  #     - "id"
-  #     - "title"
-  #     - "date"
-  #   properties:
-  #     id:
-  #       type: "integer"
-  #       format: "int64"
-  #     title:
-  #       type: "string"
-  #     price:
-  #       type: "number"
-  #       format: "double"
-  #     isbn:
-  #       type: "string"
-  #     genre:
-  #       type: "string"
-  #     quantity:
-  #       type: "integer"
-  #       format: "int32"
-  #     description:
-  #       type: "string"
-  #     publisher:
-  #       type: "string"
-  #     language:
-  #       type: "string"
-  #     release:
-  #       type: "string"
-  #       format: "date"
-  #     field:
-  #       type: "string"
-  #     theme:
-  #       type: "string"
-
-  #   xml:
-  #     name: "Book"
-  #   title: "Book"
-  #   description: "A book for sale in the store"
-  #   example:
-  #     id: 0
-  #     title: "Harry Potter 1"
-  #     price: 10
-  #     isbn: "9780747532743"
-  #     genre: "fantasy"
-  #     quantity: 3
-  #     publisher: "Bloomsbury Publishing"
-  #     language: "english"
-  #     release: "1997-06-26"
-  #     field: "Wizardry"
-  #     theme: "Harry Potter Exhibition"
 
   Activity:
     type: "object"
@@ -641,6 +337,10 @@ definitions:
         type: "string"
       practical_info:
         type: "string"
+      img:
+        type: "array"
+        items:
+          type: "string"
     xml:
       name: "Activity"
     title: "Activity"
@@ -650,6 +350,7 @@ definitions:
       title: "Poetry 101"
       description: "Helping children to create short poems"
       practical_info: "The difficulty level of this activity is low, since it is meant for beginners"
+      img: "img_1 base64, img_2 base64, img_3 base64"
 
 
   Contact:
@@ -679,20 +380,4 @@ definitions:
       email: "j_momoa@gmail.com"
       phone: "8014562357"
       bio: "Actor and activist"
-      img: "J01.jpg"
-
-  # User:
-  #   type: "object"
-  #   required:
-  #     - "email"
-  #     - "password"
-  #   properties:
-  #     email:
-  #       type: "string"
-  #     password:
-  #       type: "string"
-  #   xml:
-  #     name: "User"
-  #   example:
-  #     email: "harry.potter@gmail.com"
-  #     password: "wingardiumleviosa"
+      img: "img base64"
