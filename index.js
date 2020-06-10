@@ -9,6 +9,10 @@ var swaggerTools = require('swagger-tools');
 var jsyaml = require('js-yaml');
 var serverPort =  process.env.PORT || 3000;
 
+var cors = require('cors');
+
+app.use(cors());
+
 ////// MAIL ///////////////////////////////////////
 
 
