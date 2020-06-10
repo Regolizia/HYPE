@@ -30,9 +30,12 @@ a{color: #AD5C00}
 .footer p{
     color: white;
 }
+.contact-title p{
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
 
 .footerFloat {
-
     padding-left: 30px;
     padding-right: 30px;
     width: 100%;
@@ -42,6 +45,10 @@ a{color: #AD5C00}
 
         /*width: 1010px;*/
         margin: auto;
+    }
+    .contact-title p{
+        padding-bottom: 0px;
+        padding-top: 0px;
     }
     .footerFloat {
         width: 33%;
