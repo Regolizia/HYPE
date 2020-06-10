@@ -18,7 +18,8 @@ body {
     min-height: 100%;
     font-family: 'Roboto', sans-serif;
 }
-a{color: #FF8A00}
+/*a{color: #FF8A00}*/
+a{color: #AD5C00}
 /*///////////////////////////////////////////////////////////////////////////////////////*/
 .footer{
     min-height: 100px;
@@ -945,7 +946,8 @@ div.card-body{
     text-align: right;
 }
 .vol-events-container a{
-    color: #D37200;
+    /*color: #D37200;*/
+    color: #AD5C00;
 }
 .vol-left-container h1 {
     font-size: 2rem;

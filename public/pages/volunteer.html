@@ -198,7 +198,7 @@
         var pic = document.createElement("img");
         pic.setAttribute('class', 'vol-pic');
         pic.setAttribute('src', img);
-        pic.setAttribute('alt', 'volunteer picture');
+        pic.setAttribute('alt', 'Picture of '+full_name.substring(1,full_name.length-1));
         picContainer.appendChild(pic);
 
 
@@ -264,7 +264,6 @@
 
             }
 
-            navLink2.setAttribute('href', '#');
             navLink3.setAttribute('href', '#');
             navLink2.setAttribute('class', 'small-navbar-text');
             navI.setAttribute('class', 'fa fa-angle-double-right');

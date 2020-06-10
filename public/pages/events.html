@@ -148,10 +148,11 @@
             navLink1.setAttribute('href', '/pages/activity.html?id='+id +'&orig=EE');
             navLink1.innerHTML=title.substring(1,title.length-1);
 
-            navLink2.setAttribute('href', '#');
+            // navLink2.setAttribute('href', '#');
             navLink3.setAttribute('href', '#');
             navLink2.setAttribute('class', 'small-navbar-text');
             navI.setAttribute('class', 'fa fa-angle-double-right');
+            // navI.setAttribute('aria-hidden', 'true');
             navLink3.setAttribute('class', 'small-navbar-text');
             navLink4.setAttribute('class', 'small-navbar-text menu-button');
             navI2.setAttribute('class', 'fa fa-bars');
@@ -213,6 +214,17 @@
                     eLink.setAttribute('href', '/pages/event.html?id=' + `${IDevent}` + '&orig=E');
                 }
                 eDiv4.setAttribute('class', 'card-header event-card-title');
+                // var idnum = i;
+                // console.log(i);
+                // var idnum2;
+                // if(idnum<10){
+                // idnum2 = '0'+idnum;
+                // }
+                // else {
+                // idnum2 = idnum;
+                // }
+                // console.log("--"+idnum2);
+                // eDiv4.setAttribute('id', 'slick-slide'+idnum2);
                 eDiv5.setAttribute('class', 'card-body event-card-body');
                 eP.setAttribute('class', 'card-text');
 
@@ -264,9 +276,28 @@
 
 
                 eDiv4.innerHTML = title.substring(1,title.length-1);
-                if (start_time != null && end_time != null) {
-                    eP.innerHTML = start_time.substr(0, 5) + " - " + end_time.substr(0, 5);
+
+
+                var day = date.substring(8,10);
+
+                const nth = function(day) {
+                    if (day > 3 && day < 21) return 'th';
+                    switch (day % 10) {
+                        case 1:  return "st";
+                        case 2:  return "nd";
+                        case 3:  return "rd";
+                        default: return "th";
+                    }
+                };
+
+                if(day[0]==='0'){
+                    day = day.substring(1,day.length);
                 }
+                eP.innerHTML += day + nth(day);
+
+                // if (start_time != null && end_time != null) {
+                //     eP.innerHTML += ",   " + start_time.substr(0, 5) + " - " + end_time.substr(0, 5);
+                // }
                 if (location != null) {
                     eP.innerHTML += "<br />" + location.substring(1,location.length-1);
                 }
@@ -290,6 +321,17 @@
                 // eLinkY.setAttribute('href', '#');
                 eLinkY.setAttribute('href', '/pages/event.html?id='+`${IDevent}`+'&orig=E');
                 eDiv4Y.setAttribute('class', 'card-header event-card-title');
+                // var num = i;
+                // console.log(i);
+                // var num2;
+                // if(num<10){
+                //     num2 = '0'+num;
+                // }
+                // else {
+                //     num2 = num;
+                // }
+                // console.log("--"+num2);
+                // eDiv4Y.setAttribute('id', 'slick-slide0'+num2);
                 eDiv5Y.setAttribute('class', 'card-body event-card-body-special');
                 ePY.setAttribute('class', 'card-text');
 
@@ -440,13 +482,21 @@
                         $(sliderArrowId2).hide();
                     }
 
+                    $('.event-card-title').each(function () {
+                        // console.log($(this).hasClass('event-card-title'));
+                        var $slide = $(this).parent().parent();
+                        console.log($(this).parent().parent().hasClass('card'));
+                        if ($slide.attr('aria-describedby') !== undefined) { // ignore extra/cloned slides
+                            $(this).attr('id', $slide.attr('aria-describedby'));
+                        }
+                    });
+
                 });
             }
         }
     })
 
 </script>
-
 
 
 </body>
