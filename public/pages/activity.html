@@ -323,7 +323,7 @@
 
                 if (parseInt(IDactivity) === parseInt(actID)) {
                     actDiv.setAttribute('class', 'd-item2 active-button');
-                    actLink.setAttribute('href', '#');
+                    // actLink.setAttribute('href', '#');
                     actLink.setAttribute('class', 'active-a');
                 }
 
@@ -444,7 +444,7 @@
                                 vLink.setAttribute('href', '/pages/volunteer.html?id='+`${IDperson}`+'&orig=A'+'&num='+id);
                                 vImg.setAttribute('class', 'act-card-img-top' );
                                 vImg.setAttribute('src', img );
-                                vImg.setAttribute('alt', 'Picture of '+full_name);
+                                vImg.setAttribute('alt', 'Picture of '+full_name.substring(1,full_name.length-1));
                                 vDiv2.setAttribute('class', 'act-card-body' );
                                 vP.setAttribute('class', 'card-text' );
                                 vP.innerHTML = full_name.substring(1,full_name.length-1);
@@ -499,7 +499,7 @@
                             navLink4.setAttribute('onclick', 'menu()');
                             navLink4.setAttribute('href', '#');
                             navI2.setAttribute('class', 'fa fa-bars');
-                            navI2.setAttribute('aria-hidden', 'true');
+                            // navI2.setAttribute('aria-hidden', 'true');
                             navLink3.innerHTML=activityName;
 
                             navLink2.appendChild(navI);
@@ -511,6 +511,15 @@
 
                             //
 
+                        $('.act-pic-large').each(function () {
+                            // console.log($(this).hasClass('event-card-title'));
+                            var $slide = $(this).parent();
+                            console.log($(this).parent().hasClass('slick-slide'));
+                            if ($slide.attr('aria-describedby') !== undefined) { // ignore extra/cloned slides
+                                $(this).attr('id', $slide.attr('aria-describedby'));
+                            }
+                        });
+
                     })
 
 
@@ -520,10 +529,9 @@
 
 
     })
-    // })
+
 
 </script>
-
 
 <!-- MENU-->
 <script>
