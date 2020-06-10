@@ -281,12 +281,12 @@
             // LINK to events
             var eLink = document.createElement("a");
             var eDiv =document.createElement("div");
-            eLink.innerHTML = "Events where you can find this activity";
+            eDiv.innerHTML = "Events where you can find this activity";
             orgText.innerHTML = "Organizers";
             eLink.setAttribute('href', '/pages/events.html?id=' + actID);
             eDiv.setAttribute('class', 'active-button e-act-button');
-            eDiv.appendChild(eLink);
-            eventsContainer.appendChild(eDiv);
+            eLink.appendChild(eDiv);
+            eventsContainer.appendChild(eLink);
 
             // <div class="active-button e-act-button">
             //
