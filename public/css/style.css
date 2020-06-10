@@ -122,7 +122,8 @@ a.contact-title p{
     font-weight: 500;
     font-size: 15px;
     line-height: 110px;
-    background: linear-gradient(230deg, #FFC000 1.55%, #FF8A00 95.8%);
+    /*background: linear-gradient(230deg, #FFC000 1.55%, #FF8A00 95.8%);*/
+    background: linear-gradient(230deg, #b68900 1.55%, #b96400 95.8%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     padding-left: 15px;
@@ -182,6 +183,7 @@ a.logo:hover{
     }
 }
 a.active-button{
+    background: linear-gradient(230deg, #FFC000 1.55%, #FF8A00 95.8%);
     -webkit-background-clip: initial;
     -webkit-text-fill-color: #555555;
 }
