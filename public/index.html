@@ -217,9 +217,27 @@
                     }
 
                     eDiv4.innerHTML = title.substring(1,title.length-1);
-                    if (start_time != null && end_time != null) {
-                        eP.innerHTML = start_time.substr(0, 5) + " - " + end_time.substr(0, 5);
+                    // if (start_time != null && end_time != null) {
+                    //     eP.innerHTML = start_time.substr(0, 5) + " - " + end_time.substr(0, 5);
+                    // }
+
+                    var day = date.substring(8,10);
+
+                    const nth = function(day) {
+                        if (day > 3 && day < 21) return 'th';
+                        switch (day % 10) {
+                            case 1:  return "st";
+                            case 2:  return "nd";
+                            case 3:  return "rd";
+                            default: return "th";
+                        }
+                    };
+
+                    if(day[0]==='0'){
+                        day = day.substring(1,day.length);
                     }
+                    eP.innerHTML += day + nth(day);
+
                     if (location != null) {
                         eP.innerHTML += "<br />" + location.substring(1,location.length-1);
                     }
