@@ -28,7 +28,7 @@
     <div class="navbar-right">
         <a href=/pages/about.html class="menu-item">About Us</a>
         <a href=/pages/activities.html class="menu-item"><i class="fa fa-book"></i> Activities</a>
-        <a href=# class="menu-item active-button"><i class="fa fa-calendar"></i> Events</a>
+        <a href=# class="menu-item active-button menuButtonId"><i class="fa fa-calendar"></i> Events</a>
         <a href=/pages/volunteers.html class="menu-item"><i class="fa fa-user"></i> Volunteers</a>
 
     </div>
@@ -117,6 +117,10 @@
        eventsType  = "https://youthspeakshawaii.herokuapp.com/v2/activities/"+id+"/event";
        // eventsType  = "http://localhost:3000/v2/activities/"+id+"/event";
 
+        var menuButton = document.querySelector(".menuButtonId");
+        menuButton.setAttribute('href', '/pages/events.html');
+        $(".menuButtonId").removeClass("active-button");
+        // menuButton.removeAttribute('active-button');
 
         var textArea= document.querySelector(".events-text-area");
         textArea.setAttribute('class', 'hideClass');
