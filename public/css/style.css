@@ -1389,6 +1389,7 @@ a.menu-button{
 .noEv{
     margin-top: 50px;
     text-align: center;
+    min-height: 800px;
 }
 /*///////////////////////// ADD TOP MARGIN DA ///////////////////////////////*/
 .moreTopMargin{
