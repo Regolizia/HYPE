@@ -55,7 +55,7 @@
 <nav class="mainMenu align-items-center justify-content-center inact">
     <!--    <div class="e-act-container lower">-->
     <div class="mainMenu-inner">
-        <a class="menu-button"><div><i class="fa fa-close" aria-hidden="true"></i></div></a>
+        <a class="menu-button" onclick="closeMenu()" href="#"><div><i class="fa fa-close" aria-hidden="true"></i></div></a>
 
         <p>Activities</p>
     </div>
@@ -538,6 +538,14 @@
     function menu() {
         $(document).ready(function () {
                 $('.mainMenu').addClass('act');
+        });
+    }
+</script>
+
+<script>
+    function closeMenu() {
+        $(document).ready(function () {
+            $('.mainMenu').removeClass('act');
         });
     }
 </script>
